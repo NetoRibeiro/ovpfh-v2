@@ -1,0 +1,139 @@
+{
+  "canais": [
+    {
+      "id": "globo",
+      "name": "TV Globo",
+      "fullName": "Rede Globo de Televisão",
+      "slug": "globo",
+      "logo": "/assets/canais/globo.png",
+      "type": "tv-aberta",
+      "thirdpartyurl": "https://ge.globo.com/"
+    },
+    {
+      "id": "record",
+      "name": "Record",
+      "fullName": "Record TV",
+      "slug": "record",
+      "logo": "/assets/canais/record.png",
+      "type": "tv-aberta",
+      "thirdpartyurl": "https://esportes.r7.com/"
+    },
+    {
+      "id": "band",
+      "name": "Band",
+      "fullName": "TV Bandeirantes",
+      "slug": "band",
+      "logo": "/assets/canais/band.png",
+      "type": "tv-aberta",
+      "thirdpartyurl": "https://www.band.com.br/esportes"
+    },
+    {
+      "id": "sbt",
+      "name": "SBT",
+      "fullName": "Sistema Brasileiro de Televisão",
+      "slug": "sbt",
+      "logo": "/assets/canais/sbt.png",
+      "type": "tv-aberta",
+      "thirdpartyurl": "https://sports.sbt.com.br/"
+    },
+    {
+      "id": "redetv",
+      "name": "RedeTV!",
+      "fullName": "RedeTV!",
+      "slug": "redetv",
+      "logo": "/assets/canais/rede-tv.png",
+      "type": "tv-aberta",
+      "thirdpartyurl": "https://www.redetv.uol.com.br/esportes"
+    },
+    {
+      "id": "tvcultura",
+      "name": "TV Cultura",
+      "fullName": "TV Cultura",
+      "slug": "tvcultura",
+      "logo": "/assets/canais/tv-cultura.png",
+      "type": "tv-aberta",
+      "thirdpartyurl": "https://cultura.uol.com.br/esporte/"
+    },
+    {
+      "id": "sportv",
+      "name": "SporTV",
+      "fullName": "SporTV",
+      "slug": "sportv",
+      "logo": "/assets/canais/sportv.png",
+      "type": "pay-tv",
+      "thirdpartyurl": "https://ge.globo.com/sportv/"
+    },
+    {
+      "id": "premiere",
+      "name": "Premiere",
+      "fullName": "Premiere FC",
+      "slug": "premiere",
+      "logo": "/assets/canais/premiere.png",
+      "type": "pay-tv",
+      "thirdpartyurl": "https://premiere.globo.com/agora"
+    },
+    {
+      "id": "cazetv",
+      "name": "CazéTV",
+      "fullName": "CazéTV",
+      "slug": "cazetv",
+      "logo": "/assets/canais/cazetv.png",
+      "type": "streaming",
+      "thirdpartyurl": "https://www.youtube.com/@CazeTVOficial"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "fullName": "YouTube",
+      "slug": "youtube",
+      "logo": "/assets/canais/youtube.png",
+      "type": "streaming",
+      "thirdpartyurl": "https://www.youtube.com"
+    },
+    {
+      "id": "max",
+      "name": "Max",
+      "fullName": "Max (HBO Max)",
+      "slug": "max",
+      "logo": "/assets/canais/hbo-max.png",
+      "type": "streaming",
+      "thirdpartyurl": "https://www.hbomax.com"
+    },
+    {
+      "id": "tnt",
+      "name": "TNT",
+      "fullName": "TNT Sports",
+      "slug": "tnt",
+      "logo": "/assets/canais/tnt.png",
+      "type": "pay-tv",
+      "thirdpartyurl": "https://tntsports.com.br/"
+    },
+    {
+      "id": "disneyplus",
+      "name": "Disney+",
+      "fullName": "Disney Plus",
+      "slug": "disneyplus",
+      "logo": "/assets/canais/disneyplus.png",
+      "type": "streaming",
+      "thirdpartyurl": "https://www.disneyplus.com"
+    },
+    {
+      "id": "espn",
+      "name": "ESPN",
+      "fullName": "ESPN",
+      "slug": "espn",
+      "logo": "/assets/canais/espn.png",
+      "type": "streaming",
+      "thirdpartyurl": "https://www.espn.com.br/"
+    },
+    {
+      "id": "goattv",
+      "name": "Goat TV",
+      "fullName": "Goat TV",
+      "slug": "goattv",
+      "logo": "/assets/canais/goat-tv.png",
+      "type": "streaming",
+      "thirdpartyurl": "https://www.youtube.com/@goaborracha"
+    }
+  ]
+}

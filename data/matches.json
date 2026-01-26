@@ -1,0 +1,2656 @@
+{
+  "matches": [
+    {
+      "id": "paulistao26-corinthians-vs-pontepreta-11-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "corinthians",
+      "awayTeam": "pontepreta",
+      "matchDate": "2026-01-11T16:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "venue": {
+        "name": "Neo Química Arena",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        }
+      ],
+      "matchURL": "/paulistao26/11-01-2026/corinthians-vs-ponte-preta/"
+    },
+    {
+      "id": "paulistao26-esporteclubenoroeste-vs-bragantino-11-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "esporteclubenoroeste",
+      "awayTeam": "bragantino",
+      "matchDate": "2026-01-11T16:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "venue": {
+        "name": "Alfredo de Castilho",
+        "city": "Bauru",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/11-01-2026/esporte-clube-noroeste-vs-red-bull-bragantino/"
+    },
+    {
+      "id": "paulistao26-guarani-vs-esporteclubeprimavera-11-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "guarani",
+      "awayTeam": "esporteclubeprimavera",
+      "matchDate": "2026-01-11T18:30:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "venue": {
+        "name": "Brinco de Ouro",
+        "city": "Campinas",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/11-01-2026/guarani-vs-esporte-clube-primavera/"
+    },
+    {
+      "id": "paulistao26-mirassol-vs-saopaulo-11-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "mirassol",
+      "awayTeam": "saopaulo",
+      "matchDate": "2026-01-11T16:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "venue": {
+        "name": "José Maria de Campos Maia",
+        "city": "Mirassol",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "TNT",
+          "type": "pay-tv"
+        }
+      ],
+      "matchURL": "/paulistao26/11-01-2026/mirassol-vs-sao-paulo/"
+    },
+    {
+      "id": "paulistao26-portuguesa-vs-palmeiras-11-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "portuguesa",
+      "awayTeam": "palmeiras",
+      "matchDate": "2026-01-11T18:30:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Canindé",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/11-01-2026/portuguesa-vs-palmeiras/"
+    },
+    {
+      "id": "paulistao26-santos-vs-novorizontino-11-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "santos",
+      "awayTeam": "novorizontino",
+      "matchDate": "2026-01-11T20:30:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "venue": {
+        "name": "Vila Belmiro",
+        "city": "Santos",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/11-01-2026/santos-vs-novorizontino/"
+    },
+    {
+      "id": "paulistao26-saobernardofc-vs-capivariano-11-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saobernardofc",
+      "awayTeam": "capivariano",
+      "matchDate": "2026-01-11T16:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Primeiro de Maio",
+        "city": "São Bernardo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/11-01-2026/sao-bernardo-fc-vs-capivariano/"
+    },
+    {
+      "id": "paulistao26-veloclube-vs-botafogorp-11-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "veloclube",
+      "awayTeam": "botafogorp",
+      "matchDate": "2026-01-11T16:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "venue": {
+        "name": "Benitão",
+        "city": "Rio Claro",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/11-01-2026/associacao-esportiva-velo-clube-rio-clarense-vs-botafogo-rp/"
+    },
+    {
+      "id": "paulistao26-botafogorp-vs-esporteclubenoroeste-14-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "botafogorp",
+      "awayTeam": "esporteclubenoroeste",
+      "matchDate": "2026-01-14T19:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "venue": {
+        "name": "Santa Cruz",
+        "city": "Ribeirão Preto",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/14-01-2026/botafogo-rp-vs-esporte-clube-noroeste/"
+    },
+    {
+      "id": "paulistao26-capivariano-vs-portuguesa-14-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "capivariano",
+      "awayTeam": "portuguesa",
+      "matchDate": "2026-01-14T15:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "venue": {
+        "name": "Arena Capivari",
+        "city": "Capivari",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/14-01-2026/capivariano-vs-portuguesa/"
+    },
+    {
+      "id": "paulistao26-esporteclubeprimavera-vs-mirassol-14-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "esporteclubeprimavera",
+      "awayTeam": "mirassol",
+      "matchDate": "2026-01-14T15:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Ítalo Limongi",
+        "city": "Indaiatuba",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/14-01-2026/esporte-clube-primavera-vs-mirassol/"
+    },
+    {
+      "id": "paulistao26-novorizontino-vs-guarani-14-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "novorizontino",
+      "awayTeam": "guarani",
+      "matchDate": "2026-01-14T19:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "venue": {
+        "name": "Jorge Ismael de Biasi",
+        "city": "Novo Horizonte",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/14-01-2026/novorizontino-vs-guarani/"
+    },
+    {
+      "id": "paulistao26-palmeiras-vs-santos-14-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "palmeiras",
+      "awayTeam": "santos",
+      "matchDate": "2026-01-14T21:45:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Allianz Parque",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/14-01-2026/palmeiras-vs-santos/"
+    },
+    {
+      "id": "paulistao26-pontepreta-vs-veloclube-14-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "pontepreta",
+      "awayTeam": "veloclube",
+      "matchDate": "2026-01-14T20:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "venue": {
+        "name": "Moisés Lucarelli",
+        "city": "Campinas",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/14-01-2026/ponte-preta-vs-associacao-esportiva-velo-clube-rio-clarense/"
+    },
+    {
+      "id": "paulistao26-bragantino-vs-corinthians-14-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "bragantino",
+      "awayTeam": "corinthians",
+      "matchDate": "2026-01-14T21:45:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "venue": {
+        "name": "Cícero Marques",
+        "city": "Bragança",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "TNT",
+          "type": "pay-tv"
+        }
+      ],
+      "matchURL": "/paulistao26/14-01-2026/red-bull-bragantino-vs-corinthians/"
+    },
+    {
+      "id": "paulistao26-saopaulo-vs-saobernardofc-14-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saopaulo",
+      "awayTeam": "saobernardofc",
+      "matchDate": "2026-01-14T19:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "venue": {
+        "name": "MorumBIS",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/14-01-2026/sao-paulo-vs-sao-bernardo-fc/"
+    },
+    {
+      "id": "paulistao26-capivariano-vs-pontepreta-18-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "capivariano",
+      "awayTeam": "pontepreta",
+      "matchDate": "2026-01-18T16:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "venue": {
+        "name": "Arena Capivari",
+        "city": "Capivari",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/18-01-2026/capivariano-vs-ponte-preta/"
+    },
+    {
+      "id": "paulistao26-corinthians-vs-saopaulo-18-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "corinthians",
+      "awayTeam": "saopaulo",
+      "matchDate": "2026-01-18T16:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "venue": {
+        "name": "Neo Química Arena",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "TNT",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/18-01-2026/corinthians-vs-sao-paulo/"
+    },
+    {
+      "id": "paulistao26-esporteclubeprimavera-vs-novorizontino-17-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "esporteclubeprimavera",
+      "awayTeam": "novorizontino",
+      "matchDate": "2026-01-17T16:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Ítalo Limongi",
+        "city": "Indaiatuba",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/17-01-2026/esporte-clube-primavera-vs-novorizontino/"
+    },
+    {
+      "id": "paulistao26-guarani-vs-santos-18-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "guarani",
+      "awayTeam": "santos",
+      "matchDate": "2026-01-18T20:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "venue": {
+        "name": "Brinco de Ouro",
+        "city": "Campinas",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/18-01-2026/guarani-vs-santos/"
+    },
+    {
+      "id": "paulistao26-mirassol-vs-bragantino-18-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "mirassol",
+      "awayTeam": "bragantino",
+      "matchDate": "2026-01-18T18:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "José Maria",
+        "city": "Mirassol",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/18-01-2026/mirassol-vs-red-bull-bragantino/"
+    },
+    {
+      "id": "paulistao26-palmeiras-vs-mirassol-17-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "palmeiras",
+      "awayTeam": "mirassol",
+      "matchDate": "2026-01-17T20:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "venue": {
+        "name": "Arena Barueri",
+        "city": "Barueri",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/17-01-2026/palmeiras-vs-mirassol/"
+    },
+    {
+      "id": "paulistao26-portuguesa-vs-veloclube-17-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "portuguesa",
+      "awayTeam": "veloclube",
+      "matchDate": "2026-01-17T17:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "venue": {
+        "name": "Canindé",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/17-01-2026/portuguesa-vs-associacao-esportiva-velo-clube-rio-clarense/"
+    },
+    {
+      "id": "paulistao26-saobernardofc-vs-esporteclubenoroeste-18-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saobernardofc",
+      "awayTeam": "esporteclubenoroeste",
+      "matchDate": "2026-01-18T15:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "venue": {
+        "name": "1º de Maio",
+        "city": "São Bernardo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/18-01-2026/sao-bernardo-fc-vs-esporte-clube-noroeste/"
+    },
+    {
+      "id": "paulistao26-botafogorp-vs-esporteclubeprimavera-21-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "botafogorp",
+      "awayTeam": "esporteclubeprimavera",
+      "matchDate": "2026-01-21T19:30:00-03:00",
+      "round": "4ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "venue": {
+        "name": "Santa Cruz",
+        "city": "Ribeirão Preto",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/21-01-2026/botafogo-rp-vs-esporte-clube-primavera/"
+    },
+    {
+      "id": "paulistao26-esporteclubenoroeste-vs-capivariano-21-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "esporteclubenoroeste",
+      "awayTeam": "capivariano",
+      "matchDate": "2026-01-21T19:00:00-03:00",
+      "round": "4ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "venue": {
+        "name": "Alfredo Castilho",
+        "city": "Bauru",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/21-01-2026/esporte-clube-noroeste-vs-capivariano/"
+    },
+    {
+      "id": "paulistao26-novorizontino-vs-palmeiras-21-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "novorizontino",
+      "awayTeam": "palmeiras",
+      "matchDate": "2026-01-21T19:30:00-03:00",
+      "round": "4ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 4,
+        "away": 0
+      },
+      "venue": {
+        "name": "Jorge Ismael",
+        "city": "Novo Horizonte",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "TNT",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/21-01-2026/novorizontino-vs-palmeiras/"
+    },
+    {
+      "id": "paulistao26-pontepreta-vs-saobernardofc-21-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "pontepreta",
+      "awayTeam": "saobernardofc",
+      "matchDate": "2026-01-21T20:00:00-03:00",
+      "round": "4ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Moisés Lucarelli",
+        "city": "Campinas",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/21-01-2026/ponte-preta-vs-sao-bernardo-fc/"
+    },
+    {
+      "id": "paulistao26-santos-vs-corinthians-21-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "santos",
+      "awayTeam": "corinthians",
+      "matchDate": "2026-01-21T21:45:00-03:00",
+      "round": "4ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "venue": {
+        "name": "Vila Belmiro",
+        "city": "Santos",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/21-01-2026/santos-vs-corinthians/"
+    },
+    {
+      "id": "paulistao26-mirassol-vs-bragantino-21-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "mirassol",
+      "awayTeam": "bragantino",
+      "matchDate": "2026-01-21T18:15:00-03:00",
+      "round": "4ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "venue": {
+        "name": "Cícero Marques",
+        "city": "Bragança",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/21-01-2026/mirassol-vs-red-bull-bragantino/"
+    },
+    {
+      "id": "paulistao26-saopaulo-vs-portuguesa-21-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saopaulo",
+      "awayTeam": "portuguesa",
+      "matchDate": "2026-01-21T19:00:00-03:00",
+      "round": "4ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": 2,
+        "away": 3
+      },
+      "venue": {
+        "name": "MorumBIS",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/21-01-2026/sao-paulo-vs-portuguesa/"
+    },
+    {
+      "id": "paulistao26-veloclube-vs-guarani-21-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "veloclube",
+      "awayTeam": "guarani",
+      "matchDate": "2026-01-21T19:30:00-03:00",
+      "round": "4ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Benitão",
+        "city": "Rio Claro",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/21-01-2026/associacao-esportiva-velo-clube-rio-clarense-vs-guarani/"
+    },
+    {
+      "id": "paulistao26-capivariano-vs-esporteclubeprimavera-25-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "capivariano",
+      "awayTeam": "esporteclubeprimavera",
+      "matchDate": "2026-01-25T16:00:00-03:00",
+      "round": "5ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "venue": {
+        "name": "Arena Capivari",
+        "city": "Capivari",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/25-01-2026/capivariano-vs-esporte-clube-primavera/"
+    },
+    {
+      "id": "paulistao26-novorizontino-vs-botafogorp-25-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "novorizontino",
+      "awayTeam": "botafogorp",
+      "matchDate": "2026-01-25T18:00:00-03:00",
+      "round": "5ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "venue": {
+        "name": "Jorge Ismael",
+        "city": "Novo Horizonte",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/25-01-2026/novorizontino-vs-botafogo-rp/"
+    },
+    {
+      "id": "paulistao26-palmeiras-vs-saopaulo-24-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "palmeiras",
+      "awayTeam": "saopaulo",
+      "matchDate": "2026-01-24T16:00:00-03:00",
+      "round": "5ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "venue": {
+        "name": "Arena Barueri",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "TNT",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/24-01-2026/palmeiras-vs-sao-paulo/"
+    },
+    {
+      "id": "paulistao26-pontepreta-vs-esporteclubenoroeste-25-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "pontepreta",
+      "awayTeam": "esporteclubenoroeste",
+      "matchDate": "2026-01-25T16:00:00-03:00",
+      "round": "5ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "venue": {
+        "name": "Moisés Lucarelli",
+        "city": "Campinas",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/25-01-2026/ponte-preta-vs-esporte-clube-noroeste/"
+    },
+    {
+      "id": "paulistao26-portuguesa-vs-guarani-25-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "portuguesa",
+      "awayTeam": "guarani",
+      "matchDate": "2026-01-25T18:30:00-03:00",
+      "round": "5ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Canindé",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/25-01-2026/portuguesa-vs-guarani/"
+    },
+    {
+      "id": "paulistao26-santos-vs-bragantino-25-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "santos",
+      "awayTeam": "bragantino",
+      "matchDate": "2026-01-25T18:30:00-03:00",
+      "round": "5ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "venue": {
+        "name": "Vila Belmiro",
+        "city": "Santos",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/25-01-2026/santos-vs-red-bull-bragantino/"
+    },
+    {
+      "id": "paulistao26-saobernardofc-vs-mirassol-25-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saobernardofc",
+      "awayTeam": "mirassol",
+      "matchDate": "2026-01-25T15:00:00-03:00",
+      "round": "5ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 4
+      },
+      "venue": {
+        "name": "1º de Maio",
+        "city": "São Bernardo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/25-01-2026/sao-bernardo-fc-vs-mirassol/"
+    },
+    {
+      "id": "paulistao26-veloclube-vs-corinthians-25-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "veloclube",
+      "awayTeam": "corinthians",
+      "matchDate": "2026-01-25T20:30:00-03:00",
+      "round": "5ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Benitão",
+        "city": "Rio Claro",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/25-01-2026/associacao-esportiva-velo-clube-rio-clarense-vs-corinthians/"
+    },
+    {
+      "id": "paulistao26-botafogorp-vs-palmeiras-01-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "botafogorp",
+      "awayTeam": "palmeiras",
+      "matchDate": "2026-02-01T16:00:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Santa Cruz",
+        "city": "Ribeirão Preto",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/01-02-2026/botafogo-rp-vs-palmeiras/"
+    },
+    {
+      "id": "paulistao26-corinthians-vs-capivariano-01-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "corinthians",
+      "awayTeam": "capivariano",
+      "matchDate": "2026-02-01T16:00:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Neo Química Arena",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/01-02-2026/corinthians-vs-capivariano/"
+    },
+    {
+      "id": "paulistao26-esporteclubenoroeste-vs-veloclube-01-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "esporteclubenoroeste",
+      "awayTeam": "veloclube",
+      "matchDate": "2026-02-01T15:00:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Alfredo Castilho",
+        "city": "Bauru",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/01-02-2026/esporte-clube-noroeste-vs-associacao-esportiva-velo-clube-rio-clarense/"
+    },
+    {
+      "id": "paulistao26-esporteclubeprimavera-vs-portuguesa-01-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "esporteclubeprimavera",
+      "awayTeam": "portuguesa",
+      "matchDate": "2026-02-01T15:00:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Ítalo Limongi",
+        "city": "Indaiatuba",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/01-02-2026/esporte-clube-primavera-vs-portuguesa/"
+    },
+    {
+      "id": "paulistao26-guarani-vs-pontepreta-01-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "guarani",
+      "awayTeam": "pontepreta",
+      "matchDate": "2026-02-01T18:30:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Brinco de Ouro",
+        "city": "Campinas",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "TNT",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/01-02-2026/guarani-vs-ponte-preta/"
+    },
+    {
+      "id": "paulistao26-mirassol-vs-novorizontino-01-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "mirassol",
+      "awayTeam": "novorizontino",
+      "matchDate": "2026-02-01T18:30:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "José Maria",
+        "city": "Mirassol",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/01-02-2026/mirassol-vs-novorizontino/"
+    },
+    {
+      "id": "paulistao26-bragantino-vs-saobernardofc-01-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "bragantino",
+      "awayTeam": "saobernardofc",
+      "matchDate": "2026-02-01T20:30:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Cícero Marques",
+        "city": "Bragança",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/01-02-2026/red-bull-bragantino-vs-sao-bernardo-fc/"
+    },
+    {
+      "id": "paulistao26-saopaulo-vs-santos-01-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saopaulo",
+      "awayTeam": "santos",
+      "matchDate": "2026-02-01T18:30:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "MorumBIS",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/01-02-2026/sao-paulo-vs-santos/"
+    },
+    {
+      "id": "paulistao26-capivariano-vs-mirassol-08-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "capivariano",
+      "awayTeam": "mirassol",
+      "matchDate": "2026-02-08T15:00:00-03:00",
+      "round": "7ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Arena Capivari",
+        "city": "Capivari",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/08-02-2026/capivariano-vs-mirassol/"
+    },
+    {
+      "id": "paulistao26-corinthians-vs-palmeiras-08-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "corinthians",
+      "awayTeam": "palmeiras",
+      "matchDate": "2026-02-08T16:00:00-03:00",
+      "round": "7ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Neo Química Arena",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "TNT",
+          "type": "pay-tv"
+        }
+      ],
+      "matchURL": "/paulistao26/08-02-2026/corinthians-vs-palmeiras/"
+    },
+    {
+      "id": "paulistao26-esporteclubenoroeste-vs-santos-08-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "esporteclubenoroeste",
+      "awayTeam": "santos",
+      "matchDate": "2026-02-08T18:30:00-03:00",
+      "round": "7ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Alfredo Castilho",
+        "city": "Bauru",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/08-02-2026/esporte-clube-noroeste-vs-santos/"
+    },
+    {
+      "id": "paulistao26-guarani-vs-botafogorp-08-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "guarani",
+      "awayTeam": "botafogorp",
+      "matchDate": "2026-02-08T18:30:00-03:00",
+      "round": "7ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Brinco de Ouro",
+        "city": "Campinas",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/08-02-2026/guarani-vs-botafogo-rp/"
+    },
+    {
+      "id": "paulistao26-novorizontino-vs-saobernardofc-08-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "novorizontino",
+      "awayTeam": "saobernardofc",
+      "matchDate": "2026-02-08T15:00:00-03:00",
+      "round": "7ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Jorge Ismael",
+        "city": "Novo Horizonte",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/08-02-2026/novorizontino-vs-sao-bernardo-fc/"
+    },
+    {
+      "id": "paulistao26-portuguesa-vs-pontepreta-08-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "portuguesa",
+      "awayTeam": "pontepreta",
+      "matchDate": "2026-02-08T20:30:00-03:00",
+      "round": "7ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Canindé",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/08-02-2026/portuguesa-vs-ponte-preta/"
+    },
+    {
+      "id": "paulistao26-saopaulo-vs-esporteclubeprimavera-08-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saopaulo",
+      "awayTeam": "esporteclubeprimavera",
+      "matchDate": "2026-02-08T18:30:00-03:00",
+      "round": "7ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "MorumBIS",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/08-02-2026/sao-paulo-vs-esporte-clube-primavera/"
+    },
+    {
+      "id": "paulistao26-veloclube-vs-bragantino-08-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "veloclube",
+      "awayTeam": "bragantino",
+      "matchDate": "2026-02-08T15:00:00-03:00",
+      "round": "7ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Benitão",
+        "city": "Rio Claro",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/08-02-2026/associacao-esportiva-velo-clube-rio-clarense-vs-red-bull-bragantino/"
+    },
+    {
+      "id": "paulistao26-botafogorp-vs-capivariano-15-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "botafogorp",
+      "awayTeam": "capivariano",
+      "matchDate": "2026-02-15T15:00:00-03:00",
+      "round": "8ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Santa Cruz",
+        "city": "Ribeirão Preto",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/15-02-2026/botafogo-rp-vs-capivariano/"
+    },
+    {
+      "id": "paulistao26-esporteclubeprimavera-vs-esporteclubenoroeste-15-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "esporteclubeprimavera",
+      "awayTeam": "esporteclubenoroeste",
+      "matchDate": "2026-02-15T15:00:00-03:00",
+      "round": "8ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Ítalo Limongi",
+        "city": "Indaiatuba",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/15-02-2026/esporte-clube-primavera-vs-esporte-clube-noroeste/"
+    },
+    {
+      "id": "paulistao26-mirassol-vs-portuguesa-15-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "mirassol",
+      "awayTeam": "portuguesa",
+      "matchDate": "2026-02-15T18:30:00-03:00",
+      "round": "8ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "José Maria",
+        "city": "Mirassol",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/15-02-2026/mirassol-vs-portuguesa/"
+    },
+    {
+      "id": "paulistao26-palmeiras-vs-guarani-15-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "palmeiras",
+      "awayTeam": "guarani",
+      "matchDate": "2026-02-15T16:00:00-03:00",
+      "round": "8ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Allianz Parque",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/15-02-2026/palmeiras-vs-guarani/"
+    },
+    {
+      "id": "paulistao26-pontepreta-vs-saopaulo-15-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "pontepreta",
+      "awayTeam": "saopaulo",
+      "matchDate": "2026-02-15T16:00:00-03:00",
+      "round": "8ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Moisés Lucarelli",
+        "city": "Campinas",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "TNT",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/15-02-2026/ponte-preta-vs-sao-paulo/"
+    },
+    {
+      "id": "paulistao26-bragantino-vs-novorizontino-15-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "bragantino",
+      "awayTeam": "novorizontino",
+      "matchDate": "2026-02-15T18:30:00-03:00",
+      "round": "8ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Cícero Marques",
+        "city": "Bragança",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/15-02-2026/red-bull-bragantino-vs-novorizontino/"
+    },
+    {
+      "id": "paulistao26-santos-vs-veloclube-15-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "santos",
+      "awayTeam": "veloclube",
+      "matchDate": "2026-02-15T20:30:00-03:00",
+      "round": "8ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Vila Belmiro",
+        "city": "Santos",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "CazeTV",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/15-02-2026/santos-vs-associacao-esportiva-velo-clube-rio-clarense/"
+    },
+    {
+      "id": "paulistao26-saobernardofc-vs-corinthians-15-02-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saobernardofc",
+      "awayTeam": "corinthians",
+      "matchDate": "2026-02-15T18:30:00-03:00",
+      "round": "8ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "1º de Maio",
+        "city": "São Bernardo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Max",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/paulistao26/15-02-2026/sao-bernardo-fc-vs-corinthians/"
+    },
+    {
+      "id": "carioca26-flamengo-vs-portuguesa-rj-11-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "flamengo",
+      "awayTeam": "portuguesa-rj",
+      "matchDate": "2026-01-11T18:00:00-03:00",
+      "round": "5ª Rodada (Antecipada)",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "venue": {
+        "name": "Raulino de Oliveira",
+        "city": "Volta Redonda",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "TV Globo",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/11-01-2026/flamengo-vs-portuguesa-rj/"
+    },
+    {
+      "id": "carioca26-fluminense-vs-madureira-14-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "fluminense",
+      "awayTeam": "madureira",
+      "matchDate": "2026-01-14T19:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Luso Brasileiro",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/14-01-2026/fluminense-vs-madureira/"
+    },
+    {
+      "id": "carioca26-voltaredonda-vs-boavista-14-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "voltaredonda",
+      "awayTeam": "boavista",
+      "matchDate": "2026-01-14T17:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "venue": {
+        "name": "Raulino de Oliveira",
+        "city": "Volta Redonda",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/14-01-2026/volta-redonda-vs-boavista/"
+    },
+    {
+      "id": "carioca26-bangu-vs-flamengo-14-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "bangu",
+      "awayTeam": "flamengo",
+      "matchDate": "2026-01-14T21:30:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Moça Bonita",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "TV Globo",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/14-01-2026/bangu-vs-flamengo/"
+    },
+    {
+      "id": "carioca26-vasco-vs-marica-15-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "vasco",
+      "awayTeam": "marica",
+      "matchDate": "2026-01-15T21:30:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 4,
+        "away": 2
+      },
+      "venue": {
+        "name": "São Januário",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Canal GOAT",
+          "type": "streaming"
+        },
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/15-01-2026/vasco-da-gama-vs-marica/"
+    },
+    {
+      "id": "carioca26-sampaiocorrea-vs-novaiguacu-15-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "sampaiocorrea",
+      "awayTeam": "novaiguacu",
+      "matchDate": "2026-01-15T17:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "venue": {
+        "name": "Lourival Gomes",
+        "city": "Saquarema",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/15-01-2026/sampaio-correa-vs-nova-iguacu/"
+    },
+    {
+      "id": "carioca26-portuguesa-rj-vs-botafogo-15-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "portuguesa-rj",
+      "awayTeam": "botafogo",
+      "matchDate": "2026-01-15T19:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "venue": {
+        "name": "Luso Brasileiro",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/15-01-2026/portuguesa-rj-vs-botafogo/"
+    },
+    {
+      "id": "carioca26-boavista-vs-fluminense-17-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "boavista",
+      "awayTeam": "fluminense",
+      "matchDate": "2026-01-17T18:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "venue": {
+        "name": "Elcyr Resende",
+        "city": "Saquarema",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/17-01-2026/boavista-vs-fluminense/"
+    },
+    {
+      "id": "carioca26-voltaredonda-vs-flamengo-17-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "voltaredonda",
+      "awayTeam": "flamengo",
+      "matchDate": "2026-01-17T21:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 3
+      },
+      "venue": {
+        "name": "Raulino de Oliveira",
+        "city": "Volta Redonda",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/17-01-2026/volta-redonda-vs-flamengo/"
+    },
+    {
+      "id": "carioca26-bangu-vs-madureira-17-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "bangu",
+      "awayTeam": "madureira",
+      "matchDate": "2026-01-17T18:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Moça Bonita",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/17-01-2026/bangu-vs-madureira/"
+    },
+    {
+      "id": "carioca26-vasco-vs-novaiguacu-18-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "vasco",
+      "awayTeam": "novaiguacu",
+      "matchDate": "2026-01-18T18:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "venue": {
+        "name": "São Januário",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "TV Globo",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/18-01-2026/vasco-da-gama-vs-nova-iguacu/"
+    },
+    {
+      "id": "carioca26-sampaiocorrea-vs-botafogo-18-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "sampaiocorrea",
+      "awayTeam": "botafogo",
+      "matchDate": "2026-01-18T20:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Lourival Gomes",
+        "city": "Saquarema",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Canal GOAT",
+          "type": "streaming"
+        },
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/18-01-2026/sampaio-correa-vs-botafogo/"
+    },
+    {
+      "id": "carioca26-portuguesa-rj-vs-marica-18-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "portuguesa-rj",
+      "awayTeam": "marica",
+      "matchDate": "2026-01-18T20:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Luso Brasileiro",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/18-01-2026/portuguesa-rj-vs-marica/"
+    },
+    {
+      "id": "carioca26-flamengo-vs-vasco-21-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "flamengo",
+      "awayTeam": "vasco",
+      "matchDate": "2026-01-21T21:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "venue": {
+        "name": "Maracanã",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "TV Globo",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "Canal GOAT",
+          "type": "streaming"
+        },
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/21-01-2026/flamengo-vs-vasco-da-gama/"
+    },
+    {
+      "id": "carioca26-botafogo-vs-voltaredonda-21-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "botafogo",
+      "awayTeam": "voltaredonda",
+      "matchDate": "2026-01-21T19:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "venue": {
+        "name": "Nilton Santos",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/21-01-2026/botafogo-vs-volta-redonda/"
+    },
+    {
+      "id": "carioca26-marica-vs-bangu-21-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "marica",
+      "awayTeam": "bangu",
+      "matchDate": "2026-01-21T17:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "venue": {
+        "name": "João Saldanha",
+        "city": "Maricá",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/21-01-2026/marica-vs-bangu/"
+    },
+    {
+      "id": "carioca26-novaiguacu-vs-fluminense-22-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "novaiguacu",
+      "awayTeam": "fluminense",
+      "matchDate": "2026-01-22T21:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 3
+      },
+      "venue": {
+        "name": "Luso Brasileiro",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/22-01-2026/nova-iguacu-vs-fluminense/"
+    },
+    {
+      "id": "carioca26-madureira-vs-sampaiocorrea-22-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "madureira",
+      "awayTeam": "sampaiocorrea",
+      "matchDate": "2026-01-22T17:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Conselheiro Galvão",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/22-01-2026/madureira-vs-sampaio-correa/"
+    },
+    {
+      "id": "carioca26-boavista-vs-portuguesa-rj-22-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "boavista",
+      "awayTeam": "portuguesa-rj",
+      "matchDate": "2026-01-22T19:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "venue": {
+        "name": "Elcyr Resende",
+        "city": "Saquarema",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/22-01-2026/boavista-vs-portuguesa-rj/"
+    },
+    {
+      "id": "carioca26-botafogo-vs-bangu-24-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "botafogo",
+      "awayTeam": "bangu",
+      "matchDate": "2026-01-24T21:00:00-03:00",
+      "round": "4ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "venue": {
+        "name": "Nilton Santos",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/24-01-2026/botafogo-vs-bangu/"
+    },
+    {
+      "id": "carioca26-boavista-vs-vasco-25-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "boavista",
+      "awayTeam": "vasco",
+      "matchDate": "2026-01-25T20:30:00-03:00",
+      "round": "4ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 3
+      },
+      "venue": {
+        "name": "Elcyr Resende",
+        "city": "Saquarema",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/25-01-2026/boavista-vs-vasco-da-gama/"
+    },
+    {
+      "id": "carioca26-fluminense-vs-flamengo-25-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "fluminense",
+      "awayTeam": "flamengo",
+      "matchDate": "2026-01-25T18:00:00-03:00",
+      "round": "4ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Maracanã",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "TV Globo",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "Canal GOAT",
+          "type": "streaming"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/25-01-2026/fluminense-vs-flamengo/"
+    },
+    {
+      "id": "carioca26-novaiguacu-vs-voltaredonda-26-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "novaiguacu",
+      "awayTeam": "voltaredonda",
+      "matchDate": "2026-01-26T21:30:00-03:00",
+      "round": "4ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Jânio Moraes",
+        "city": "Nova Iguaçu",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/26-01-2026/nova-iguacu-vs-volta-redonda/"
+    },
+    {
+      "id": "carioca26-madureira-vs-portuguesa-rj-26-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "madureira",
+      "awayTeam": "portuguesa-rj",
+      "matchDate": "2026-01-26T17:00:00-03:00",
+      "round": "4ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Conselheiro Galvão",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/26-01-2026/madureira-vs-portuguesa-rj/"
+    },
+    {
+      "id": "carioca26-marica-vs-sampaiocorrea-27-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "marica",
+      "awayTeam": "sampaiocorrea",
+      "matchDate": "2026-01-27T17:00:00-03:00",
+      "round": "4ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "João Saldanha",
+        "city": "Maricá",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/27-01-2026/marica-vs-sampaio-correa/"
+    },
+    {
+      "id": "carioca26-sampaiocorrea-vs-boavista-30-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "sampaiocorrea",
+      "awayTeam": "boavista",
+      "matchDate": "2026-01-30T19:00:00-03:00",
+      "round": "5ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Lourival Gomes",
+        "city": "Saquarema",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/30-01-2026/sampaio-correa-vs-boavista/"
+    },
+    {
+      "id": "carioca26-novaiguacu-vs-bangu-30-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "novaiguacu",
+      "awayTeam": "bangu",
+      "matchDate": "2026-01-30T21:30:00-03:00",
+      "round": "5ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Jânio Moraes",
+        "city": "Nova Iguaçu",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/30-01-2026/nova-iguacu-vs-bangu/"
+    },
+    {
+      "id": "carioca26-botafogo-vs-fluminense-01-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "botafogo",
+      "awayTeam": "fluminense",
+      "matchDate": "2026-02-01T20:30:00-03:00",
+      "round": "5ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Nilton Santos",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/01-02-2026/botafogo-vs-fluminense/"
+    },
+    {
+      "id": "carioca26-madureira-vs-vasco-02-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "madureira",
+      "awayTeam": "vasco",
+      "matchDate": "2026-02-02T20:00:00-03:00",
+      "round": "5ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "A definir (Conselheiro Galvão)",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Canal GOAT",
+          "type": "streaming"
+        },
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/02-02-2026/madureira-vs-vasco-da-gama/"
+    },
+    {
+      "id": "carioca26-marica-vs-voltaredonda-02-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "marica",
+      "awayTeam": "voltaredonda",
+      "matchDate": "2026-02-02T17:00:00-03:00",
+      "round": "5ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "João Saldanha",
+        "city": "Maricá",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/02-02-2026/marica-vs-volta-redonda/"
+    },
+    {
+      "id": "carioca26-flamengo-vs-sampaiocorrea-07-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "flamengo",
+      "awayTeam": "sampaiocorrea",
+      "matchDate": "2026-02-07T21:00:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Maracanã",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/07-02-2026/flamengo-vs-sampaio-correa/"
+    },
+    {
+      "id": "carioca26-bangu-vs-boavista-07-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "bangu",
+      "awayTeam": "boavista",
+      "matchDate": "2026-02-07T18:30:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Moça Bonita",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/07-02-2026/bangu-vs-boavista/"
+    },
+    {
+      "id": "carioca26-portuguesa-rj-vs-novaiguacu-07-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "portuguesa-rj",
+      "awayTeam": "novaiguacu",
+      "matchDate": "2026-02-07T17:00:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Luso Brasileiro",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/07-02-2026/portuguesa-rj-vs-nova-iguacu/"
+    },
+    {
+      "id": "carioca26-fluminense-vs-marica-08-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "fluminense",
+      "awayTeam": "marica",
+      "matchDate": "2026-02-08T20:30:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Maracanã",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Canal GOAT",
+          "type": "streaming"
+        },
+        {
+          "channel": "SporTV",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/08-02-2026/fluminense-vs-marica/"
+    },
+    {
+      "id": "carioca26-vasco-vs-botafogo-08-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "vasco",
+      "awayTeam": "botafogo",
+      "matchDate": "2026-02-08T18:00:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "A definir",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "TV Globo",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/08-02-2026/vasco-da-gama-vs-botafogo/"
+    },
+    {
+      "id": "carioca26-voltaredonda-vs-madureira-08-02-2026",
+      "tournament": "carioca26",
+      "homeTeam": "voltaredonda",
+      "awayTeam": "madureira",
+      "matchDate": "2026-02-08T17:00:00-03:00",
+      "round": "6ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Raulino de Oliveira",
+        "city": "Volta Redonda",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "pay-per-view"
+        }
+      ],
+      "matchURL": "/carioca26/08-02-2026/volta-redonda-vs-madureira/"
+    }
+  ]
+}

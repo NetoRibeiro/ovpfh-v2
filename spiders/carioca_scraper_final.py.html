@@ -1,0 +1,421 @@
+<html><head>
+<title>.\spiders\carioca_scraper_final.py</title>
+<meta name="Generator" content="htmlizer/[Twisted, version 24.11.0]" />
+<link rel="alternate" href=".\spiders\carioca_scraper_final.py" type="text/x-python" />
+
+</head>
+<body>
+<pre><span class="py-src-comment">#!/usr/bin/env python3</span>
+<span class="py-src-string">&quot;&quot;&quot;
+Paulistão Match Data Scraper
+============================
+
+Extracts football match data from resultados-futbol.com and outputs JSON format.
+
+Dependencies:
+    pip install requests beautifulsoup4 lxml
+
+Usage:
+    python paulistao_scraper.py
+&quot;&quot;&quot;</span>
+
+<span class="py-src-variable">import</span> <span class="py-src-variable">json</span>
+<span class="py-src-variable">import</span> <span class="py-src-variable">re</span>
+<span class="py-src-variable">import</span> <span class="py-src-variable">unicodedata</span>
+<span class="py-src-variable">from</span> <span class="py-src-variable">typing</span> <span class="py-src-variable">import</span> <span class="py-src-variable">Optional</span>, <span class="py-src-variable">Dict</span>, <span class="py-src-variable">Tuple</span>
+
+<span class="py-src-variable">import</span> <span class="py-src-variable">requests</span>
+<span class="py-src-variable">from</span> <span class="py-src-variable">bs4</span> <span class="py-src-variable">import</span> <span class="py-src-variable">BeautifulSoup</span>
+
+
+<span class="py-src-comment"># =============================================================================</span>
+<span class="py-src-comment"># Configuration</span>
+<span class="py-src-comment"># =============================================================================</span>
+
+<span class="py-src-variable">target_url</span> = <span class="py-src-string">&quot;https://www.resultados-futbol.com/competicion/carioca_1/2026/grupo1/jornada3&quot;</span>
+
+
+<span class="py-src-comment"># =============================================================================</span>
+<span class="py-src-comment"># Helper Functions</span>
+<span class="py-src-comment"># =============================================================================</span>
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">normalize_team_name</span>(<span class="py-src-parameter">name</span>: <span class="py-src-variable">str</span>) -&gt; <span class="py-src-variable">str</span>:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Normalize team name to URL-friendly slug.
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">name</span> = <span class="py-src-variable">unicodedata</span>.<span class="py-src-variable">normalize</span>(<span class="py-src-string">&#x27;NFKD&#x27;</span>, <span class="py-src-variable">name</span>)
+    <span class="py-src-variable">name</span> = <span class="py-src-variable">name</span>.<span class="py-src-variable">encode</span>(<span class="py-src-string">&#x27;ASCII&#x27;</span>, <span class="py-src-string">&#x27;ignore&#x27;</span>).<span class="py-src-variable">decode</span>(<span class="py-src-string">&#x27;ASCII&#x27;</span>)
+    <span class="py-src-variable">name</span> = <span class="py-src-variable">name</span>.<span class="py-src-variable">lower</span>().<span class="py-src-variable">strip</span>()
+    <span class="py-src-variable">name</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">sub</span>(<span class="py-src-string">r&#x27;[\s_]+&#x27;</span>, <span class="py-src-string">&#x27;-&#x27;</span>, <span class="py-src-variable">name</span>)
+    <span class="py-src-variable">name</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">sub</span>(<span class="py-src-string">r&#x27;[^a-z0-9-]&#x27;</span>, <span class="py-src-string">&#x27;&#x27;</span>, <span class="py-src-variable">name</span>)
+    <span class="py-src-variable">name</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">sub</span>(<span class="py-src-string">r&#x27;-+&#x27;</span>, <span class="py-src-string">&#x27;-&#x27;</span>, <span class="py-src-variable">name</span>)
+    <span class="py-src-variable">name</span> = <span class="py-src-variable">name</span>.<span class="py-src-variable">strip</span>(<span class="py-src-string">&#x27;-&#x27;</span>)
+    <span class="py-src-variable">return</span> <span class="py-src-variable">name</span>
+
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">parse_spanish_date</span>(<span class="py-src-parameter">date_str</span>: <span class="py-src-variable">str</span>, <span class="py-src-variable">time_str</span>: <span class="py-src-variable">str</span>) -&gt; <span class="py-src-variable">Optional</span>[<span class="py-src-variable">str</span>]:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Parse Spanish date format to ISO 8601 with Brazil timezone.
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">month_map</span> = {
+        <span class="py-src-string">&#x27;ene&#x27;</span>: <span class="py-src-string">&#x27;01&#x27;</span>, <span class="py-src-string">&#x27;feb&#x27;</span>: <span class="py-src-string">&#x27;02&#x27;</span>, <span class="py-src-string">&#x27;mar&#x27;</span>: <span class="py-src-string">&#x27;03&#x27;</span>, <span class="py-src-string">&#x27;abr&#x27;</span>: <span class="py-src-string">&#x27;04&#x27;</span>,
+        <span class="py-src-string">&#x27;may&#x27;</span>: <span class="py-src-string">&#x27;05&#x27;</span>, <span class="py-src-string">&#x27;jun&#x27;</span>: <span class="py-src-string">&#x27;06&#x27;</span>, <span class="py-src-string">&#x27;jul&#x27;</span>: <span class="py-src-string">&#x27;07&#x27;</span>, <span class="py-src-string">&#x27;ago&#x27;</span>: <span class="py-src-string">&#x27;08&#x27;</span>,
+        <span class="py-src-string">&#x27;sep&#x27;</span>: <span class="py-src-string">&#x27;09&#x27;</span>, <span class="py-src-string">&#x27;oct&#x27;</span>: <span class="py-src-string">&#x27;10&#x27;</span>, <span class="py-src-string">&#x27;nov&#x27;</span>: <span class="py-src-string">&#x27;11&#x27;</span>, <span class="py-src-string">&#x27;dic&#x27;</span>: <span class="py-src-string">&#x27;12&#x27;</span>
+    }
+    
+    <span class="py-src-variable">try</span>:
+        <span class="py-src-variable">parts</span> = <span class="py-src-variable">date_str</span>.<span class="py-src-variable">strip</span>().<span class="py-src-variable">split</span>()
+        <span class="py-src-variable">if</span> <span class="py-src-variable">len</span>(<span class="py-src-variable">parts</span>) &gt;= <span class="py-src-number">3</span>:
+            <span class="py-src-variable">day</span> = <span class="py-src-variable">parts</span>[<span class="py-src-number">0</span>].<span class="py-src-variable">zfill</span>(<span class="py-src-number">2</span>)
+            <span class="py-src-variable">month</span> = <span class="py-src-variable">month_map</span>.<span class="py-src-variable">get</span>(<span class="py-src-variable">parts</span>[<span class="py-src-number">1</span>].<span class="py-src-variable">lower</span>()[:<span class="py-src-number">3</span>], <span class="py-src-string">&#x27;01&#x27;</span>)
+            <span class="py-src-variable">year</span> = <span class="py-src-string">&#x27;20&#x27;</span> + <span class="py-src-variable">parts</span>[<span class="py-src-number">2</span>] <span class="py-src-variable">if</span> <span class="py-src-variable">len</span>(<span class="py-src-variable">parts</span>[<span class="py-src-number">2</span>]) == <span class="py-src-number">2</span> <span class="py-src-variable">else</span> <span class="py-src-variable">parts</span>[<span class="py-src-number">2</span>]
+            
+            <span class="py-src-variable">time_parts</span> = <span class="py-src-variable">time_str</span>.<span class="py-src-variable">strip</span>().<span class="py-src-variable">split</span>(<span class="py-src-string">&#x27;:&#x27;</span>)
+            <span class="py-src-variable">hour</span> = <span class="py-src-variable">time_parts</span>[<span class="py-src-number">0</span>].<span class="py-src-variable">zfill</span>(<span class="py-src-number">2</span>)
+            <span class="py-src-variable">minute</span> = <span class="py-src-variable">time_parts</span>[<span class="py-src-number">1</span>].<span class="py-src-variable">zfill</span>(<span class="py-src-number">2</span>) <span class="py-src-variable">if</span> <span class="py-src-variable">len</span>(<span class="py-src-variable">time_parts</span>) &gt; <span class="py-src-number">1</span> <span class="py-src-variable">else</span> <span class="py-src-string">&#x27;00&#x27;</span>
+            
+            <span class="py-src-variable">return</span> <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">year</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">month</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">day</span>}<span class="py-src-fstring_middle">T</span>{<span class="py-src-variable">hour</span>}<span class="py-src-fstring_middle">:</span>{<span class="py-src-variable">minute</span>}<span class="py-src-fstring_middle">:00-03:00</span><span class="py-src-fstring_end">&quot;</span>
+    <span class="py-src-variable">except</span> <span class="py-src-variable">Exception</span>:
+        <span class="py-src-variable">pass</span>
+    
+    <span class="py-src-variable">return</span> <span class="py-src-variable">None</span>
+
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">extract_stadium_info</span>(<span class="py-src-parameter">stadium_name</span>: <span class="py-src-variable">str</span>) -&gt; <span class="py-src-variable">Tuple</span>[<span class="py-src-variable">Optional</span>[<span class="py-src-variable">str</span>], <span class="py-src-variable">Optional</span>[<span class="py-src-variable">str</span>]]:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Extract stadium name and city from raw stadium text.
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">if</span> <span class="py-src-variable">not</span> <span class="py-src-variable">stadium_name</span>:
+        <span class="py-src-variable">return</span> <span class="py-src-variable">None</span>, <span class="py-src-variable">None</span>
+    
+    <span class="py-src-variable">stadium_name</span> = <span class="py-src-variable">stadium_name</span>.<span class="py-src-variable">strip</span>()
+    <span class="py-src-variable">stadium_name</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">sub</span>(<span class="py-src-string">r&#x27;\s+&#x27;</span>, <span class="py-src-string">&#x27; &#x27;</span>, <span class="py-src-variable">stadium_name</span>)
+    
+    <span class="py-src-variable">stadium_cities</span> = {
+        <span class="py-src-string">&#x27;maracanã&#x27;</span>: <span class="py-src-string">&#x27;Rio de Janeiro&#x27;</span>,
+        <span class="py-src-string">&#x27;engenhão&#x27;</span>: <span class="py-src-string">&#x27;Rio de Janeiro&#x27;</span>,
+        <span class="py-src-string">&#x27;nilton santos&#x27;</span>: <span class="py-src-string">&#x27;Rio de Janeiro&#x27;</span>,
+        <span class="py-src-string">&#x27;são januário&#x27;</span>: <span class="py-src-string">&#x27;Rio de Janeiro&#x27;</span>,
+        }
+    
+    <span class="py-src-variable">name_lower</span> = <span class="py-src-variable">stadium_name</span>.<span class="py-src-variable">lower</span>()
+    <span class="py-src-variable">city</span> = <span class="py-src-variable">None</span>
+    
+    <span class="py-src-variable">for</span> <span class="py-src-variable">key</span>, <span class="py-src-variable">mapped_city</span> <span class="py-src-variable">in</span> <span class="py-src-variable">stadium_cities</span>.<span class="py-src-variable">items</span>():
+        <span class="py-src-variable">if</span> <span class="py-src-variable">key</span> <span class="py-src-variable">in</span> <span class="py-src-variable">name_lower</span>:
+            <span class="py-src-variable">city</span> = <span class="py-src-variable">mapped_city</span>
+            <span class="py-src-variable">break</span>
+    
+    <span class="py-src-variable">return</span> <span class="py-src-variable">stadium_name</span>, <span class="py-src-variable">city</span>
+
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">determine_status</span>(<span class="py-src-parameter">text</span>: <span class="py-src-variable">str</span>, <span class="py-src-variable">has_score</span>: <span class="py-src-variable">bool</span>) -&gt; <span class="py-src-variable">str</span>:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Determine match status from text content.
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">text_lower</span> = <span class="py-src-variable">text</span>.<span class="py-src-variable">lower</span>()
+    
+    <span class="py-src-variable">if</span> <span class="py-src-variable">any</span>(<span class="py-src-variable">x</span> <span class="py-src-variable">in</span> <span class="py-src-variable">text_lower</span> <span class="py-src-variable">for</span> <span class="py-src-variable">x</span> <span class="py-src-variable">in</span> [<span class="py-src-string">&#x27;finalizado&#x27;</span>, <span class="py-src-string">&#x27;fin&#x27;</span>, <span class="py-src-string">&#x27;terminado&#x27;</span>]):
+        <span class="py-src-variable">return</span> <span class="py-src-string">&#x27;finished&#x27;</span>
+    <span class="py-src-variable">elif</span> <span class="py-src-variable">any</span>(<span class="py-src-variable">x</span> <span class="py-src-variable">in</span> <span class="py-src-variable">text_lower</span> <span class="py-src-variable">for</span> <span class="py-src-variable">x</span> <span class="py-src-variable">in</span> [<span class="py-src-string">&#x27;sin comenzar&#x27;</span>, <span class="py-src-string">&#x27;próximo&#x27;</span>, <span class="py-src-string">&#x27;programado&#x27;</span>]):
+        <span class="py-src-variable">return</span> <span class="py-src-string">&#x27;scheduled&#x27;</span>
+    <span class="py-src-variable">elif</span> <span class="py-src-variable">any</span>(<span class="py-src-variable">x</span> <span class="py-src-variable">in</span> <span class="py-src-variable">text_lower</span> <span class="py-src-variable">for</span> <span class="py-src-variable">x</span> <span class="py-src-variable">in</span> [<span class="py-src-string">&#x27;en juego&#x27;</span>, <span class="py-src-string">&#x27;live&#x27;</span>, <span class="py-src-string">&#x27;en vivo&#x27;</span>]):
+        <span class="py-src-variable">return</span> <span class="py-src-string">&#x27;live&#x27;</span>
+    <span class="py-src-variable">elif</span> <span class="py-src-variable">any</span>(<span class="py-src-variable">x</span> <span class="py-src-variable">in</span> <span class="py-src-variable">text_lower</span> <span class="py-src-variable">for</span> <span class="py-src-variable">x</span> <span class="py-src-variable">in</span> [<span class="py-src-string">&#x27;aplazado&#x27;</span>, <span class="py-src-string">&#x27;postponed&#x27;</span>]):
+        <span class="py-src-variable">return</span> <span class="py-src-string">&#x27;postponed&#x27;</span>
+    <span class="py-src-variable">elif</span> <span class="py-src-variable">any</span>(<span class="py-src-variable">x</span> <span class="py-src-variable">in</span> <span class="py-src-variable">text_lower</span> <span class="py-src-variable">for</span> <span class="py-src-variable">x</span> <span class="py-src-variable">in</span> [<span class="py-src-string">&#x27;suspendido&#x27;</span>, <span class="py-src-string">&#x27;suspended&#x27;</span>]):
+        <span class="py-src-variable">return</span> <span class="py-src-string">&#x27;suspended&#x27;</span>
+    <span class="py-src-variable">elif</span> <span class="py-src-variable">has_score</span>:
+        <span class="py-src-variable">return</span> <span class="py-src-string">&#x27;finished&#x27;</span>
+    <span class="py-src-variable">else</span>:
+        <span class="py-src-variable">return</span> <span class="py-src-string">&#x27;scheduled&#x27;</span>
+
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">extract_teams_from_match_url</span>(<span class="py-src-parameter">match_url</span>: <span class="py-src-variable">str</span>) -&gt; <span class="py-src-variable">Tuple</span>[<span class="py-src-variable">Optional</span>[<span class="py-src-variable">str</span>], <span class="py-src-variable">Optional</span>[<span class="py-src-variable">str</span>]]:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Extract home and away team slugs from matchURL.
+    URL format: /partido/HomeTeam/AwayTeam/YYYYDDSequencialNumber
+    
+    Returns:
+        Tuple of (home_team_slug, away_team_slug)
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">if</span> <span class="py-src-variable">not</span> <span class="py-src-variable">match_url</span>:
+        <span class="py-src-variable">return</span> <span class="py-src-variable">None</span>, <span class="py-src-variable">None</span>
+    
+    <span class="py-src-comment"># Pattern: /partido/home-team/away-team/numbers</span>
+    <span class="py-src-variable">match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;/partido/([^/]+)/([^/]+)/\d+&#x27;</span>, <span class="py-src-variable">match_url</span>)
+    <span class="py-src-variable">if</span> <span class="py-src-variable">match</span>:
+        <span class="py-src-variable">return</span> <span class="py-src-variable">match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>), <span class="py-src-variable">match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">2</span>)
+    
+    <span class="py-src-variable">return</span> <span class="py-src-variable">None</span>, <span class="py-src-variable">None</span>
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">extract_teams_from_match_url</span>(<span class="py-src-parameter">match_url</span>: <span class="py-src-variable">str</span>) -&gt; <span class="py-src-variable">Tuple</span>[<span class="py-src-variable">Optional</span>[<span class="py-src-variable">str</span>], <span class="py-src-variable">Optional</span>[<span class="py-src-variable">str</span>]]:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Extract home and away team slugs from matchURL.
+    Format: /partido/HomeTeam/AwayTeam/YYYYDDSequencialNumber
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">if</span> <span class="py-src-variable">not</span> <span class="py-src-variable">match_url</span>:
+        <span class="py-src-variable">return</span> <span class="py-src-variable">None</span>, <span class="py-src-variable">None</span>
+    
+    <span class="py-src-comment"># Pattern: /partido/team1/team2/number</span>
+    <span class="py-src-variable">match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;/partido/([^/]+)/([^/]+)/\d+&#x27;</span>, <span class="py-src-variable">match_url</span>)
+    <span class="py-src-variable">if</span> <span class="py-src-variable">match</span>:
+        <span class="py-src-variable">return</span> <span class="py-src-variable">match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>), <span class="py-src-variable">match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">2</span>)
+    
+    <span class="py-src-variable">return</span> <span class="py-src-variable">None</span>, <span class="py-src-variable">None</span>
+
+
+<span class="py-src-comment"># =============================================================================</span>
+<span class="py-src-comment"># HTML Parser</span>
+<span class="py-src-comment"># =============================================================================</span>
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">parse_html_content</span>(<span class="py-src-parameter">html</span>: <span class="py-src-variable">str</span>, <span class="py-src-variable">url</span>: <span class="py-src-variable">str</span>) -&gt; <span class="py-src-variable">Dict</span>:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Parse HTML content using BeautifulSoup.
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">soup</span> = <span class="py-src-variable">BeautifulSoup</span>(<span class="py-src-variable">html</span>, <span class="py-src-string">&#x27;lxml&#x27;</span>)
+    <span class="py-src-variable">matches</span> = []
+    <span class="py-src-variable">tournament</span> = <span class="py-src-string">&quot;carioca26&quot;</span>
+    <span class="py-src-variable">round_name</span> = <span class="py-src-string">&quot;Jornada 3&quot;</span>
+    
+    <span class="py-src-variable">url_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;/competicion/([^/]+)/(\d{4})&#x27;</span>, <span class="py-src-variable">url</span>)
+    <span class="py-src-variable">if</span> <span class="py-src-variable">url_match</span>:
+        <span class="py-src-variable">tournament</span> = <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">url_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>)}{<span class="py-src-variable">url_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">2</span>)[-<span class="py-src-number">2</span>:]}<span class="py-src-fstring_end">&quot;</span>
+                    
+    <span class="py-src-variable">round_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;jornada(\d+)&#x27;</span>, <span class="py-src-variable">url</span>.<span class="py-src-variable">lower</span>())
+    <span class="py-src-variable">if</span> <span class="py-src-variable">round_match</span>:
+        <span class="py-src-variable">round_name</span> = <span class="py-src-fstring_start">f&quot;</span><span class="py-src-fstring_middle">Jornada </span>{<span class="py-src-variable">round_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>)}<span class="py-src-fstring_end">&quot;</span>
+    
+    <span class="py-src-variable">seen</span> = <span class="py-src-variable">set</span>()
+    
+    <span class="py-src-variable">for</span> <span class="py-src-variable">table</span> <span class="py-src-variable">in</span> <span class="py-src-variable">soup</span>.<span class="py-src-variable">find_all</span>(<span class="py-src-string">&#x27;table&#x27;</span>):
+        <span class="py-src-variable">for</span> <span class="py-src-variable">row</span> <span class="py-src-variable">in</span> <span class="py-src-variable">table</span>.<span class="py-src-variable">find_all</span>(<span class="py-src-string">&#x27;tr&#x27;</span>):
+            <span class="py-src-variable">team_links</span> = <span class="py-src-variable">row</span>.<span class="py-src-variable">find_all</span>(<span class="py-src-string">&#x27;a&#x27;</span>, <span class="py-src-variable">href</span>=<span class="py-src-variable">re</span>.<span class="py-src-variable">compile</span>(<span class="py-src-string">r&#x27;/equipo/&#x27;</span>))
+            <span class="py-src-variable">if</span> <span class="py-src-variable">len</span>(<span class="py-src-variable">team_links</span>) &lt; <span class="py-src-number">2</span>:
+                <span class="py-src-variable">continue</span>
+            
+            <span class="py-src-variable">home_team</span> = <span class="py-src-variable">team_links</span>[<span class="py-src-number">0</span>].<span class="py-src-variable">get_text</span>(<span class="py-src-variable">strip</span>=<span class="py-src-variable">True</span>)
+            <span class="py-src-variable">away_team</span> = <span class="py-src-variable">team_links</span>[<span class="py-src-number">1</span>].<span class="py-src-variable">get_text</span>(<span class="py-src-variable">strip</span>=<span class="py-src-variable">True</span>)
+            
+            <span class="py-src-variable">key</span> = <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">home_team</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">away_team</span>}<span class="py-src-fstring_end">&quot;</span>
+            <span class="py-src-variable">if</span> <span class="py-src-variable">key</span> <span class="py-src-variable">in</span> <span class="py-src-variable">seen</span>:
+                <span class="py-src-variable">continue</span>
+            <span class="py-src-variable">seen</span>.<span class="py-src-variable">add</span>(<span class="py-src-variable">key</span>)
+            
+            <span class="py-src-variable">row_text</span> = <span class="py-src-variable">row</span>.<span class="py-src-variable">get_text</span>()
+            
+            <span class="py-src-comment"># Extract date/time</span>
+            <span class="py-src-variable">dt_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;(\d{1,2}\s+\w{3}\s+\d{2})\s+(\d{2}:\d{2})&#x27;</span>, <span class="py-src-variable">row_text</span>)
+            <span class="py-src-variable">match_date</span> = <span class="py-src-variable">None</span>
+            <span class="py-src-variable">if</span> <span class="py-src-variable">dt_match</span>:
+                <span class="py-src-variable">match_date</span> = <span class="py-src-variable">parse_spanish_date</span>(<span class="py-src-variable">dt_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>), <span class="py-src-variable">dt_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">2</span>))
+            
+            <span class="py-src-comment"># Extract score</span>
+            <span class="py-src-variable">score_link</span> = <span class="py-src-variable">row</span>.<span class="py-src-variable">find</span>(<span class="py-src-string">&#x27;a&#x27;</span>, <span class="py-src-variable">href</span>=<span class="py-src-variable">re</span>.<span class="py-src-variable">compile</span>(<span class="py-src-string">r&#x27;/partido/&#x27;</span>))
+            <span class="py-src-variable">score_home</span>, <span class="py-src-variable">score_away</span> = <span class="py-src-variable">None</span>, <span class="py-src-variable">None</span>
+            <span class="py-src-variable">match_url</span> = <span class="py-src-variable">None</span>
+            
+            <span class="py-src-variable">if</span> <span class="py-src-variable">score_link</span>:
+                <span class="py-src-variable">match_url</span> = <span class="py-src-variable">score_link</span>.<span class="py-src-variable">get</span>(<span class="py-src-string">&#x27;href&#x27;</span>)
+                <span class="py-src-variable">score_text</span> = <span class="py-src-variable">score_link</span>.<span class="py-src-variable">get_text</span>(<span class="py-src-variable">strip</span>=<span class="py-src-variable">True</span>)
+                <span class="py-src-variable">score_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;(\d+)\s*[-:]\s*(\d+)&#x27;</span>, <span class="py-src-variable">score_text</span>)
+                <span class="py-src-variable">if</span> <span class="py-src-variable">score_match</span>:
+                    <span class="py-src-variable">score_home</span> = <span class="py-src-variable">int</span>(<span class="py-src-variable">score_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>))
+                    <span class="py-src-variable">score_away</span> = <span class="py-src-variable">int</span>(<span class="py-src-variable">score_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">2</span>))
+            
+            <span class="py-src-comment"># Extract teams from matchURL (more reliable)</span>
+            <span class="py-src-variable">url_home</span>, <span class="py-src-variable">url_away</span> = <span class="py-src-variable">extract_teams_from_match_url</span>(<span class="py-src-variable">match_url</span>)
+            
+            <span class="py-src-comment"># Use URL-extracted teams, fallback to page-scraped teams</span>
+            <span class="py-src-variable">home_slug</span> = <span class="py-src-variable">url_home</span> <span class="py-src-variable">if</span> <span class="py-src-variable">url_home</span> <span class="py-src-variable">else</span> <span class="py-src-variable">normalize_team_name</span>(<span class="py-src-variable">home_team</span>)
+            <span class="py-src-variable">away_slug</span> = <span class="py-src-variable">url_away</span> <span class="py-src-variable">if</span> <span class="py-src-variable">url_away</span> <span class="py-src-variable">else</span> <span class="py-src-variable">normalize_team_name</span>(<span class="py-src-variable">away_team</span>)
+            
+            <span class="py-src-variable">status</span> = <span class="py-src-variable">determine_status</span>(<span class="py-src-variable">row_text</span>, <span class="py-src-variable">score_home</span> <span class="py-src-variable">is</span> <span class="py-src-variable">not</span> <span class="py-src-variable">None</span>)
+            
+            <span class="py-src-comment"># Venue</span>
+            <span class="py-src-variable">venue_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;Estádio[^|&lt;\n]+&#x27;</span>, <span class="py-src-variable">row_text</span>)
+            <span class="py-src-variable">venue_name</span>, <span class="py-src-variable">venue_city</span> = <span class="py-src-variable">None</span>, <span class="py-src-variable">None</span>
+            <span class="py-src-variable">if</span> <span class="py-src-variable">venue_match</span>:
+                <span class="py-src-variable">venue_name</span>, <span class="py-src-variable">venue_city</span> = <span class="py-src-variable">extract_stadium_info</span>(<span class="py-src-variable">venue_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">0</span>))
+            
+            <span class="py-src-comment"># Build match ID (without tournament prefix)</span>
+            <span class="py-src-variable">date_for_id</span> = <span class="py-src-string">&quot;unknown&quot;</span>
+            <span class="py-src-variable">if</span> <span class="py-src-variable">match_date</span>:
+                <span class="py-src-variable">date_parts</span> = <span class="py-src-variable">match_date</span>.<span class="py-src-variable">split</span>(<span class="py-src-string">&#x27;T&#x27;</span>)[<span class="py-src-number">0</span>]
+                <span class="py-src-variable">y</span>, <span class="py-src-variable">m</span>, <span class="py-src-variable">d</span> = <span class="py-src-variable">date_parts</span>.<span class="py-src-variable">split</span>(<span class="py-src-string">&#x27;-&#x27;</span>)
+                <span class="py-src-variable">date_for_id</span> = <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">d</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">m</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">y</span>}<span class="py-src-fstring_end">&quot;</span>
+            
+            <span class="py-src-variable">match_data</span> = {
+                <span class="py-src-string">&quot;id&quot;</span>: <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">tournament</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">home_slug</span>}<span class="py-src-fstring_middle">-vs-</span>{<span class="py-src-variable">away_slug</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">date_for_id</span>}<span class="py-src-fstring_end">&quot;</span>,
+                <span class="py-src-string">&quot;tournament&quot;</span>: <span class="py-src-variable">tournament</span>,
+                <span class="py-src-string">&quot;homeTeam&quot;</span>: <span class="py-src-variable">home_slug</span>,
+                <span class="py-src-string">&quot;awayTeam&quot;</span>: <span class="py-src-variable">away_slug</span>,
+                <span class="py-src-string">&quot;matchDate&quot;</span>: <span class="py-src-variable">match_date</span>,
+                <span class="py-src-string">&quot;round&quot;</span>: <span class="py-src-variable">round_name</span>,
+                <span class="py-src-string">&quot;status&quot;</span>: <span class="py-src-variable">status</span>,
+                <span class="py-src-string">&quot;score&quot;</span>: {<span class="py-src-string">&quot;home&quot;</span>: <span class="py-src-variable">score_home</span>, <span class="py-src-string">&quot;away&quot;</span>: <span class="py-src-variable">score_away</span>},
+                <span class="py-src-string">&quot;venue&quot;</span>: {<span class="py-src-string">&quot;name&quot;</span>: <span class="py-src-variable">venue_name</span>, <span class="py-src-string">&quot;city&quot;</span>: <span class="py-src-variable">venue_city</span>, <span class="py-src-string">&quot;state&quot;</span>: <span class="py-src-string">&quot;SP&quot;</span>},
+                <span class="py-src-string">&quot;broadcasting&quot;</span>: [],
+                <span class="py-src-string">&quot;matchURL&quot;</span>: <span class="py-src-variable">match_url</span>
+            }
+            
+            <span class="py-src-variable">matches</span>.<span class="py-src-variable">append</span>(<span class="py-src-variable">match_data</span>)
+    
+    <span class="py-src-variable">return</span> {<span class="py-src-string">&quot;matches&quot;</span>: <span class="py-src-variable">matches</span>}
+
+
+<span class="py-src-comment"># =============================================================================</span>
+<span class="py-src-comment"># Text/Markdown Parser</span>
+<span class="py-src-comment"># =============================================================================</span>
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">parse_text_content</span>(<span class="py-src-parameter">content</span>: <span class="py-src-variable">str</span>, <span class="py-src-variable">url</span>: <span class="py-src-variable">str</span>) -&gt; <span class="py-src-variable">Dict</span>:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Parse text/markdown content (from web fetch tools).
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">matches</span> = []
+    <span class="py-src-variable">tournament</span> = <span class="py-src-string">&quot;carioca26&quot;</span>
+    <span class="py-src-variable">round_name</span> = <span class="py-src-string">&quot;Jornada 3&quot;</span>
+    
+    <span class="py-src-variable">url_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;/competicion/([^/]+)/(\d{4})&#x27;</span>, <span class="py-src-variable">url</span>)
+    <span class="py-src-variable">if</span> <span class="py-src-variable">url_match</span>:
+        <span class="py-src-variable">tournament</span> = <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">url_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>)}{<span class="py-src-variable">url_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">2</span>)[-<span class="py-src-number">2</span>:]}<span class="py-src-fstring_end">&quot;</span>
+            
+    <span class="py-src-variable">round_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;jornada(\d+)&#x27;</span>, <span class="py-src-variable">url</span>.<span class="py-src-variable">lower</span>())
+    <span class="py-src-variable">if</span> <span class="py-src-variable">round_match</span>:
+        <span class="py-src-variable">round_name</span> = <span class="py-src-fstring_start">f&quot;</span><span class="py-src-fstring_middle">Jornada </span>{<span class="py-src-variable">round_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>)}<span class="py-src-fstring_end">&quot;</span>
+    
+    <span class="py-src-variable">seen</span> = <span class="py-src-variable">set</span>()
+    <span class="py-src-variable">blocks</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">split</span>(<span class="py-src-string">r&#x27;(?=\|\s*\d{1,2}\s+\w{3}\s+\d{2}\s+\d{2}:\d{2})&#x27;</span>, <span class="py-src-variable">content</span>)
+    
+    <span class="py-src-variable">for</span> <span class="py-src-variable">block</span> <span class="py-src-variable">in</span> <span class="py-src-variable">blocks</span>:
+        <span class="py-src-variable">if</span> <span class="py-src-variable">not</span> <span class="py-src-variable">block</span>.<span class="py-src-variable">strip</span>():
+            <span class="py-src-variable">continue</span>
+        
+        <span class="py-src-variable">dt_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(
+            <span class="py-src-string">r&#x27;(\d{1,2}\s+\w{3}\s+\d{2})\s+(\d{2}:\d{2})\s+(Finalizado|Sin comenzar|En juego)&#x27;</span>,
+            <span class="py-src-variable">block</span>, <span class="py-src-variable">re</span>.<span class="py-src-variable">IGNORECASE</span>
+        )
+        <span class="py-src-variable">if</span> <span class="py-src-variable">not</span> <span class="py-src-variable">dt_match</span>:
+            <span class="py-src-variable">continue</span>
+        
+        <span class="py-src-variable">date_str</span> = <span class="py-src-variable">dt_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>)
+        <span class="py-src-variable">time_str</span> = <span class="py-src-variable">dt_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">2</span>)
+        <span class="py-src-variable">status_text</span> = <span class="py-src-variable">dt_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">3</span>)
+        
+        <span class="py-src-variable">teams</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">findall</span>(<span class="py-src-string">r&#x27;\[([^\]]+)\]\(/equipo/&#x27;</span>, <span class="py-src-variable">block</span>)
+        <span class="py-src-variable">if</span> <span class="py-src-variable">len</span>(<span class="py-src-variable">teams</span>) &lt; <span class="py-src-number">2</span>:
+            <span class="py-src-variable">continue</span>
+        
+        <span class="py-src-variable">home_team</span> = <span class="py-src-variable">teams</span>[<span class="py-src-number">0</span>]
+        <span class="py-src-variable">away_team</span> = <span class="py-src-variable">teams</span>[<span class="py-src-number">1</span>]
+        
+        <span class="py-src-variable">key</span> = <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">home_team</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">away_team</span>}<span class="py-src-fstring_end">&quot;</span>
+        <span class="py-src-variable">if</span> <span class="py-src-variable">key</span> <span class="py-src-variable">in</span> <span class="py-src-variable">seen</span>:
+            <span class="py-src-variable">continue</span>
+        <span class="py-src-variable">seen</span>.<span class="py-src-variable">add</span>(<span class="py-src-variable">key</span>)
+        
+        <span class="py-src-variable">match_date</span> = <span class="py-src-variable">parse_spanish_date</span>(<span class="py-src-variable">date_str</span>, <span class="py-src-variable">time_str</span>)
+        
+        <span class="py-src-variable">score_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;\[(\d+)-(\d+)\]&#x27;</span>, <span class="py-src-variable">block</span>)
+        <span class="py-src-variable">score_home</span> = <span class="py-src-variable">int</span>(<span class="py-src-variable">score_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>)) <span class="py-src-variable">if</span> <span class="py-src-variable">score_match</span> <span class="py-src-variable">else</span> <span class="py-src-variable">None</span>
+        <span class="py-src-variable">score_away</span> = <span class="py-src-variable">int</span>(<span class="py-src-variable">score_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">2</span>)) <span class="py-src-variable">if</span> <span class="py-src-variable">score_match</span> <span class="py-src-variable">else</span> <span class="py-src-variable">None</span>
+        
+        <span class="py-src-variable">status</span> = <span class="py-src-variable">determine_status</span>(<span class="py-src-variable">status_text</span>, <span class="py-src-variable">score_home</span> <span class="py-src-variable">is</span> <span class="py-src-variable">not</span> <span class="py-src-variable">None</span>)
+        
+        <span class="py-src-variable">url_match_result</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;/partido/([^)]+)&#x27;</span>, <span class="py-src-variable">block</span>)
+        <span class="py-src-variable">match_url</span> = <span class="py-src-fstring_start">f&quot;</span><span class="py-src-fstring_middle">/partido/</span>{<span class="py-src-variable">url_match_result</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">1</span>)}<span class="py-src-fstring_end">&quot;</span> <span class="py-src-variable">if</span> <span class="py-src-variable">url_match_result</span> <span class="py-src-variable">else</span> <span class="py-src-variable">None</span>
+        
+        <span class="py-src-comment"># Extract teams from matchURL (more reliable)</span>
+        <span class="py-src-variable">url_home</span>, <span class="py-src-variable">url_away</span> = <span class="py-src-variable">extract_teams_from_match_url</span>(<span class="py-src-variable">match_url</span>)
+        
+        <span class="py-src-comment"># Use URL-extracted teams, fallback to page-scraped teams</span>
+        <span class="py-src-variable">home_slug</span> = <span class="py-src-variable">url_home</span> <span class="py-src-variable">if</span> <span class="py-src-variable">url_home</span> <span class="py-src-variable">else</span> <span class="py-src-variable">normalize_team_name</span>(<span class="py-src-variable">home_team</span>)
+        <span class="py-src-variable">away_slug</span> = <span class="py-src-variable">url_away</span> <span class="py-src-variable">if</span> <span class="py-src-variable">url_away</span> <span class="py-src-variable">else</span> <span class="py-src-variable">normalize_team_name</span>(<span class="py-src-variable">away_team</span>)
+        
+        <span class="py-src-variable">venue_match</span> = <span class="py-src-variable">re</span>.<span class="py-src-variable">search</span>(<span class="py-src-string">r&#x27;Estádio[^\[\n|]+&#x27;</span>, <span class="py-src-variable">block</span>)
+        <span class="py-src-variable">venue_name</span>, <span class="py-src-variable">venue_city</span> = <span class="py-src-variable">None</span>, <span class="py-src-variable">None</span>
+        <span class="py-src-variable">if</span> <span class="py-src-variable">venue_match</span>:
+            <span class="py-src-variable">venue_name</span>, <span class="py-src-variable">venue_city</span> = <span class="py-src-variable">extract_stadium_info</span>(<span class="py-src-variable">venue_match</span>.<span class="py-src-variable">group</span>(<span class="py-src-number">0</span>))
+        
+        <span class="py-src-comment"># Build match ID (without tournament prefix)</span>
+        <span class="py-src-variable">date_for_id</span> = <span class="py-src-string">&quot;unknown&quot;</span>
+        <span class="py-src-variable">if</span> <span class="py-src-variable">match_date</span>:
+            <span class="py-src-variable">date_parts</span> = <span class="py-src-variable">match_date</span>.<span class="py-src-variable">split</span>(<span class="py-src-string">&#x27;T&#x27;</span>)[<span class="py-src-number">0</span>]
+            <span class="py-src-variable">y</span>, <span class="py-src-variable">m</span>, <span class="py-src-variable">d</span> = <span class="py-src-variable">date_parts</span>.<span class="py-src-variable">split</span>(<span class="py-src-string">&#x27;-&#x27;</span>)
+            <span class="py-src-variable">date_for_id</span> = <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">d</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">m</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">y</span>}<span class="py-src-fstring_end">&quot;</span>
+        
+        <span class="py-src-variable">match_data</span> = {
+            <span class="py-src-string">&quot;id&quot;</span>: <span class="py-src-fstring_start">f&quot;</span>{<span class="py-src-variable">tournament</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">home_slug</span>}<span class="py-src-fstring_middle">-vs-</span>{<span class="py-src-variable">away_slug</span>}<span class="py-src-fstring_middle">-</span>{<span class="py-src-variable">date_for_id</span>}<span class="py-src-fstring_end">&quot;</span>,
+            <span class="py-src-string">&quot;tournament&quot;</span>: <span class="py-src-variable">tournament</span>,
+            <span class="py-src-string">&quot;homeTeam&quot;</span>: <span class="py-src-variable">home_slug</span>,
+            <span class="py-src-string">&quot;awayTeam&quot;</span>: <span class="py-src-variable">away_slug</span>,
+            <span class="py-src-string">&quot;matchDate&quot;</span>: <span class="py-src-variable">match_date</span>,
+            <span class="py-src-string">&quot;round&quot;</span>: <span class="py-src-variable">round_name</span>,
+            <span class="py-src-string">&quot;status&quot;</span>: <span class="py-src-variable">status</span>,
+            <span class="py-src-string">&quot;score&quot;</span>: {<span class="py-src-string">&quot;home&quot;</span>: <span class="py-src-variable">score_home</span>, <span class="py-src-string">&quot;away&quot;</span>: <span class="py-src-variable">score_away</span>},
+            <span class="py-src-string">&quot;venue&quot;</span>: {<span class="py-src-string">&quot;name&quot;</span>: <span class="py-src-variable">venue_name</span>, <span class="py-src-string">&quot;city&quot;</span>: <span class="py-src-variable">venue_city</span>, <span class="py-src-string">&quot;state&quot;</span>: <span class="py-src-string">&quot;SP&quot;</span>},
+            <span class="py-src-string">&quot;broadcasting&quot;</span>: [],
+            <span class="py-src-string">&quot;matchURL&quot;</span>: <span class="py-src-variable">match_url</span>
+        }
+        
+        <span class="py-src-variable">matches</span>.<span class="py-src-variable">append</span>(<span class="py-src-variable">match_data</span>)
+    
+    <span class="py-src-variable">return</span> {<span class="py-src-string">&quot;matches&quot;</span>: <span class="py-src-variable">matches</span>}
+
+
+<span class="py-src-comment"># =============================================================================</span>
+<span class="py-src-comment"># URL Fetcher</span>
+<span class="py-src-comment"># =============================================================================</span>
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">fetch_and_parse</span>(<span class="py-src-parameter">url</span>: <span class="py-src-variable">str</span>) -&gt; <span class="py-src-variable">Dict</span>:
+    <span class="py-src-string">&quot;&quot;&quot;
+    Fetch URL and parse content.
+    &quot;&quot;&quot;</span>
+    <span class="py-src-variable">headers</span> = {
+        <span class="py-src-string">&#x27;User-Agent&#x27;</span>: <span class="py-src-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36&#x27;</span>,
+        <span class="py-src-string">&#x27;Accept&#x27;</span>: <span class="py-src-string">&#x27;text/html,application/xhtml+xml&#x27;</span>,
+        <span class="py-src-string">&#x27;Accept-Language&#x27;</span>: <span class="py-src-string">&#x27;en-US,en;q=0.5&#x27;</span>,
+    }
+    
+    <span class="py-src-variable">response</span> = <span class="py-src-variable">requests</span>.<span class="py-src-variable">get</span>(<span class="py-src-variable">url</span>, <span class="py-src-variable">headers</span>=<span class="py-src-variable">headers</span>, <span class="py-src-variable">timeout</span>=<span class="py-src-number">30</span>)
+    <span class="py-src-variable">response</span>.<span class="py-src-variable">raise_for_status</span>()
+    
+    <span class="py-src-variable">return</span> <span class="py-src-variable">parse_html_content</span>(<span class="py-src-variable">response</span>.<span class="py-src-variable">text</span>, <span class="py-src-variable">url</span>)
+
+
+<span class="py-src-comment"># =============================================================================</span>
+<span class="py-src-comment"># Main Entry Point</span>
+<span class="py-src-comment"># =============================================================================</span>
+
+<span class="py-src-variable">def</span> <span class="py-src-identifier">main</span>():
+    <span class="py-src-variable">from</span> <span class="py-src-variable">datetime</span> <span class="py-src-variable">import</span> <span class="py-src-variable">datetime</span>
+    
+    <span class="py-src-variable">print</span>(<span class="py-src-fstring_start">f&quot;</span><span class="py-src-fstring_middle">Scraping: </span>{<span class="py-src-variable">target_url</span>}<span class="py-src-fstring_end">&quot;</span>)
+    <span class="py-src-variable">print</span>(<span class="py-src-string">&quot;-&quot;</span> * <span class="py-src-number">60</span>)
+    
+    <span class="py-src-variable">try</span>:
+        <span class="py-src-variable">result</span> = <span class="py-src-variable">fetch_and_parse</span>(<span class="py-src-variable">target_url</span>)
+    <span class="py-src-variable">except</span> <span class="py-src-variable">Exception</span> <span class="py-src-variable">as</span> <span class="py-src-variable">e</span>:
+        <span class="py-src-variable">print</span>(<span class="py-src-fstring_start">f&quot;</span><span class="py-src-fstring_middle">Error fetching URL: </span>{<span class="py-src-variable">e</span>}<span class="py-src-fstring_end">&quot;</span>)
+        <span class="py-src-variable">return</span> <span class="py-src-variable">None</span>
+    
+    <span class="py-src-variable">output_json</span> = <span class="py-src-variable">json</span>.<span class="py-src-variable">dumps</span>(<span class="py-src-variable">result</span>, <span class="py-src-variable">indent</span>=<span class="py-src-number">2</span>, <span class="py-src-variable">ensure_ascii</span>=<span class="py-src-variable">False</span>)
+        
+    <span class="py-src-comment"># Save to file with datetime filename</span>
+    <span class="py-src-variable">timestamp</span> = <span class="py-src-variable">datetime</span>.<span class="py-src-variable">now</span>().<span class="py-src-variable">strftime</span>(<span class="py-src-string">&quot;%d%m%Y-%H%M%S&quot;</span>)
+    <span class="py-src-variable">filename</span> = <span class="py-src-fstring_start">f&quot;</span><span class="py-src-fstring_middle">resultados/</span>{<span class="py-src-variable">timestamp</span>}<span class="py-src-fstring_middle">_resultados.json</span><span class="py-src-fstring_end">&quot;</span>
+    
+    <span class="py-src-variable">with</span> <span class="py-src-variable">open</span>(<span class="py-src-variable">filename</span>, <span class="py-src-string">&#x27;w&#x27;</span>, <span class="py-src-variable">encoding</span>=<span class="py-src-string">&#x27;utf-8&#x27;</span>) <span class="py-src-variable">as</span> <span class="py-src-variable">f</span>:
+        <span class="py-src-variable">f</span>.<span class="py-src-variable">write</span>(<span class="py-src-variable">output_json</span>)
+    
+    <span class="py-src-variable">print</span>(<span class="py-src-string">&quot;-&quot;</span> * <span class="py-src-number">60</span>)
+    <span class="py-src-variable">print</span>(<span class="py-src-fstring_start">f&quot;</span><span class="py-src-fstring_middle">Total matches: </span>{<span class="py-src-variable">len</span>(<span class="py-src-variable">result</span>.<span class="py-src-variable">get</span>(<span class="py-src-string">&#x27;matches&#x27;</span>, []))}<span class="py-src-fstring_end">&quot;</span>)
+    <span class="py-src-variable">print</span>(<span class="py-src-fstring_start">f&quot;</span><span class="py-src-fstring_middle">Saved to: </span>{<span class="py-src-variable">filename</span>}<span class="py-src-fstring_end">&quot;</span>)
+    
+    <span class="py-src-variable">return</span> <span class="py-src-variable">result</span>
+
+
+<span class="py-src-variable">if</span> <span class="py-src-variable">__name__</span> == <span class="py-src-string">&quot;__main__&quot;</span>:
+    <span class="py-src-variable">main</span>()
+</pre>
+</body>

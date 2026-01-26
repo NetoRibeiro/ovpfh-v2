@@ -1,0 +1,456 @@
+{
+  "teams": [
+    {
+      "id": "saopaulo",
+      "name": "São Paulo",
+      "slug": "saopaulo",
+      "logo": "/assets/times/saopaulo.png",
+      "state": "SP",
+      "stadium": "Morumbi",
+      "founded": 1930,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#FF0000",
+        "secondary": "#000000",
+        "tertiary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "corinthians",
+      "name": "Corinthians",
+      "slug": "corinthians",
+      "logo": "/assets/times/corinthians.png",
+      "state": "SP",
+      "stadium": "Neo Química Arena",
+      "founded": 1910,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "palmeiras",
+      "name": "Palmeiras",
+      "slug": "palmeiras",
+      "logo": "/assets/times/palmeiras.png",
+      "state": "SP",
+      "stadium": "Allianz Parque",
+      "founded": 1914,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#006437",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "santos",
+      "name": "Santos",
+      "slug": "santos",
+      "logo": "/assets/times/santos.png",
+      "state": "SP",
+      "stadium": "Vila Belmiro",
+      "founded": 1912,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#FFFFFF",
+        "secondary": "#000000"
+      }
+    },
+    {
+      "id": "bragantino",
+      "name": "Red Bull Bragantino",
+      "slug": "redbullbragantino",
+      "logo": "/assets/times/bragantino.png",
+      "state": "SP",
+      "stadium": "Nabi Abi Chedid",
+      "founded": 1928,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#FFFFFF",
+        "secondary": "#C8102E"
+      }
+    },
+    {
+      "id": "pontepreta",
+      "name": "Ponte Preta",
+      "slug": "pontepreta",
+      "logo": "/assets/times/pontepreta.png",
+      "state": "SP",
+      "stadium": "Moisés Lucarelli",
+      "founded": 1900,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "guarani",
+      "name": "Guarani",
+      "slug": "guarani",
+      "logo": "/assets/times/guarani.png",
+      "state": "SP",
+      "stadium": "Brinco de Ouro",
+      "founded": 1911,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#006400",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "botafogorp",
+      "name": "Botafogo-RP",
+      "slug": "botafogorp",
+      "logo": "/assets/times/botafogorp.png",
+      "state": "SP",
+      "stadium": "Santa Cruz",
+      "founded": 1918,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#FF0000",
+        "secondary": "#FFFFFF",
+        "tertiary": "#000000"
+      }
+    },
+    {
+      "id": "mirassol",
+      "name": "Mirassol",
+      "slug": "mirassol",
+      "logo": "/assets/times/mirassol.png",
+      "state": "SP",
+      "stadium": "José Maria de Campos Maia",
+      "founded": 1925,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#FFD700",
+        "secondary": "#006400"
+      }
+    },
+    {
+      "id": "novorizontino",
+      "name": "Novorizontino",
+      "slug": "novorizontino",
+      "logo": "/assets/times/novorizontino.png",
+      "state": "SP",
+      "stadium": "Jorge Ismael de Biasi",
+      "founded": 1973,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#FFD700",
+        "secondary": "#000000"
+      }
+    },
+    {
+      "id": "saobernardofc",
+      "name": "São Bernardo FC",
+      "slug": "saobernardofc",
+      "logo": "/assets/times/saobernardo.png",
+      "state": "SP",
+      "stadium": "Primeiro de Maio",
+      "founded": 2004,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#FFD700",
+        "secondary": "#000000"
+      }
+    },
+    {
+      "id": "portuguesa",
+      "name": "Portuguesa",
+      "slug": "portuguesa",
+      "logo": "/assets/times/portuguesa.png",
+      "state": "SP",
+      "stadium": "Canindé",
+      "founded": 1920,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#FF0000",
+        "secondary": "#006400"
+      }
+    },
+    {
+      "id": "capivariano",
+      "name": "Capivariano",
+      "slug": "capivariano",
+      "logo": "/assets/times/capivariano.png",
+      "state": "SP",
+      "stadium": "capivariano",
+      "founded": 1989,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#0000FF",
+        "secondary": "#FFD700"
+      }
+    },
+    {
+      "id": "esporteclubeprimavera",
+      "name": "Esporte Clube Primavera",
+      "slug": "esporteclubeprimavera",
+      "logo": "/assets/times/esporteclubeprimavera.png",
+      "state": "SP",
+      "stadium": "esporteclubeprimavera",
+      "founded": 1989,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#0000FF",
+        "secondary": "#FFD700"
+      }
+    },
+    {
+      "id": "veloclube",
+      "name": "Associação Esportiva Velo Clube Rio Clarense",
+      "slug": "veloclube",
+      "logo": "/assets/times/veloclube.png",
+      "state": "SP",
+      "stadium": "Rio Claro",
+      "founded": 1989,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#0000FF",
+        "secondary": "#FFD700"
+      }
+    },
+    {
+      "id": "esporteclubenoroeste",
+      "name": "Esporte Clube Noroeste",
+      "slug": "esporteclubenoroeste",
+      "logo": "/assets/times/esporteclubenoroeste.png",
+      "state": "SP",
+      "stadium": "esporteclubenoroeste",
+      "founded": 1989,
+      "tournaments": [
+        "paulistao26"
+      ],
+      "colors": {
+        "primary": "#0000FF",
+        "secondary": "#FFD700"
+      }
+    },
+    {
+      "id": "flamengo",
+      "name": "Flamengo",
+      "slug": "flamengo",
+      "logo": "/assets/times/flamengo.png",
+      "state": "RJ",
+      "stadium": "Maracanã",
+      "founded": 1895,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#FF0000",
+        "secondary": "#000000"
+      }
+    },
+    {
+      "id": "vasco",
+      "name": "Vasco da Gama",
+      "slug": "vasco",
+      "logo": "/assets/times/vasco.png",
+      "state": "RJ",
+      "stadium": "São Januário",
+      "founded": 1898,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "fluminense",
+      "name": "Fluminense",
+      "slug": "fluminense",
+      "logo": "/assets/times/fluminense.png",
+      "state": "RJ",
+      "stadium": "Maracanã",
+      "founded": 1902,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#8B0000",
+        "secondary": "#006400",
+        "tertiary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "botafogo",
+      "name": "Botafogo",
+      "slug": "botafogo",
+      "logo": "/assets/times/botafogo.png",
+      "state": "RJ",
+      "stadium": "Nilton Santos",
+      "founded": 1894,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "bangu",
+      "name": "Bangu",
+      "slug": "bangu",
+      "logo": "/assets/times/bangu.png",
+      "state": "RJ",
+      "stadium": "Moça Bonita",
+      "founded": 1904,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#FF0000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "boavista",
+      "name": "Boavista",
+      "slug": "boavista",
+      "logo": "/assets/times/boavista.png",
+      "state": "RJ",
+      "stadium": "Elcyr Resende",
+      "founded": 1961,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#006400",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "madureira",
+      "name": "Madureira",
+      "slug": "madureira",
+      "logo": "/assets/times/madureira.png",
+      "state": "RJ",
+      "stadium": "Conselheiro Galvão",
+      "founded": 1914,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#FFD700",
+        "secondary": "#000000"
+      }
+    },
+    {
+      "id": "novaiguacu",
+      "name": "Nova Iguaçu",
+      "slug": "novaiguacu",
+      "logo": "/assets/times/novaiguacu.png",
+      "state": "RJ",
+      "stadium": "Jânio Moraes",
+      "founded": 1990,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#FF8C00",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "portuguesa-rj",
+      "name": "Portuguesa-RJ",
+      "slug": "portuguesa-rj",
+      "logo": "/assets/times/portuguesa-rj.png",
+      "state": "RJ",
+      "stadium": "Luso-Brasileiro",
+      "founded": 1924,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#FF0000",
+        "secondary": "#006400"
+      }
+    },
+    {
+      "id": "sampaiocorrea",
+      "name": "Sampaio Corrêa",
+      "slug": "sampaiocorrea",
+      "logo": "/assets/times/sampaiocorrea.png",
+      "state": "RJ",
+      "stadium": "Carioca",
+      "founded": 1904,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#FF0000",
+        "secondary": "#FFD700",
+        "tertiary": "#000000"
+      }
+    },
+    {
+      "id": "voltaredonda",
+      "name": "Volta Redonda",
+      "slug": "voltaredonda",
+      "logo": "/assets/times/voltaredonda.png",
+      "state": "RJ",
+      "stadium": "Raulino de Oliveira",
+      "founded": 1976,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#FFD700",
+        "secondary": "#000000"
+      }
+    },
+    {
+      "id": "marica",
+      "name": "Maricá",
+      "slug": "marica",
+      "logo": "/assets/times/marica.png",
+      "state": "RJ",
+      "stadium": "Nivaldo Pereira",
+      "founded": 1985,
+      "tournaments": [
+        "carioca26"
+      ],
+      "colors": {
+        "primary": "#8B4513",
+        "secondary": "#FFD700"
+      }
+    }
+  ]
+}

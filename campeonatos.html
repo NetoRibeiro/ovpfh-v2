@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Campeonatos de Futebol Hoje | Onde Vai Passar Futebol Hoje</title>
+    <meta name="description"
+        content="Veja todos os jogos por campeonato: Brasileirão, Paulistão, Carioca, Libertadores e mais. Horários e onde assistir.">
+    <meta name="keywords" content="brasileirão, paulistão, carioca, libertadores, campeonatos de futebol">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .breadcrumb {
+            padding: var(--space-4) 0;
+            font-size: var(--text-sm);
+            color: var(--color-gray-300);
+        }
+
+        .breadcrumb a {
+            color: var(--color-accent-gold);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-accent-neon);
+        }
+
+        .breadcrumb span {
+            margin: 0 var(--space-2);
+        }
+
+        .league-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+        }
+
+        .league-card {
+            background: rgba(0, 26, 51, 0.6);
+            border: 1px solid var(--color-gray-700);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .league-card:hover {
+            border-color: var(--color-accent-gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .league-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-4);
+            object-fit: contain;
+        }
+
+        .league-name {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--space-2);
+        }
+
+        .league-count {
+            font-size: var(--text-sm);
+            color: var(--color-gray-300);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <a href="index.html" class="logo">
+                        <img src="assets/root/logo_8_original_name.png" alt="Futebol Hoje" class="logo-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Início</a>
+            <span>›</span>
+            <span>Campeonatos</span>
+        </nav>
+
+        <!-- Leagues Section -->
+        <section class="matches-section">
+            <h2 class="section-title">Todos os Campeonatos</h2>
+
+            <div class="league-grid">
+
+                <div class="league-card" onclick="filterByLeague('paulistao26')">
+                    <img src="assets/campeonatos/paulistao.png" alt="Paulistão" class="league-logo">
+                    <h3 class="league-name">Paulistão</h3>
+                    <p class="league-count">2 jogos hoje</p>
+                </div>
+
+                <div class="league-card" onclick="filterByLeague('carioca26')">
+                    <img src="assets/campeonatos/carioca.png" alt="Carioca" class="league-logo">
+                    <h3 class="league-name">Campeonato Carioca</h3>
+                    <p class="league-count">2 jogos hoje</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem 0; color: #BDBDBD; font-size: 0.875rem;">
+        <div class="container">
+            <p>&copy; 2026 Onde Vai Passar Futebol Hoje. Todos os direitos reservados.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="sobre.html">Sobre</a> •
+                <a href="contato.html">Contato</a> •
+                <a href="privacidade.html">Privacidade</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function filterByLeague(league) {
+            // Navigate directly to the championship page
+            window.location.href = `campeonatos/${league}.html`;
+        }
+    </script>
+</body>
+
+</html>

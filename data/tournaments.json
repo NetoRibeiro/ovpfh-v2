@@ -1,0 +1,124 @@
+{
+  "tournaments": [
+    {
+      "id": "paulistao26",
+      "name": "Campeonato Paulista 2026",
+      "shortName": "Paulistão",
+      "slug": "paulistao26",
+      "year": 2026,
+      "status": "active",
+      "logo": "/assets/campeonatos/paulistao.png",
+      "startDate": "2026-01-15",
+      "endDate": "2026-04-30",
+      "phase": "Fase de Grupos",
+      "description": "O Campeonato Paulista é a competição de futebol mais tradicional do estado de São Paulo, reunindo os principais clubes paulistas.",
+      "teams": [
+        "bragantino",
+        "palmeiras",
+        "novorizontino",
+        "capivariano",
+        "saobernardo",
+        "esporteclubeprimavera",
+        "corinthians",
+        "santos",
+        "saopaulo",
+        "veloclube",
+        "mirassol",
+        "portuguesa",
+        "esporteclubenoroeste",
+        "guarani",
+        "botafogorp",
+        "pontepreta"
+      ],
+      "groups": {
+        "A": [
+          "corinthians",
+          "palmeiras",
+          "saopaulo",
+          "santos",
+          "interdelimeira"
+        ],
+        "B": [
+          "saobernardo",
+          "novorizontino",
+          "bragantino",
+          "mirassol",
+          "guarani"
+        ],
+        "C": [
+          "pontepreta",
+          "guarani",
+          "associacaoesportivaveloclubereioclarense",
+          "portuguesa"
+        ],
+        "D": [
+          "botafogorp",
+          "esporteclubenoroeste",
+          "capivariano",
+          "esporteclubeprimavera"
+        ]
+      },
+      "format": "Os 16 times são divididos em 4 grupos. Os dois melhores de cada grupo avançam para as quartas de final.",
+      "broadcasting": [
+        "Premiere",
+        "HBO Max",
+        "Nosso Futebol",
+        "Record",
+        "YouTube"
+      ]
+    },
+    {
+      "id": "carioca26",
+      "name": "Campeonato Carioca 2026",
+      "shortName": "Carioca",
+      "slug": "carioca26",
+      "year": 2026,
+      "status": "active",
+      "logo": "/assets/campeonatos/carioca.jpg",
+      "startDate": "2026-01-12",
+      "endDate": "2026-04-15",
+      "phase": "Fase de Grupos",
+      "description": "O Campeonato Carioca é a principal competição de futebol do estado do Rio de Janeiro, famosa pelos clássicos entre os grandes clubes cariocas.",
+      "teams": [
+        "flamengo",
+        "vasco",
+        "fluminense",
+        "botafogo",
+        "bangu",
+        "boavista",
+        "madureira",
+        "novaiguacu",
+        "portuguesa-rj",
+        "sampiocorrea",
+        "voltaredonda",
+        "marica"
+      ],
+      "groups": {
+        "A": [
+          "voltaredonda",
+          "vasco",
+          "fluminense",
+          "bangu",
+          "sampiocorrea",
+          "portuguesa-rj"
+        ],
+        "B": [
+          "novaiguacu",
+          "botafogo",
+          "madureira",
+          "boavista",
+          "marica",
+          "flamengo"
+        ]
+      },
+      "format": "12 times divididos em 2 grupos de 6. Os quatro melhores avançam para as semifinais.",
+      "broadcasting": [
+        "SporTV",
+        "Premiere",
+        "Band",
+        "RecordTV",
+        "Globo"
+      ]
+    }
+  ]
+}

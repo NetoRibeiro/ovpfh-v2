@@ -1,0 +1,1164 @@
+{
+  "Série A2 de 2025": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Paulista_de_Futebol_de_2025_-_S%C3%A9rie_A2"
+  },
+  "Botafogo-SP": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Botafogo_Futebol_Clube_(Ribeir%C3%A3o_Preto)"
+  },
+  "Capivariano": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Capivariano_Futebol_Clube"
+  },
+  "Guarani": {
+    "leagues": [
+      "paulistao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Guarani_Futebol_Clube"
+  },
+  "Mirassol": {
+    "leagues": [
+      "paulistao",
+      "brasileirao",
+      "libertadores",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Mirassol_Futebol_Clube"
+  },
+  "Noroeste": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Noroeste"
+  },
+  "Primavera": {
+    "leagues": [
+      "paulistao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Primavera"
+  },
+  "Santos": {
+    "leagues": [
+      "paulistao",
+      "brasileirao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Santos_Futebol_Clube"
+  },
+  "São Bernardo": {
+    "leagues": [
+      "paulistao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/S%C3%A3o_Bernardo_Futebol_Clube"
+  },
+  "São Paulo": {
+    "leagues": [
+      "paulistao",
+      "brasileirao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo_Futebol_Clube"
+  },
+  "Velo Clube": {
+    "leagues": [
+      "paulistao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Associa%C3%A7%C3%A3o_Esportiva_Velo_Clube_Rioclarense"
+  },
+  "TNT Sports": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/TNT_Sports_(Brasil)"
+  },
+  "BOT": {
+    "leagues": [
+      "paulistao",
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Botafogo_Futebol_Clube_(Ribeir%C3%A3o_Preto)"
+  },
+  "CAP": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Capivariano_Futebol_Clube"
+  },
+  "GUA": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Guarani_Futebol_Clube"
+  },
+  "MIR": {
+    "leagues": [
+      "paulistao",
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Mirassol_Futebol_Clube"
+  },
+  "NOR": {
+    "leagues": [
+      "paulistao",
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Noroeste"
+  },
+  "PRI": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Primavera"
+  },
+  "SAN": {
+    "leagues": [
+      "paulistao",
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Santos_Futebol_Clube"
+  },
+  "SBE": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/S%C3%A3o_Bernardo_Futebol_Clube"
+  },
+  "SPA": {
+    "leagues": [
+      "paulistao",
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo_Futebol_Clube"
+  },
+  "VEL": {
+    "leagues": [
+      "paulistao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Associa%C3%A7%C3%A3o_Esportiva_Velo_Clube_Rioclarense"
+  },
+  "Bangu": {
+    "leagues": [
+      "carioca"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Bangu_Atl%C3%A9tico_Clube"
+  },
+  "Botafogo": {
+    "leagues": [
+      "carioca",
+      "brasileirao",
+      "libertadores",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Botafogo_de_Futebol_e_Regatas"
+  },
+  "Flamengo": {
+    "leagues": [
+      "carioca",
+      "brasileirao",
+      "libertadores",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_de_Regatas_do_Flamengo"
+  },
+  "Madureira": {
+    "leagues": [
+      "carioca",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Madureira_Esporte_Clube"
+  },
+  "Maricá": {
+    "leagues": [
+      "carioca"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Maric%C3%A1_Futebol_Clube"
+  },
+  "Nova Iguaçu": {
+    "leagues": [
+      "carioca",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Nova_Igua%C3%A7u_Futebol_Clube"
+  },
+  "Sampaio Corrêa-RJ": {
+    "leagues": [
+      "carioca",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Sampaio_Corr%C3%AAa_Futebol_e_Esporte"
+  },
+  "Volta Redonda": {
+    "leagues": [
+      "carioca",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Volta_Redonda_Futebol_Clube"
+  },
+  "ClubeAtléticoMineiro": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_Atl%C3%A9tico_Mineiro"
+  },
+  "CruzeiroEsporte Clube": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Cruzeiro_Esporte_Clube"
+  },
+  "Esporte ClubeDemocrata": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Democrata"
+  },
+  "NorthEsporte Clube": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/North_Esporte_Clube"
+  },
+  "Módulo II": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Mineiro_de_Futebol_de_2025_-_M%C3%B3dulo_II"
+  },
+  "UberlândiaEsporte Clube": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Uberl%C3%A2ndia_Esporte_Clube"
+  },
+  "Democrata GV": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Democrata"
+  },
+  "Atlético Mineiro": {
+    "leagues": [
+      "mineiro",
+      "brasileirao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_Atl%C3%A9tico_Mineiro"
+  },
+  "Uberlândia": {
+    "leagues": [
+      "mineiro",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Uberl%C3%A2ndia_Esporte_Clube"
+  },
+  "América Mineiro": {
+    "leagues": [
+      "mineiro",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Am%C3%A9rica_Futebol_Clube_(Belo_Horizonte)"
+  },
+  "Pouso Alegre": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Pouso_Alegre_Futebol_Clube"
+  },
+  "Tombense": {
+    "leagues": [
+      "mineiro",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Tombense_Futebol_Clube"
+  },
+  "Cruzeiro": {
+    "leagues": [
+      "mineiro",
+      "brasileirao",
+      "libertadores",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Cruzeiro_Esporte_Clube"
+  },
+  "North": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/North_Esporte_Clube"
+  },
+  "Itabirito": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Itabirito_Futebol_Clube"
+  },
+  "AME": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Am%C3%A9rica_Futebol_Clube_(Belo_Horizonte)"
+  },
+  "CAM": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_Atl%C3%A9tico_Mineiro"
+  },
+  "BET": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Betim_Futebol"
+  },
+  "CRU": {
+    "leagues": [
+      "mineiro",
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Cruzeiro_Esporte_Clube"
+  },
+  "DGV": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Democrata"
+  },
+  "ITA": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Itabirito_Futebol_Clube"
+  },
+  "POU": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Pouso_Alegre_Futebol_Clube"
+  },
+  "TOM": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Tombense_Futebol_Clube"
+  },
+  "UEC": {
+    "leagues": [
+      "mineiro"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Uberl%C3%A2ndia_Esporte_Clube"
+  },
+  "LFU": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Liga_Forte_Uni%C3%A3o_do_Futebol_Brasileiro"
+  },
+  "LIBRA": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Liga_do_Futebol_Brasileiro"
+  },
+  "Série B": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2025_-_S%C3%A9rie_B"
+  },
+  "Bahia": {
+    "leagues": [
+      "brasileirao",
+      "libertadores",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Bahia"
+  },
+  "Chapecoense": {
+    "leagues": [
+      "brasileirao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Associa%C3%A7%C3%A3o_Chapecoense_de_Futebol"
+  },
+  "Remo": {
+    "leagues": [
+      "brasileirao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_do_Remo"
+  },
+  "Vitória": {
+    "leagues": [
+      "brasileirao",
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Vit%C3%B3ria"
+  },
+  "ATM": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_Atl%C3%A9tico_Mineiro"
+  },
+  "BAH": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Bahia"
+  },
+  "CHA": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Associa%C3%A7%C3%A3o_Chapecoense_de_Futebol"
+  },
+  "FLA": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_de_Regatas_do_Flamengo"
+  },
+  "REM": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_do_Remo"
+  },
+  "VIT": {
+    "leagues": [
+      "brasileirao"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Vit%C3%B3ria"
+  },
+  "Torneo Apertura de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Paraguaio_de_Futebol_de_2025_%E2%80%93_Primeira_Divis%C3%A3o#Torneo_Apertura"
+  },
+  "Torneo Clausura de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Paraguaio_de_Futebol_de_2025_%E2%80%93_Primeira_Divis%C3%A3o#Torneo_Clausura"
+  },
+  "Copa da Argentina de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_da_Argentina_de_Futebol_de_2025"
+  },
+  "Campeonato Boliviano de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Boliviano_de_Futebol_de_2025"
+  },
+  "Copa Bolívia de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_da_Bol%C3%ADvia_de_Futebol_de_2025"
+  },
+  "Copa do Brasil de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_do_Brasil_de_Futebol_de_2025"
+  },
+  "Campeonato Brasileiro Série A de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2025_-_S%C3%A9rie_A"
+  },
+  "Campeonato Chileno de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Chileno_de_Futebol_de_2025"
+  },
+  "Copa Chile de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_do_Chile_de_Futebol_de_2025"
+  },
+  "Torneo Finalización de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Colombiano_de_Futebol_de_2025_%E2%80%93_Primeira_Divis%C3%A3o#Torneo_Finalización"
+  },
+  "Campeonato Equatoriano de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Equatoriano_de_Futebol_de_2025_%E2%80%93_Primeira_Divis%C3%A3o"
+  },
+  "Copa do Equador de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_do_Equador_de_Futebol_de_2025"
+  },
+  "Copa Paraguai de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_do_Paraguai_de_Futebol_de_2025"
+  },
+  "Liga1 Peruana de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Peruano_de_Futebol_de_2025_%E2%80%93_Primeira_Divis%C3%A3o"
+  },
+  "Sporting Cristal": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Club_Sporting_Cristal"
+  },
+  "Campeonato Uruguaio de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Uruguaio_de_Futebol_de_2025"
+  },
+  "Campeonato Venezuelano de 2025": {
+    "leagues": [
+      "libertadores"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Venezuelano_de_Futebol_de_2025_%E2%80%93_Primeira_Divis%C3%A3o"
+  },
+  "Série A 2026": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A"
+  },
+  "Série C 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2025_-_S%C3%A9rie_C"
+  },
+  "Rio de Janeiro": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Carioca_de_Futebol"
+  },
+  "Minas Gerais": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Mineira_de_Futebol"
+  },
+  "Rio Grande do Sul": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Ga%C3%BAcha_de_Futebol"
+  },
+  "Paraná": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Paranaense_de_Futebol"
+  },
+  "Ceará": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Cearense_de_Futebol"
+  },
+  "Goiás": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Goi%C3%A1s_Esporte_Clube"
+  },
+  "Santa Catarina": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Santa_Catarina_Clube"
+  },
+  "Série D 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2025_-_S%C3%A9rie_D"
+  },
+  "Pernambuco": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Pernambucana_de_Futebol"
+  },
+  "Alagoas": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Alagoana_de_Futebol"
+  },
+  "Pará": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Paraense_de_Futebol"
+  },
+  "Copa Verde 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_Verde_de_Futebol_de_2025"
+  },
+  "Mato Grosso": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Mato-Grossense_de_Futebol"
+  },
+  "Amazonas": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Amazonas_Futebol_Clube"
+  },
+  "Rio Grande do Norte": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Norte-rio-grandense_de_Futebol"
+  },
+  "Paraíba": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Paraibana_de_Futebol"
+  },
+  "Maranhão": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Maranh%C3%A3o_Atl%C3%A9tico_Clube"
+  },
+  "Sergipe": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Sergipana_de_Futebol"
+  },
+  "Copa do Nordeste 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_do_Nordeste_de_Futebol_de_2025"
+  },
+  "Distrito Federal": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_de_Futebol_do_Distrito_Federal"
+  },
+  "Piauí": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Piau%C3%AD_Esporte_Clube"
+  },
+  "Espírito Santo": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_de_Futebol_do_Estado_do_Esp%C3%ADrito_Santo"
+  },
+  "Tocantins": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Tocantinense_de_Futebol"
+  },
+  "Acre": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_de_Futebol_do_Estado_do_Acre"
+  },
+  "Rondônia": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_de_Futebol_do_Estado_de_Rond%C3%B4nia"
+  },
+  "Roraima": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Roraimense_de_Futebol"
+  },
+  "Mato Grosso do Sul": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_de_Futebol_de_Mato_Grosso_do_Sul"
+  },
+  "Amapá": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Federa%C3%A7%C3%A3o_Amapaense_de_Futebol"
+  },
+  "Independência": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Independ%C3%AAncia_Futebol_Clube"
+  },
+  "Estadual 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Tocantinense_de_Futebol_de_2025"
+  },
+  "Galvez": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Galvez_Esporte_Clube"
+  },
+  "Vasco-AC": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Associa%C3%A7%C3%A3o_Desportiva_Vasco_da_Gama"
+  },
+  "CRB": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_de_Regatas_Brasil"
+  },
+  "Trem": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Trem_Desportivo_Clube"
+  },
+  "Oratório": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Orat%C3%B3rio_Recreativo_Clube"
+  },
+  "Independente-AP": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Independente_Esporte_Clube"
+  },
+  "Nacional-AM": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Nacional_Futebol_Clube_(Amazonas)"
+  },
+  "Manaus": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Manaus_Futebol_Clube"
+  },
+  "Manauara": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Manauara_Esporte_Clube"
+  },
+  "Jacuipense": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Jacuipense"
+  },
+  "Atlético de Alagoinhas": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Alagoinhas_Atl%C3%A9tico_Clube"
+  },
+  "Fortaleza": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Fortaleza_Esporte_Clube"
+  },
+  "Maracanã-CE": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Maracan%C3%A3_Esporte_Clube"
+  },
+  "Metropitano 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasiliense_de_Futebol_de_2025"
+  },
+  "Capital-DF": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Capital_Clube_de_Futebol"
+  },
+  "Ceilândia": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Ceil%C3%A2ndia_Esporte_Clube"
+  },
+  "Rio Branco-ES": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Rio_Branco_Atl%C3%A9tico_Clube"
+  },
+  "Porto Vitória": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Porto_Vit%C3%B3ria_Futebol_Clube"
+  },
+  "Vila Nova": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Vila_Nova_Futebol_Clube"
+  },
+  "Anápolis": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/An%C3%A1polis_Futebol_Clube"
+  },
+  "Atlético Goianiense": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Atl%C3%A9tico_Clube_Goianiense"
+  },
+  "IAPE": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Instituto_de_Administra%C3%A7%C3%A3o_de_Projetos_Educacionais_Futebol_Clube"
+  },
+  "Cuiabá": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Cuiab%C3%A1_Esporte_Clube"
+  },
+  "Mixto": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Mixto_Esporte_Clube"
+  },
+  "Operário VG": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_Esportivo_Oper%C3%A1rio_V%C3%A1rzea-Grandense"
+  },
+  "Operário-MS": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Oper%C3%A1rio_Futebol_Clube"
+  },
+  "Ivinhema": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Ivinhema_Futebol_Clube"
+  },
+  "FC Pantanal": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Futebol_Clube_Pantanal"
+  },
+  "Bragantino-PA": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Bragantino_Clube_do_Par%C3%A1"
+  },
+  "Castanhal": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Castanhal_Esporte_Clube"
+  },
+  "Águia de Marabá": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/%C3%81guia_de_Marab%C3%A1_Futebol_Clube"
+  },
+  "Copa Grão-Pará de 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Paraense_de_Futebol_de_2025_-_S%C3%A9rie_A#Copa_Grão-Pará"
+  },
+  "Sousa": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Sousa_Esporte_Clube"
+  },
+  "Botafogo-PB": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Botafogo_Futebol_Clube_(Jo%C3%A3o_Pessoa)"
+  },
+  "Serra Branca": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Serra_Branca_Esporte_Clube"
+  },
+  "Operário-PR": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Oper%C3%A1rio_Ferrovi%C3%A1rio_Esporte_Clube"
+  },
+  "Maringá": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Maring%C3%A1_Futebol_Clube"
+  },
+  "Londrina": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Londrina_Esporte_Clube"
+  },
+  "Cianorte": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Cianorte_Futebol_Clube"
+  },
+  "Azuriz": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Azuriz_Futebol_Clube"
+  },
+  "Sport": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Sport_Club_do_Recife"
+  },
+  "Retrô": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Retr%C3%B4_Futebol_Clube_Brasil"
+  },
+  "Santa Cruz": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Santa_Cruz_Futebol_Clube"
+  },
+  "Fluminense-PI": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Fluminense_Esporte_Clube"
+  },
+  "América de Natal": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Am%C3%A9rica_Futebol_Clube_(Rio_Grande_do_Norte)"
+  },
+  "ABC": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/ABC_Futebol_Clube"
+  },
+  "Laguna": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Clube_Laguna_SAF"
+  },
+  "Juventude": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_Juventude"
+  },
+  "Ypiranga de Erechim": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Ypiranga_Futebol_Clube_(Erechim)"
+  },
+  "São Luiz": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Esporte_Clube_S%C3%A3o_Luiz"
+  },
+  "Guarany de Bagé": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Guarany_Futebol_Clube"
+  },
+  "Gazin Porto Velho": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Porto_Velho_Esporte_Clube"
+  },
+  "Guaporé": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Guapor%C3%A9_Futebol_Clube"
+  },
+  "Ji-Paraná": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Ji-Paran%C3%A1_Futebol_Clube"
+  },
+  "Monte Roraima": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Monte_Roraima_Futebol_Clube"
+  },
+  "Baré": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Bar%C3%A9_Esporte_Clube"
+  },
+  "Avaí": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Ava%C3%AD_Futebol_Clube"
+  },
+  "Joinville": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Joinville_Esporte_Clube"
+  },
+  "Figueirense": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Figueirense_Futebol_Clube"
+  },
+  "Copa Paulista de 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_Paulista_de_Futebol_de_2025"
+  },
+  "Lagarto": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Lagarto_Futebol_Clube"
+  },
+  "América de Propriá": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Am%C3%A9rica_Futebol_Clube_(Sergipe)"
+  },
+  "Araguaína": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Aragua%C3%ADna_Futebol_e_Regatas"
+  },
+  "Tocantinópolis": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Tocantin%C3%B3polis_Esporte_Clube"
+  },
+  "Capital-TO": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Capital_Futebol_Clube"
+  },
+  "Copa Verde de 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_Verde_de_Futebol_de_2025"
+  },
+  "Barra-SC": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Barra_Futebol_Clube_(Santa_Catarina)"
+  },
+  "Série D de 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2025_-_S%C3%A9rie_D"
+  },
+  "Série C de 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2025_-_S%C3%A9rie_C"
+  },
+  "Copa do Nordeste de 2025": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Copa_do_Nordeste_de_Futebol_de_2025"
+  },
+  "Campeonato Brasileiro Série A de 2026": {
+    "leagues": [
+      "copa-brasil"
+    ],
+    "wiki_url": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A"
+  }
+}

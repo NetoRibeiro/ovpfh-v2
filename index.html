@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Onde Vai Passar Futebol Hoje | Jogos de Hoje e Canais de Transmissão</title>
+  <meta name="description" content="Descubra onde assistir todos os jogos de futebol hoje. Veja horários, escalações e canais de transmissão ao vivo de Brasileirão, Paulistão, Carioca e mais.">
+  <meta name="keywords" content="futebol hoje, onde assistir futebol, jogos de hoje, transmissão ao vivo, escalação, brasileirão, paulistão, carioca">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Onde Vai Passar Futebol Hoje | Jogos e Transmissões">
+  <meta property="og:description" content="Veja todos os jogos de futebol hoje, horários e onde assistir ao vivo.">
+  <meta property="og:image" content="/assets/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Onde Vai Passar Futebol Hoje">
+  <meta name="twitter:description" content="Veja todos os jogos de futebol hoje, horários e onde assistir ao vivo.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Header - Top Bar with Team Filters -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/root/logo_8_original_name.png" alt="Futebol Hoje" class="logo-img">
+        </a>
+
+        <!-- Team Quick Access - Above the gold bar -->
+        <div class="quick-access" id="quickAccess">
+          <button class="team-chip" data-team="todos">
+            🏆 Todos os Jogos
+          </button>
+          <button class="team-chip" data-team="flamengo">
+            <img src="assets/times/flamengo.png" alt="Flamengo">
+            Flamengo
+          </button>
+          <button class="team-chip" data-team="palmeiras">
+            <img src="assets/times/palmeiras.png" alt="Palmeiras">
+            Palmeiras
+          </button>
+          <button class="team-chip" data-team="corinthians">
+            <img src="assets/times/corinthians.png" alt="Corinthians">
+            Corinthians
+          </button>
+          <button class="team-chip" data-team="saopaulo">
+            <img src="assets/times/sao-paulo.png" alt="São Paulo">
+            São Paulo
+          </button>
+          <button class="team-chip" data-team="vasco">
+            <img src="assets/times/vasco.png" alt="Vasco">
+            Vasco
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Secondary Bar - Tournament, Date and Search -->
+  <div class="secondary-bar">
+    <div class="container">
+      <div class="secondary-bar-content">
+        <!-- Tournament Filter -->
+        <div class="tournament-selector">
+          <select id="tournamentFilter" class="tournament-select">
+            <option value="todos">Todos Campeonatos</option>
+            <option value="paulistao26">Paulistão 2026</option>
+            <option value="carioca26">Carioca 2026</option>
+          </select>
+        </div>
+
+        <!-- Date Selector -->
+        <div class="date-selector">
+          <button id="prevDay" aria-label="Dia anterior">◀</button>
+          <span id="currentDate">Hoje, 16 Jan</span>
+          <button id="nextDay" aria-label="Próximo dia">▶</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar..."
+            aria-label="Buscar jogos"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    
+    <!-- Matches Section -->
+    <section class="matches-section">
+      <h2 class="section-title">Jogos de Hoje</h2>
+      
+      <div id="matchesContainer" class="matches-grid">
+        <!-- Matches will be dynamically inserted here -->
+      </div>
+      
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-state-icon">⚽</div>
+        <h3>Nenhum jogo encontrado</h3>
+        <p>Não há jogos programados para esta data ou filtro.</p>
+      </div>
+      
+      <!-- Loading State -->
+      <div id="loadingState" class="loading hidden">
+        <div class="spinner"></div>
+      </div>
+    </section>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 2rem 0; color: #BDBDBD; font-size: 0.875rem;">
+    <div class="container">
+      <p>&copy; 2026 Onde Vai Passar Futebol Hoje. Todos os direitos reservados.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="sobre.html">Sobre</a> •
+        <a href="contato.html">Contato</a> •
+        <a href="privacidade.html">Privacidade</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="router.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

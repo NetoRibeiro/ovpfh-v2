@@ -1,0 +1,294 @@
+{
+  "matches": [
+    {
+      "id": "paulistao26-saopaulo-vs-corinthians-18-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "saopaulo",
+      "awayTeam": "corinthians",
+      "matchDate": "2026-01-18T21:30:00-03:00",
+      "venue": {
+        "name": "Morumbi",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "round": "1ª Rodada",
+      "group": "Grupo A vs Grupo C",
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "logo": "/assets/canais/premiere.png",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "HBO Max",
+          "logo": "/assets/canais/hbo-max.png",
+          "type": "streaming"
+        }
+      ]
+    },
+    {
+      "id": "paulistao26-palmeiras-vs-santos-19-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "palmeiras",
+      "awayTeam": "santos",
+      "matchDate": "2026-01-19T18:30:00-03:00",
+      "venue": {
+        "name": "Allianz Parque",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "round": "1ª Rodada",
+      "group": "Grupo B vs Grupo D",
+      "broadcasting": [
+        {
+          "channel": "Record",
+          "logo": "/assets/canais/record.png",
+          "type": "tv-aberta"
+        },
+        {
+          "channel": "Nosso Futebol",
+          "logo": "",
+          "type": "streaming"
+        }
+      ]
+    },
+    {
+      "id": "carioca26-flamengo-vs-vasco-20-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "flamengo",
+      "awayTeam": "vasco",
+      "matchDate": "2026-01-20T16:00:00-03:00",
+      "venue": {
+        "name": "Maracanã",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "status": "live",
+      "isLive": true,
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "round": "2ª Rodada",
+      "group": "Grupo A",
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "logo": "/assets/canais/sportv.png",
+          "type": "pay-tv"
+        },
+        {
+          "channel": "Premiere",
+          "logo": "/assets/canais/premiere.png",
+          "type": "pay-tv"
+        }
+      ]
+    },
+    {
+      "id": "carioca26-botafogo-vs-fluminense-21-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "botafogo",
+      "awayTeam": "fluminense",
+      "matchDate": "2026-01-21T21:30:00-03:00",
+      "venue": {
+        "name": "Nilton Santos",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "round": "2ª Rodada",
+      "group": "Grupo B",
+      "broadcasting": [
+        {
+          "channel": "Band",
+          "logo": "/assets/canais/band.png",
+          "type": "tv-aberta"
+        }
+      ]
+    },
+    {
+      "id": "paulistao26-redballbauru-vs-pontepreta-20-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "redballbauru",
+      "awayTeam": "pontepreta",
+      "matchDate": "2026-01-20T20:00:00-03:00",
+      "venue": {
+        "name": "Nabi Abi Chedid",
+        "city": "Bragança Paulista",
+        "state": "SP"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "round": "1ª Rodada",
+      "group": "Grupo B vs Grupo A",
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "logo": "/assets/canais/premiere.png",
+          "type": "pay-tv"
+        }
+      ]
+    },
+    {
+      "id": "paulistao26-mirassol-vs-guarani-22-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "mirassol",
+      "awayTeam": "guarani",
+      "matchDate": "2026-01-22T19:00:00-03:00",
+      "venue": {
+        "name": "José Maria de Campos Maia",
+        "city": "Mirassol",
+        "state": "SP"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "round": "2ª Rodada",
+      "group": "Grupo D vs Grupo B",
+      "broadcasting": [
+        {
+          "channel": "Nosso Futebol",
+          "logo": "",
+          "type": "streaming"
+        },
+        {
+          "channel": "YouTube Paulistão",
+          "logo": "",
+          "type": "streaming"
+        }
+      ]
+    },
+    {
+      "id": "carioca26-voltaredonda-vs-bangu-22-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "voltaredonda",
+      "awayTeam": "bangu",
+      "matchDate": "2026-01-22T20:30:00-03:00",
+      "venue": {
+        "name": "Raulino de Oliveira",
+        "city": "Volta Redonda",
+        "state": "RJ"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "round": "3ª Rodada",
+      "group": "Grupo B vs Grupo A",
+      "broadcasting": [
+        {
+          "channel": "SporTV",
+          "logo": "/assets/canais/sportv.png",
+          "type": "pay-tv"
+        }
+      ]
+    },
+    {
+      "id": "paulistao26-aguasantaense-vs-ituano-23-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "aguasantaense",
+      "awayTeam": "ituano",
+      "matchDate": "2026-01-23T20:00:00-03:00",
+      "venue": {
+        "name": "Distrital do Inamar",
+        "city": "Diadema",
+        "state": "SP"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "round": "2ª Rodada",
+      "group": "Grupo C vs Grupo D",
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "logo": "/assets/canais/premiere.png",
+          "type": "pay-tv"
+        }
+      ]
+    },
+    {
+      "id": "carioca26-boavista-vs-novaigrj-24-01-2026",
+      "tournament": "carioca26",
+      "homeTeam": "boavista",
+      "awayTeam": "novaigrj",
+      "matchDate": "2026-01-24T18:00:00-03:00",
+      "venue": {
+        "name": "Elcyr Resende",
+        "city": "Bacaxá",
+        "state": "RJ"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "round": "3ª Rodada",
+      "group": "Grupo A vs Grupo B",
+      "broadcasting": [
+        {
+          "channel": "Band",
+          "logo": "/assets/canais/band.png",
+          "type": "tv-aberta"
+        }
+      ]
+    },
+    {
+      "id": "paulistao26-botafogosp-vs-novorizontino-25-01-2026",
+      "tournament": "paulistao26",
+      "homeTeam": "botafogosp",
+      "awayTeam": "novorizontino",
+      "matchDate": "2026-01-25T16:00:00-03:00",
+      "venue": {
+        "name": "Santa Cruz",
+        "city": "Ribeirão Preto",
+        "state": "SP"
+      },
+      "status": "scheduled",
+      "isLive": false,
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "round": "2ª Rodada",
+      "group": "Grupo C vs Grupo A",
+      "broadcasting": [
+        {
+          "channel": "Nosso Futebol",
+          "logo": "",
+          "type": "streaming"
+        }
+      ]
+    }
+  ]
+}

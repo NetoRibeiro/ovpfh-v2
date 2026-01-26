@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeonato Paulista 2026 - Onde Vai Passar Futebol Hoje</title>
+    <meta name="description"
+        content="Acompanhe todos os jogos do Campeonato Paulista 2026. Veja onde assistir, horários e classificação do Paulistão.">
+    <meta name="keywords" content="paulistão 2026, campeonato paulista, onde assistir, jogos de hoje, futebol paulista">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Campeonato Paulista 2026 - Onde Vai Passar">
+    <meta property="og:description" content="Todos os jogos do Paulistão 2026 com horários e canais de transmissão">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../router.js" defer></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-top">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚽</span>
+                    <span class="logo-text">Onde Vai Passar Futebol Hoje</span>
+                </a>
+            </div>
+
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" style="margin-top: 1rem;">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="../campeonatos.html">Campeonatos</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Paulistão 2026</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Tournament Hero -->
+        <section class="tournament-hero">
+            <div class="tournament-hero-content">
+                <div class="tournament-logo">
+                    <img src="../assets/campeonatos/paulistao.png" alt="Paulistão" onerror="this.style.display='none'">
+                </div>
+                <div class="tournament-info">
+                    <h1 class="tournament-title" id="tournament-name">Campeonato Paulista 2026</h1>
+                    <p class="tournament-phase" id="tournament-phase">Fase de Grupos</p>
+                    <p class="tournament-description" id="tournament-description">
+                        O Campeonato Paulista é a competição de futebol mais tradicional do estado de São Paulo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Matches -->
+        <section class="matches-section" id="live-section" style="display: none;">
+            <h2 class="section-title">
+                <span class="accent-bar"></span>
+                🔴 Jogos Ao Vivo
+            </h2>
+            <div class="matches-grid" id="live-matches"></div>
+        </section>
+
+        <!-- Upcoming Matches -->
+        <section class="matches-section">
+            <h2 class="section-title">
+                <span class="accent-bar"></span>
+                📅 Próximos Jogos
+            </h2>
+            <div class="matches-grid" id="upcoming-matches">
+                <div class="loading">Carregando jogos...</div>
+            </div>
+        </section>
+
+        <!-- Standings (Optional - can be added later) -->
+        <section class="standings-section" style="margin-top: 3rem;">
+            <h2 class="section-title">
+                <span class="accent-bar"></span>
+                📊 Classificação
+            </h2>
+            <div class="standings-placeholder"
+                style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                <p style="color: rgba(255, 255, 255, 0.6);">Tabela de classificação será adicionada em breve</p>
+            </div>
+        </section>
+
+        <!-- Tournament Info -->
+        <section class="tournament-details" style="margin-top: 3rem;">
+            <h2 class="section-title">
+                <span class="accent-bar"></span>
+                ℹ️ Sobre o Campeonato
+            </h2>
+            <div class="tournament-details-grid">
+                <div class="detail-card">
+                    <h3>Formato</h3>
+                    <p id="tournament-format">Os 16 times são divididos em 4 grupos. Os dois melhores de cada grupo
+                        avançam para as quartas de final.</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Transmissão</h3>
+                    <p id="tournament-broadcasting">Premiere, HBO Max, Nosso Futebol, Record, YouTube</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Período</h3>
+                    <p id="tournament-period">15 Jan - 30 Abr 2026</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Times Participantes</h3>
+                    <p>16 equipes</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Onde Vai Passar Futebol Hoje. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../campeonatos.html">Campeonatos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tournament-specific JavaScript
+        const TOURNAMENT_ID = 'paulistao26';
+
+        let tournamentData = null;
+        let matches = [];
+
+        async function loadTournamentData() {
+            try {
+                // Load data using router
+                await router.loadData();
+
+                // Get tournament data
+                tournamentData = router.getTournamentBySlug(TOURNAMENT_ID);
+
+                if (!tournamentData) {
+                    console.error('Tournament not found');
+                    return;
+                }
+
+                // Update page with tournament info
+                updateTournamentInfo();
+
+                // Get matches for this tournament
+                matches = router.getUpcomingMatchesByTournament(TOURNAMENT_ID, 20);
+
+                // Render matches
+                renderMatches();
+
+                // Check for live matches
+                const liveMatches = matches.filter(m => m.isLive);
+                if (liveMatches.length > 0) {
+                    renderLiveMatches(liveMatches);
+                }
+
+            } catch (error) {
+                console.error('Error loading tournament data:', error);
+                document.getElementById('upcoming-matches').innerHTML =
+                    '<div class="empty-state"><p>Erro ao carregar dados do campeonato</p></div>';
+            }
+        }
+
+        function updateTournamentInfo() {
+            if (!tournamentData) return;
+
+            document.getElementById('tournament-name').textContent = tournamentData.name;
+            document.getElementById('tournament-phase').textContent = tournamentData.phase || 'Em andamento';
+            document.getElementById('tournament-description').textContent = tournamentData.description || '';
+            document.getElementById('tournament-format').textContent = tournamentData.format || 'Informações não disponíveis';
+
+            if (tournamentData.broadcasting) {
+                document.getElementById('tournament-broadcasting').textContent = tournamentData.broadcasting.join(', ');
+            }
+
+            if (tournamentData.startDate && tournamentData.endDate) {
+                const start = new Date(tournamentData.startDate).toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' });
+                const end = new Date(tournamentData.endDate).toLocaleDateString('pt-BR', { day: 'numeric', month: 'short', year: 'numeric' });
+                document.getElementById('tournament-period').textContent = `${start} - ${end}`;
+            }
+
+            // Update page title
+            document.title = `${tournamentData.name} - Onde Vai Passar Futebol Hoje`;
+        }
+
+        function renderMatches() {
+            const container = document.getElementById('upcoming-matches');
+
+            if (matches.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>Nenhum jogo agendado no momento</p></div>';
+                return;
+            }
+
+            const regularMatches = matches.filter(m => !m.isLive);
+            container.innerHTML = regularMatches.map(match => createMatchCard(match)).join('');
+
+            // Add click handlers
+            container.querySelectorAll('.match-card').forEach((card, index) => {
+                card.addEventListener('click', () => {
+                    const match = regularMatches[index];
+                    navigateToMatch(match);
+                });
+            });
+        }
+
+        function renderLiveMatches(liveMatches) {
+            const section = document.getElementById('live-section');
+            const container = document.getElementById('live-matches');
+
+            section.style.display = 'block';
+            container.innerHTML = liveMatches.map(match => createMatchCard(match)).join('');
+
+            // Add click handlers
+            container.querySelectorAll('.match-card').forEach((card, index) => {
+                card.addEventListener('click', () => {
+                    navigateToMatch(liveMatches[index]);
+                });
+            });
+        }
+
+        function createMatchCard(match) {
+            const homeTeam = router.getTeamBySlug(match.homeTeam);
+            const awayTeam = router.getTeamBySlug(match.awayTeam);
+            const time = router.formatTime(match.matchDate);
+            const date = router.formatDateShort(match.matchDate);
+
+            const liveClass = match.isLive ? 'match-card-live' : '';
+            const liveBadge = match.isLive ? '<span class="live-badge"><span class="live-dot"></span>AO VIVO</span>' : '';
+
+            const scoreDisplay = match.score && (match.score.home !== null || match.score.away !== null)
+                ? `<div class="match-score">${match.score.home} x ${match.score.away}</div>`
+                : '';
+
+            return `
+                <div class="match-card ${liveClass}" style="cursor: pointer;">
+                    <div class="match-header">
+                        <span class="match-time">${time}</span>
+                        <span class="match-date">${date}</span>
+                        ${liveBadge}
+                        <span class="match-league">${match.round || ''}</span>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team team-home">
+                            <img src="${homeTeam?.logo || ''}" alt="${homeTeam?.name || ''}" class="team-logo" onerror="this.style.display='none'">
+                            <span class="team-name">${homeTeam?.name || match.homeTeam}</span>
+                        </div>
+                        <div class="match-vs">
+                            ${scoreDisplay || '<span class="vs-text">VS</span>'}
+                        </div>
+                        <div class="team team-away">
+                            <img src="${awayTeam?.logo || ''}" alt="${awayTeam?.name || ''}" class="team-logo" onerror="this.style.display='none'">
+                            <span class="team-name">${awayTeam?.name || match.awayTeam}</span>
+                        </div>
+                    </div>
+                    <div class="match-broadcast">
+                        ${match.broadcasting.map(channel => `
+                            <span class="channel-badge">
+                                ${channel.logo ? `<img src="${channel.logo}" alt="${channel.name}" class="channel-logo" onerror="this.style.display='none'">` : ''}
+                                <span class="channel-name">${channel.channel}</span>
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function navigateToMatch(match) {
+            if (match.matchURL) {
+                window.location.href = match.matchURL;
+                return;
+            }
+            const url = router.buildMatchURL(
+                match.tournament,
+                match.homeTeam,
+                match.awayTeam,
+                match.matchDate
+            );
+            window.location.href = url;
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadTournamentData);
+    </script>
+
+    <style>
+        .tournament-hero {
+            background: linear-gradient(135deg, rgba(0, 26, 51, 0.95) 0%, rgba(0, 8, 20, 0.95) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tournament-hero-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .tournament-logo {
+            flex-shrink: 0;
+        }
+
+        .tournament-logo img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .tournament-info {
+            flex: 1;
+        }
+
+        .tournament-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FFD700;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .tournament-phase {
+            display: inline-block;
+            background: rgba(242, 255, 0, 0.1);
+            color: #F2FF00;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tournament-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .tournament-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .detail-card h3 {
+            color: #FFD700;
+            font-size: 1rem;
+            margin: 0 0 0.75rem 0;
+            font-weight: 700;
+        }
+
+        .detail-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .match-score {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            .tournament-hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tournament-logo img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .tournament-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</body>
+
+</html>

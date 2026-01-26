@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Time - Onde Vai Passar Futebol Hoje</title>
+    <meta name="description" id="page-description" content="Veja todos os jogos do time">
+
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../router.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-top">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚽</span>
+                    <span class="logo-text">Onde Vai Passar Futebol Hoje</span>
+                </a>
+            </div>
+
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" style="margin-top: 1rem;">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current" id="breadcrumb-team">Time</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div id="loading-state" class="loading-container">
+            <div class="loading">Carregando informações do time...</div>
+        </div>
+
+        <div id="team-content" style="display: none;">
+            <!-- Team Hero -->
+            <section class="team-hero">
+                <div class="team-hero-content">
+                    <img src="" alt="" id="team-logo" class="team-hero-logo" onerror="this.style.display='none'">
+                    <div class="team-hero-info">
+                        <h1 id="team-name" class="team-hero-name">Nome do Time</h1>
+                        <div class="team-meta">
+                            <span id="team-founded">📅 Fundado em 0000</span>
+                            <span id="team-stadium">🏟️ Estádio</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Upcoming Matches -->
+            <section class="matches-section">
+                <h2 class="section-title">
+                    <span class="accent-bar"></span>
+                    📅 Próximos Jogos
+                </h2>
+                <div id="upcoming-matches" class="matches-grid">
+                    <div class="empty-state"><p>Nenhum jogo agendado</p></div>
+                </div>
+            </section>
+
+            <!-- Recent Matches -->
+            <section class="matches-section" id="recent-section" style="display: none;">
+                <h2 class="section-title">
+                    <span class="accent-bar"></span>
+                    📊 Resultados Recentes
+                </h2>
+                <div id="recent-matches" class="matches-grid"></div>
+            </section>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" style="display: none;">
+            <div class="empty-state">
+                <h2>⚠️ Time não encontrado</h2>
+                <p>Desculpe, não encontramos informações sobre este time.</p>
+                <a href="../index.html" class="btn-primary">Voltar para Home</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Onde Vai Passar Futebol Hoje. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../campeonatos.html">Campeonatos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let teamData = null;
+        let upcomingMatches = [];
+        let recentMatches = [];
+
+        async function loadTeamData() {
+            try {
+                // Load router data
+                await router.loadData();
+
+                // Get team slug from URL
+                const pathname = window.location.pathname;
+                const parts = pathname.split('/').filter(p => p);
+
+                // Expecting: /times/saopaulo or /team/saopaulo
+                if (parts.length < 2) {
+                    showError();
+                    return;
+                }
+
+                const teamSlug = parts[parts.length - 1].replace('.html', '');
+
+                // Get team data
+                teamData = router.getTeamBySlug(teamSlug);
+
+                if (!teamData) {
+                    showError();
+                    return;
+                }
+
+                // Get matches
+                upcomingMatches = router.getUpcomingMatchesByTeam(teamData.slug, 10);
+                recentMatches = router.getRecentMatchesByTeam(teamData.slug, 5);
+
+                // Render team info
+                renderTeamInfo();
+
+                // Render matches
+                renderUpcomingMatches();
+                if (recentMatches.length > 0) {
+                    renderRecentMatches();
+                }
+
+                // Show content
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('team-content').style.display = 'block';
+
+            } catch (error) {
+                console.error('Error loading team data:', error);
+                showError();
+            }
+        }
+
+        function renderTeamInfo() {
+            if (!teamData) return;
+
+            // Update page title
+            document.title = `${teamData.name} - Onde Vai Passar Futebol Hoje`;
+            document.getElementById('page-title').textContent = `${teamData.name} - Onde Vai Passar`;
+
+            // Update breadcrumb
+            document.getElementById('breadcrumb-team').textContent = teamData.name;
+
+            // Update hero
+            if (teamData.logo) {
+                document.getElementById('team-logo').src = teamData.logo;
+            }
+            document.getElementById('team-name').textContent = teamData.name;
+
+            if (teamData.founded) {
+                document.getElementById('team-founded').textContent = `📅 Fundado em ${teamData.founded}`;
+            }
+
+            if (teamData.stadium) {
+                document.getElementById('team-stadium').textContent = `🏟️ ${teamData.stadium}`;
+            }
+        }
+
+        function renderUpcomingMatches() {
+            const container = document.getElementById('upcoming-matches');
+
+            if (upcomingMatches.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>Nenhum jogo agendado no momento</p></div>';
+                return;
+            }
+
+            container.innerHTML = upcomingMatches.map(match => createMatchCard(match)).join('');
+            addMatchClickHandlers(container, upcomingMatches);
+        }
+
+        function renderRecentMatches() {
+            const section = document.getElementById('recent-section');
+            const container = document.getElementById('recent-matches');
+
+            section.style.display = 'block';
+            container.innerHTML = recentMatches.map(match => createMatchCard(match)).join('');
+            addMatchClickHandlers(container, recentMatches);
+        }
+
+        function createMatchCard(match) {
+            const homeTeam = router.getTeamBySlug(match.homeTeam);
+            const awayTeam = router.getTeamBySlug(match.awayTeam);
+            const tournament = router.getTournamentBySlug(match.tournament);
+            const time = router.formatTime(match.matchDate);
+            const date = router.formatDateShort(match.matchDate);
+
+            const liveClass = match.isLive ? 'match-card-live' : '';
+            const liveBadge = match.isLive ? '<span class="live-badge"><span class="live-dot"></span>AO VIVO</span>' : '';
+
+            const scoreDisplay = match.score && (match.score.home !== null || match.score.away !== null)
+                ? `<div class="match-score">${match.score.home} x ${match.score.away}</div>`
+                : '';
+
+            return `
+                <div class="match-card ${liveClass}" style="cursor: pointer;" data-match-id="${match.id}">
+                    <div class="match-header">
+                        <span class="match-time">${time}</span>
+                        <span class="match-date">${date}</span>
+                        ${liveBadge}
+                        <span class="match-league">${tournament?.shortName || ''}</span>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team team-home">
+                            <img src="${homeTeam?.logo || ''}" alt="${homeTeam?.name || ''}" class="team-logo" onerror="this.style.display='none'">
+                            <span class="team-name">${homeTeam?.name || match.homeTeam}</span>
+                        </div>
+                        <div class="match-vs">
+                            ${scoreDisplay || '<span class="vs-text">VS</span>'}
+                        </div>
+                        <div class="team team-away">
+                            <img src="${awayTeam?.logo || ''}" alt="${awayTeam?.name || ''}" class="team-logo" onerror="this.style.display='none'">
+                            <span class="team-name">${awayTeam?.name || match.awayTeam}</span>
+                        </div>
+                    </div>
+                    <div class="match-broadcast">
+                        ${match.broadcasting.map(channel => `
+                            <span class="channel-badge">
+                                ${channel.logo ? `<img src="${channel.logo}" alt="${channel.name}" class="channel-logo" onerror="this.style.display='none'">` : ''}
+                                <span class="channel-name">${channel.channel}</span>
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function addMatchClickHandlers(container, matches) {
+            container.querySelectorAll('.match-card').forEach((card, index) => {
+                card.addEventListener('click', () => {
+                    const match = matches[index];
+                    const url = router.buildMatchURL(
+                        match.tournament,
+                        match.homeTeam,
+                        match.awayTeam,
+                        match.matchDate
+                    );
+                    window.location.href = '../' + url;
+                });
+            });
+        }
+
+        function showError() {
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('team-content').style.display = 'none';
+            document.getElementById('error-state').style.display = 'block';
+        }
+
+        // Load team data when page loads
+        document.addEventListener('DOMContentLoaded', loadTeamData);
+    </script>
+
+    <style>
+        .loading-container {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-hero {
+            background: linear-gradient(135deg, rgba(0, 26, 51, 0.95) 0%, rgba(0, 8, 20, 0.95) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-hero-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .team-hero-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .team-hero-info {
+            flex: 1;
+        }
+
+        .team-hero-name {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #FFD700;
+            margin: 0 0 1rem 0;
+        }
+
+        .team-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .team-meta span {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #FFD700 0%, #F2FF00 100%);
+            color: #001A33;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .team-hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .team-hero-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .team-hero-name {
+                font-size: 1.75rem;
+            }
+
+            .team-meta {
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "scraped_at": "2026-01-16T02:01:21.474673",
+  "source": "https://www.cadeojogo.com.br",
+  "api_check": {
+    "found_apis": [],
+    "potential_endpoints": [],
+    "notes": []
+  },
+  "matches": [
+    {
+      "rodada": null,
+      "date": null,
+      "time": null,
+      "home_team": "L",
+      "away_team": "cj",
+      "broadcast": null,
+      "raw_text": "��\u0011U�\u001fbFjR\u000f�F����g�\u001e��̦���Ӌ��c���%�@JZc ��F�n��ȶ\fJ�D-�%���o��?�zeZ�+���b؇��\u001e��8�?�yYڱ�e-�[�l\u0015�P�2ET�~���m��xeB�E\u000e��8_K&\b�\u000bbҾ��oWw��5=�*\\U�$�ȨY�Z\u0019އ��\u0002/�\u0016\f�c`�.I��K/�\u001c�3_\u0006��9;��.cC�\u001cP|�\u0018f�{�%����kl-���"
+    }
+  ],
+  "rodadas": {
+    "unknown": [
+      {
+        "rodada": null,
+        "date": null,
+        "time": null,
+        "home_team": "L",
+        "away_team": "cj",
+        "broadcast": null,
+        "raw_text": "��\u0011U�\u001fbFjR\u000f�F����g�\u001e��̦���Ӌ��c���%�@JZc ��F�n��ȶ\fJ�D-�%���o��?�zeZ�+���b؇��\u001e��8�?�yYڱ�e-�[�l\u0015�P�2ET�~���m��xeB�E\u000e��8_K&\b�\u000bbҾ��oWw��5=�*\\U�$�ȨY�Z\u0019އ��\u0002/�\u0016\f�c`�.I��K/�\u001c�3_\u0006��9;��.cC�\u001cP|�\u0018f�{�%����kl-���"
+      }
+    ]
+  },
+  "errors": []
+}

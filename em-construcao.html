@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página em Construção - Onde Vai Passar Futebol Hoje</title>
+    <meta name="description" content="Página do campeonato em construção. Entre em contato para mais informações.">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-top">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">⚽</span>
+                    <span class="logo-text">Onde Vai Passar Futebol Hoje</span>
+                </a>
+            </div>
+
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" style="margin-top: 1rem;">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="campeonatos.html">Campeonatos</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Em Construção</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Under Construction Hero -->
+        <section class="construction-hero">
+            <div class="construction-icon">🚧</div>
+            <h1 class="construction-title">Página do Campeonato em Construção</h1>
+            <p class="construction-subtitle" id="tournament-name"></p>
+            <p class="construction-description">
+                Estamos trabalhando para trazer todas as informações deste campeonato em breve!
+            </p>
+        </section>
+
+        <!-- Available Tournaments -->
+        <section class="available-tournaments">
+            <h2 class="section-title">
+                <span class="accent-bar"></span>
+                ✅ Campeonatos Disponíveis
+            </h2>
+            <div class="tournament-cards">
+                <a href="campeonatos/paulistao26.html" class="tournament-card-link">
+                    <div class="tournament-card">
+                        <div class="tournament-card-logo">
+                            <img src="assets/campeonatos/paulistao.png" alt="Paulistão" onerror="this.style.display='none'">
+                        </div>
+                        <h3>Campeonato Paulista 2026</h3>
+                        <p>Todos os jogos do Paulistão</p>
+                        <span class="badge-active">Disponível</span>
+                    </div>
+                </a>
+
+                <a href="campeonatos/carioca26.html" class="tournament-card-link">
+                    <div class="tournament-card">
+                        <div class="tournament-card-logo">
+                            <img src="assets/campeonatos/carioca.png" alt="Carioca" onerror="this.style.display='none'">
+                        </div>
+                        <h3>Campeonato Carioca 2026</h3>
+                        <p>Todos os jogos do Cariocão</p>
+                        <span class="badge-active">Disponível</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <h2 class="section-title">
+                <span class="accent-bar"></span>
+                📧 Preencha o formulário para maiores informações
+            </h2>
+
+            <div class="contact-form-container">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome *</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tournament">Campeonato de Interesse *</label>
+                        <select id="tournament" name="tournament" required>
+                            <option value="">Selecione um campeonato</option>
+                            <option value="mineiro26">Campeonato Mineiro 2026</option>
+                            <option value="gaucho26">Campeonato Gaúcho 2026</option>
+                            <option value="pernambucano26">Campeonato Pernambucano 2026</option>
+                            <option value="baiano26">Campeonato Baiano 2026</option>
+                            <option value="catarinense26">Campeonato Catarinense 2026</option>
+                            <option value="paranaense26">Campeonato Paranaense 2026</option>
+                            <option value="outro">Outro campeonato</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Conte-nos o que você gostaria de ver nesta página..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span class="btn-text">Enviar Mensagem</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+
+                    <div id="form-feedback" class="form-feedback" style="display: none;"></div>
+                </form>
+
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <p>Enquanto isso, você pode:</p>
+                    <ul>
+                        <li>📅 Ver os jogos de hoje na <a href="index.html">página inicial</a></li>
+                        <li>🏆 Explorar os <a href="campeonatos.html">campeonatos disponíveis</a></li>
+                        <li>⚽ Acompanhar seus times favoritos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Onde Vai Passar Futebol Hoje. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="campeonatos.html">Campeonatos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get tournament from URL parameter if present
+        const urlParams = new URLSearchParams(window.location.search);
+        const tournamentParam = urlParams.get('tournament');
+
+        if (tournamentParam) {
+            const tournamentNames = {
+                'mineiro26': 'Campeonato Mineiro 2026',
+                'gaucho26': 'Campeonato Gaúcho 2026',
+                'pernambucano26': 'Campeonato Pernambucano 2026',
+                'baiano26': 'Campeonato Baiano 2026',
+                'catarinense26': 'Campeonato Catarinense 2026',
+                'paranaense26': 'Campeonato Paranaense 2026'
+            };
+
+            const tournamentName = tournamentNames[tournamentParam] || tournamentParam;
+            document.getElementById('tournament-name').textContent = tournamentName;
+            document.getElementById('tournament').value = tournamentParam;
+            document.title = `${tournamentName} - Em Construção`;
+        }
+
+        // Form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+
+            // Show feedback
+            const feedback = document.getElementById('form-feedback');
+            feedback.style.display = 'block';
+            feedback.className = 'form-feedback form-feedback-success';
+            feedback.textContent = '✅ Mensagem enviada com sucesso! Entraremos em contato em breve.';
+
+            // Store in localStorage for demonstration
+            const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+            submissions.push({
+                ...data,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+
+            // Reset form
+            e.target.reset();
+
+            // Hide feedback after 5 seconds
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 5000);
+
+            console.log('Form submitted:', data);
+        });
+    </script>
+
+    <style>
+        .construction-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 26, 51, 0.95) 0%, rgba(0, 8, 20, 0.95) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
+            margin-bottom: 3rem;
+        }
+
+        .construction-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .construction-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #FFD700;
+            margin: 0 0 1rem 0;
+        }
+
+        .construction-subtitle {
+            font-size: 1.5rem;
+            color: #F2FF00;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .construction-description {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .available-tournaments {
+            margin-bottom: 3rem;
+        }
+
+        .tournament-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tournament-card-link {
+            text-decoration: none;
+        }
+
+        .tournament-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tournament-card:hover {
+            transform: translateY(-4px);
+            border-color: #FFD700;
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.2);
+        }
+
+        .tournament-card-logo {
+            margin-bottom: 1rem;
+        }
+
+        .tournament-card-logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .tournament-card h3 {
+            color: #FFD700;
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .tournament-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 0 1rem 0;
+        }
+
+        .badge-active {
+            display: inline-block;
+            background: rgba(0, 255, 65, 0.2);
+            color: #00FF41;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .contact-section {
+            margin-top: 3rem;
+        }
+
+        .contact-form-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #FFD700 0%, #F2FF00 100%);
+            border: none;
+            border-radius: 8px;
+            color: #001A33;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-icon {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-submit:hover .btn-icon {
+            transform: translateX(4px);
+        }
+
+        .form-feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-feedback-success {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            color: #00FF41;
+        }
+
+        .form-feedback-error {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #FF0000;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .contact-info h3 {
+            color: #FFD700;
+            margin: 0 0 1rem 0;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            color: #F2FF00;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            .construction-title {
+                font-size: 1.75rem;
+            }
+
+            .construction-icon {
+                font-size: 3rem;
+            }
+
+            .contact-form-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tournament-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
