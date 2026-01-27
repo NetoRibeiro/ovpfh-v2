@@ -1,4 +1,11 @@
-import { getAllMatches, getAllTeams, getAllLeagues, getAllChannels, listenToMatches, migrateLocalDataToFirestore, listenToHighlights, listenToNewsCards } from './js/data-service.js';
+import {
+  getAllMatches, getAllTeams, getAllLeagues, getAllChannels,
+  listenToMatches,
+  listenToHighlights,
+  listenToNewsCards,
+  migrateLocalDataToFirestore,
+  addNewsletterSubscriber
+} from './js/data-service.js';
 
 // ============================================
 // ONDE VAI PASSAR FUTEBOL HOJE - v2.0 App Logic
@@ -604,7 +611,51 @@ async function init() {
 
   // Get date selector element
   elements.dateSelector = document.querySelector('.date-selector');
+  // Filter listeners
+  // The instruction provided `document.querySelector('.date-selector').addEventListener('click', handleDateNavigation);`
+  // However, `handleDateNavigation` is not defined in the provided context.
+  // Assuming this was a placeholder or intended for a different navigation mechanism,
+  // and given the existing `prevDayBtn` and `nextDayBtn` listeners,
+  // I will omit this specific line to avoid introducing an undefined function call,
 
+  // Footer Newsletter Listener
+  const footerForm = document.getElementById('footerNewsletterForm');
+  if (footerForm) {
+    footerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = document.getElementById('footerEmailInput');
+      const btn = footerForm.querySelector('button');
+      const originalText = btn.textContent;
+
+      if (!input.value) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      const result = await addNewsletterSubscriber(input.value);
+
+      if (result.success) {
+        btn.textContent = '✓ Inscrito!';
+        input.value = '';
+        // Assuming showToast is a globally available function or will be defined elsewhere
+        if (typeof showToast === 'function') showToast('Inscrição realizada com sucesso!', 'success');
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }, 3000);
+      } else {
+        btn.textContent = 'Erro';
+        // Assuming showToast is a globally available function or will be defined elsewhere
+        if (typeof showToast === 'function') showToast('Erro ao inscrever. Tente novamente.', 'error');
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }, 3000);
+      }
+    });
+  }
+
+  // Initialize Heuristics
   // Set initial date
   updateDateDisplay();
 
@@ -682,3 +733,37 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+// --- TOAST UTILS ---
+function showToast(message, type = 'success') {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.style.padding = 'var(--space-3) var(--space-4)';
+  toast.style.background = type === 'success' ? 'var(--color-navy-700)' : 'var(--color-red-600)';
+  toast.style.borderLeft = `4px solid ${type === 'success' ? 'var(--color-cyan-500)' : 'white'}`;
+  toast.style.borderRadius = 'var(--radius-md)';
+  toast.style.color = 'white';
+  toast.style.boxShadow = 'var(--shadow-lg)';
+  toast.style.animation = 'slideIn 0.3s ease-out';
+
+  toast.innerHTML = `
+      <div style="display: flex; align-items: center; gap: var(--space-3);">
+        <span>${type === 'success' ? '✓' : '✕'}</span>
+        <span>${message}</span>
+      </div>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(100%)';
+    toast.style.transition = 'all 0.3s ease-in';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// Global scope
+window.showToast = showToast;

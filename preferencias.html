@@ -79,6 +79,40 @@
             </div>
         </section>
 
+        <!-- Newsletter Preferences Section -->
+        <section class="pref-section">
+            <h2 class="pref-title">📧 Notificações e Newsletter</h2>
+            <div class="pref-options-list">
+                <label class="pref-checkbox-item">
+                    <input type="checkbox" id="newsOwn" onchange="updateNewsletterPref('own', this.checked)">
+                    <span class="checkmark"></span>
+                    <div class="pref-text">
+                        <strong>Newsletter OVPFH</strong>
+                        <p>Receba as melhores dicas de jogos, destaques e novidades da nossa plataforma.</p>
+                    </div>
+                </label>
+
+                <label class="pref-checkbox-item">
+                    <input type="checkbox" id="newsPartners" onchange="updateNewsletterPref('partners', this.checked)">
+                    <span class="checkmark"></span>
+                    <div class="pref-text">
+                        <strong>Ofertas de Parceiros</strong>
+                        <p>Descontos exclusivos em camisas, streamings e produtos de futebol.</p>
+                    </div>
+                </label>
+
+                <label class="pref-checkbox-item">
+                    <input type="checkbox" id="newsThirdParty"
+                        onchange="updateNewsletterPref('thirdParty', this.checked)">
+                    <span class="checkmark"></span>
+                    <div class="pref-text">
+                        <strong>Conteúdo de Terceiros</strong>
+                        <p>Notícias e ofertas selecionadas de outras empresas confiáveis.</p>
+                    </div>
+                </label>
+            </div>
+        </section>
+
         <!-- Save Actions -->
         <div class="save-actions">
             <button id="cancelBtn" class="btn btn-ghost">Cancelar</button>

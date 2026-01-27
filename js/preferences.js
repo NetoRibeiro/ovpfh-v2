@@ -18,7 +18,12 @@ let allTournaments = [];
 let userPrefs = {
     countries: [],
     leagues: [],
-    teams: []
+    teams: [],
+    newsletter: {
+        own: false,
+        partners: false,
+        thirdParty: false
+    }
 };
 
 const staticCountries = [
@@ -122,6 +127,21 @@ function renderPreferences() {
     renderCountries();
     renderLeagues();
     renderTeams();
+    renderNewsletter();
+}
+
+function renderNewsletter() {
+    const newsPrefs = userPrefs.newsletter || {};
+
+    const checkboxes = {
+        'own': document.getElementById('newsOwn'),
+        'partners': document.getElementById('newsPartners'),
+        'thirdParty': document.getElementById('newsThirdParty')
+    };
+
+    if (checkboxes.own) checkboxes.own.checked = !!newsPrefs.own;
+    if (checkboxes.partners) checkboxes.partners.checked = !!newsPrefs.partners;
+    if (checkboxes.thirdParty) checkboxes.thirdParty.checked = !!newsPrefs.thirdParty;
 }
 
 function renderCountries(filter = '') {
@@ -207,6 +227,13 @@ window.updatePref = (category, id) => {
     } else {
         userPrefs[category].push(id);
     }
+};
+
+window.updateNewsletterPref = (type, isChecked) => {
+    if (!userPrefs.newsletter) {
+        userPrefs.newsletter = { own: false, partners: false, thirdParty: false };
+    }
+    userPrefs.newsletter[type] = isChecked;
 };
 
 async function handleSave() {

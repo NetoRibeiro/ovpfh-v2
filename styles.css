@@ -1102,6 +1102,109 @@ footer a:hover {
   border-radius: var(--radius-lg);
 }
 
+/* Checkbox Preferences */
+.pref-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pref-checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  user-select: none;
+}
+
+.pref-checkbox-item:hover {
+  border-color: var(--color-cyan-500);
+  background: var(--color-navy-700);
+}
+
+.pref-checkbox-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: 2px solid var(--text-tertiary);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+  margin-top: 2px;
+}
+
+.pref-checkbox-item input:checked~.checkmark {
+  background-color: var(--color-cyan-500);
+  border-color: var(--color-cyan-500);
+}
+
+.pref-checkbox-item input:checked~.checkmark::after {
+  content: '✓';
+  color: var(--color-navy-950);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.pref-text strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  margin-bottom: var(--space-1);
+}
+
+.pref-text p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* Footer Newsletter */
+.footer-newsletter {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-primary);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  min-width: 250px;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--color-cyan-500);
+  box-shadow: var(--glow-cyan-sm);
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Small devices (landscape phones, 640px and up) */

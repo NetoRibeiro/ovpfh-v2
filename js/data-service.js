@@ -26,7 +26,10 @@ const COLLECTIONS = {
     LEAGUES: 'leagues',
     CANAIS: 'canais',
     USER_PREFS: 'user_preferences',
-    NEWS: 'news'
+    CANAIS: 'canais',
+    USER_PREFS: 'user_preferences',
+    NEWS: 'news',
+    SUBSCRIBERS: 'newsletter_subscribers'
 };
 
 /**
@@ -206,7 +209,12 @@ export async function getUserPreferences(uid) {
             return {
                 countries: [],
                 leagues: [],
-                teams: []
+                teams: [],
+                newsletter: {
+                    own: false,
+                    partners: false,
+                    thirdParty: false
+                }
             };
         }
     } catch (error) {
@@ -231,6 +239,25 @@ export async function saveUserPreferences(uid, preferences) {
     } catch (error) {
         console.error("Error saving user preferences:", error);
         return { success: false, error: error.message || 'Erro desconhecido' };
+    }
+}
+
+/**
+ * Add email to newsletter subscribers
+ */
+export async function addNewsletterSubscriber(email) {
+    try {
+        // Use email as ID to prevent duplicates (sanitized)
+        const id = email.replace(/[^a-zA-Z0-9]/g, '_');
+        await setDoc(doc(db, COLLECTIONS.SUBSCRIBERS, id), {
+            email: email,
+            subscribedAt: serverTimestamp(),
+            source: 'footer'
+        });
+        return { success: true };
+    } catch (error) {
+        console.error("Error subscribing to newsletter:", error);
+        return { success: false, error: error.message };
     }
 }
 
