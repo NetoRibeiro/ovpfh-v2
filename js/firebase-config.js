@@ -10,13 +10,13 @@ import { getFirestore, enableMultiTabIndexedDbPersistence } from 'https://www.gs
 
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "__FIREBASE_API_KEY__",
-    authDomain: "__FIREBASE_AUTH_DOMAIN__",
-    projectId: "__FIREBASE_PROJECT_ID__",
-    storageBucket: "__FIREBASE_STORAGE_BUCKET__",
-    messagingSenderId: "__FIREBASE_MESSAGING_SENDER_ID__",
-    appId: "__FIREBASE_APP_ID__",
-    measurementId: "__FIREBASE_MEASUREMENT_ID__"
+    apiKey: "AIzaSyB0eoLYyHla5qm7z9fTq5IFIh_ZPjsLj8A",
+    authDomain: "ovpfh-28cee.firebaseapp.com",
+    projectId: "ovpfh-28cee",
+    storageBucket: "ovpfh-28cee.firebasestorage.app",
+    messagingSenderId: "171939062993",
+    appId: "1:171939062993:web:b48a85a3cb6158dfead1f0",
+    measurementId: "G-PLQL8H0RE1"
 };
 
 // Initialize Firebase

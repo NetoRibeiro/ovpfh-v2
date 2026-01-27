@@ -728,9 +728,9 @@ main {
 /* Responsive Grid adjustment */
 @media (min-width: 768px) {
   .matches-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
   }
 }
 
@@ -1129,8 +1129,8 @@ footer a:hover {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .matches-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: var(--space-8);
   }
 
@@ -1165,8 +1165,9 @@ footer a:hover {
 /* Extra large devices (large desktops, 1280px and up) */
 @media (min-width: 1280px) {
   .matches-grid {
-    grid-template-columns: repeat(2, 1fr);
-    /* 2 columns only when sidebars are visible */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
   }
 }
 

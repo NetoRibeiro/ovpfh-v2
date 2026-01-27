@@ -33,14 +33,15 @@ const COLLECTIONS = {
  * Fetch all documents from a collection
  */
 async function getAllFromCollection(collectionName) {
+    console.log(`📡 [Firestore] Requested collection: ${collectionName}`);
     try {
         const querySnapshot = await getDocs(collection(db, collectionName));
         const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        console.log(`📡 Fetched ${data.length} items from ${collectionName}`);
+        console.log(`✅ [Firestore] Received ${data.length} items from ${collectionName}`);
         return data;
     } catch (error) {
-        console.error(`❌ Error fetching collection ${collectionName}:`, error);
-        throw error; // Throw so loadData knows something went wrong
+        console.error(`❌ [Firestore] Error fetching collection ${collectionName}:`, error);
+        throw error;
     }
 }
 
@@ -124,42 +125,68 @@ export async function getLatestNewsCards(limitCount = 3) {
 
 /**
  * Listen for real-time news updates with highlights
+ * Simplified to avoid index errors and catch raw data for debugging
  */
 export function listenToHighlights(callback) {
-    const q = query(
-        collection(db, COLLECTIONS.NEWS),
-        where('is_highlight', '==', true),
-        orderBy('last_updated_date_time', 'desc'),
-        limit(1)
-    );
+    console.log("📡 [News] Starting Highlight listener...");
+    const newsRef = collection(db, COLLECTIONS.NEWS);
+
+    // Simple query: JUST get the latest news items. We will filter is_highlight in JS.
+    // This is the MOST ROBUST way to ensure data shows up without requiring composite indices.
+    const q = query(newsRef, orderBy('last_updated_date_time', 'desc'), limit(10));
+
     return onSnapshot(q, (snapshot) => {
-        const news = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        console.log("⭐ Highlights snapshot received:", news.length);
-        callback(news);
+        const allNews = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log(`⭐ [News] Received ${allNews.length} raw news documents`);
+
+        if (allNews.length > 0) {
+            console.log("📍 [News] First doc sample fields:", Object.keys(allNews[0]).join(', '));
+            console.log("📍 [News] First doc highlight value:", allNews[0].is_highlight);
+        }
+
+        // Find the highlight Document
+        const highlight = allNews.find(item => item.is_highlight === true || item.is_highlight === 'true');
+
+        if (highlight) {
+            console.log("✅ [News] Found highlight document:", highlight.title);
+            callback([highlight]);
+        } else if (allNews.length > 0) {
+            console.warn("⚠️ [News] No item marked as highlight in the latest 10. Using LATEST as fallback highlight.");
+            callback([allNews[0]]);
+        } else {
+            console.warn("⚠️ [News] 'news' collection returned 0 items.");
+            callback([]);
+        }
     }, (error) => {
-        console.error("Highlight real-time listener error:", error);
+        console.error("❌ [News] Highlight snapshot error (Firestore probably unreachable):", error);
     });
 }
 
 /**
  * Listen for real-time news cards updates
- * Uses client-side filtering to avoid index requirements
+ * Simplified to avoid index requirements
  */
 export function listenToNewsCards(callback, limitCount = 3) {
-    const q = query(
-        collection(db, COLLECTIONS.NEWS),
-        orderBy('last_updated_date_time', 'desc'),
-        limit(limitCount + 2)
-    );
+    console.log("📡 [News] Starting News Cards listener...");
+    const newsRef = collection(db, COLLECTIONS.NEWS);
+
+    // Simple query to avoid index errors
+    const q = query(newsRef, orderBy('last_updated_date_time', 'desc'), limit(10));
+
     return onSnapshot(q, (snapshot) => {
-        const news = snapshot.docs
-            .map(doc => ({ id: doc.id, ...doc.data() }))
-            .filter(item => !item.is_highlight)
-            .slice(0, limitCount);
-        console.log("📰 News cards snapshot received:", news.length);
-        callback(news);
+        const allNews = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        // Filter out items that are marked as highlights to avoid duplication
+        const nonHighlights = allNews.filter(item => !(item.is_highlight === true || item.is_highlight === 'true'));
+
+        // If everything is a highlight or if we have very little data, just show whatever we have
+        const finalNews = nonHighlights.length > 0 ? nonHighlights : allNews;
+        const result = finalNews.slice(0, limitCount);
+
+        console.log(`📰 [News] Displaying ${result.length} news cards`);
+        callback(result);
     }, (error) => {
-        console.error("News cards real-time listener error:", error);
+        console.error("❌ [News] Cards snapshot error:", error);
     });
 }
 

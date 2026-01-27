@@ -130,8 +130,15 @@ async function loadData() {
     // 1. Check for Firebase Placeholders
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
+    // Check if firebase-config.js still has placeholders
+    // We import firebaseConfig from another file, assuming it's accessible or we can inspect it
+    if (typeof firebaseConfig !== 'undefined' && firebaseConfig.apiKey && firebaseConfig.apiKey.includes('__FIREBASE_API_KEY__')) {
+      console.warn("⚠️ [Config] Firebase API Key still has placeholders. Firestore will NOT work.");
+      console.info("💡 Tip: Replace placeholders in js/firebase-config.js with values from your .env file.");
+    }
+
     // Attempt to load essential data from Firestore
-    console.log("📡 Attempting to load data from Firestore...");
+    console.log("📡 [Load] Attempting to load data from Firestore...");
 
     let teams = [], leagues = [], canais = [];
     let firestoreSuccess = false;
@@ -326,11 +333,11 @@ function renderMatches(matches) {
       groupEl.style.animationDelay = `${index * 100}ms`;
 
       groupEl.innerHTML = `
-        <div class="league-header">
+        <div class="league-header" style="margin-bottom: var(--space-4);">
           <img src="${tournament?.logo || 'assets/campeonatos/default.png'}" alt="" class="league-logo-small">
           <h3 class="league-title">${tournament?.name || tId}</h3>
         </div>
-        <div class="league-matches">
+        <div class="league-matches" style="display: flex; flex-direction: column; gap: var(--space-3);">
           ${leagueMatches.sort((a, b) => new Date(a.matchDate) - new Date(b.matchDate))
           .map(m => createMatchRow(m)).join('')}
         </div>
@@ -444,15 +451,18 @@ function renderTopLeagues() {
 
 function renderHighlight(highlight) {
   if (!elements.highlightContainer) return;
+  console.log("🎨 Rendering highlight:", highlight?.title || "None");
 
   if (!highlight) {
     elements.highlightContainer.innerHTML = '';
+    elements.highlightContainer.style.display = 'none'; // Hide if empty
     return;
   }
 
+  elements.highlightContainer.style.display = 'block';
   elements.highlightContainer.innerHTML = `
     <div class="highlight-card" onclick="window.location.href='#'">
-      <img src="${highlight.image_url}" alt="">
+      <img src="${highlight.image_url || highlight.image}" alt="">
       <div class="highlight-content">
         <span class="highlight-tag">DESTAQUE</span>
         <h3 class="highlight-title">${highlight.title}</h3>
@@ -463,6 +473,7 @@ function renderHighlight(highlight) {
 
 function renderNews(news = []) {
   if (!elements.newsContainer) return;
+  console.log("🎨 Rendering news list:", news.length, "items");
 
   if (news.length === 0) {
     elements.newsContainer.innerHTML = '<div class="empty-pref" style="padding: var(--space-4); font-size: var(--text-sm);">Nenhuma notícia encontrada.</div>';
