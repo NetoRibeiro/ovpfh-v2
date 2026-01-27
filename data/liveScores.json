@@ -1,0 +1,8 @@
+{
+    "widget": {
+        "id": "ls-widget",
+        "dataW": "wo_w6977ef0a9ca15a79c8eb60dc_6977ef8f3db1d",
+        "scriptSrc": "https://ls.soccersapi.com/widget/res/wo_w6977ef0a9ca15a79c8eb60dc_6977ef8f3db1d/widget.js",
+        "className": "livescore-widget"
+    }
+}

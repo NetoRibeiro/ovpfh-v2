@@ -1,151 +1,258 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- SEO Meta Tags -->
   <title>Onde Vai Passar Futebol Hoje | Jogos de Hoje e Canais de Transmissão</title>
-  <meta name="description" content="Descubra onde assistir todos os jogos de futebol hoje. Veja horários, escalações e canais de transmissão ao vivo de Brasileirão, Paulistão, Carioca e mais.">
-  <meta name="keywords" content="futebol hoje, onde assistir futebol, jogos de hoje, transmissão ao vivo, escalação, brasileirão, paulistão, carioca">
-  
+  <meta name="description"
+    content="Descubra onde assistir todos os jogos de futebol hoje. Veja horários, escalações e canais de transmissão ao vivo de Brasileirão, Paulistão, Carioca e mais.">
+  <meta name="keywords"
+    content="futebol hoje, onde assistir futebol, jogos de hoje, transmissão ao vivo, escalação, brasileirão, paulistão, carioca">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Onde Vai Passar Futebol Hoje | Jogos e Transmissões">
   <meta property="og:description" content="Veja todos os jogos de futebol hoje, horários e onde assistir ao vivo.">
   <meta property="og:image" content="/assets/og-image.jpg">
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Onde Vai Passar Futebol Hoje">
   <meta name="twitter:description" content="Veja todos os jogos de futebol hoje, horários e onde assistir ao vivo.">
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/favicon.png">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheet -->
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/auth-modal.css">
+  <link rel="stylesheet" href="css/verification-screen.css">
 </head>
+
 <body>
-  
+
+  <!-- Skip to main content (Accessibility) -->
+  <a href="#main-content" class="sr-only">Pular para o conteúdo principal</a>
+
   <!-- Header - Top Bar with Team Filters -->
-  <header class="header">
+  <header class="header" role="banner">
     <div class="container">
       <div class="header-content">
-        <a href="index.html" class="logo">
-          <img src="assets/root/logo_8_original_name.png" alt="Futebol Hoje" class="logo-img">
+        <a href="index.html" class="logo" aria-label="Página inicial - Onde Vai Passar Futebol Hoje">
+          <img src="assets/root/logo_8_original_name_full.png" alt="Onde Vai Passar Futebol Hoje" class="logo-img">
         </a>
 
-        <!-- Team Quick Access - Above the gold bar -->
-        <div class="quick-access" id="quickAccess">
-          <button class="team-chip" data-team="todos">
-            🏆 Todos os Jogos
+        <!-- Authentication UI (kept) -->
+        <div style="display: flex; align-items: center; gap: var(--space-4);">
+          <!-- Login Button (shown when logged out) -->
+          <button id="headerLoginBtn" class="btn btn-primary btn-sm" style="white-space: nowrap;">
+            🔐 Entrar
           </button>
-          <button class="team-chip" data-team="flamengo">
-            <img src="assets/times/flamengo.png" alt="Flamengo">
-            Flamengo
-          </button>
-          <button class="team-chip" data-team="palmeiras">
-            <img src="assets/times/palmeiras.png" alt="Palmeiras">
-            Palmeiras
-          </button>
-          <button class="team-chip" data-team="corinthians">
-            <img src="assets/times/corinthians.png" alt="Corinthians">
-            Corinthians
-          </button>
-          <button class="team-chip" data-team="saopaulo">
-            <img src="assets/times/sao-paulo.png" alt="São Paulo">
-            São Paulo
-          </button>
-          <button class="team-chip" data-team="vasco">
-            <img src="assets/times/vasco.png" alt="Vasco">
-            Vasco
-          </button>
+
+          <!-- User Menu (shown when logged in) -->
+          <div id="userMenuContainer" class="hidden" style="position: relative;">
+            <button id="userMenuBtn" class="user-menu-btn" aria-label="Menu do usuário" aria-haspopup="true">
+              <div id="userAvatar" class="user-avatar"></div>
+              <span id="userName" class="user-name"></span>
+              <span style="font-size: var(--text-sm);">▼</span>
+            </button>
+
+            <!-- User Dropdown Menu -->
+            <div id="userMenu" class="user-menu hidden" role="menu">
+              <div class="user-menu-header">
+                <div id="userAvatarLarge" class="user-avatar-large"></div>
+                <div>
+                  <div id="userNameLarge" class="user-menu-name"></div>
+                  <div id="userEmail" class="user-menu-email"></div>
+                </div>
+              </div>
+              <div class="user-menu-divider"></div>
+              <a href="preferencias.html" class="user-menu-item" role="menuitem">
+                <span>⚙️</span>
+                Preferências
+              </a>
+              <div class="user-menu-divider"></div>
+              <button id="logoutBtn" class="user-menu-item" role="menuitem">
+                <span>🚪</span>
+                Sair
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </header>
 
   <!-- Secondary Bar - Tournament, Date and Search -->
-  <div class="secondary-bar">
+  <div class="secondary-bar" role="navigation" aria-label="Filtros e busca">
     <div class="container">
-      <div class="secondary-bar-content">
-        <!-- Tournament Filter -->
-        <div class="tournament-selector">
-          <select id="tournamentFilter" class="tournament-select">
-            <option value="todos">Todos Campeonatos</option>
-            <option value="paulistao26">Paulistão 2026</option>
-            <option value="carioca26">Carioca 2026</option>
-          </select>
-        </div>
-
-        <!-- Date Selector -->
-        <div class="date-selector">
+      <div class="secondary-bar-content" style="justify-content: center;">
+        <!-- Date Selector remains the central control -->
+        <div class="date-selector" role="group" aria-label="Navegação de datas">
           <button id="prevDay" aria-label="Dia anterior">◀</button>
-          <span id="currentDate">Hoje, 16 Jan</span>
+          <span id="currentDate" aria-live="polite">Hoje, 26 Jan</span>
           <button id="nextDay" aria-label="Próximo dia">▶</button>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="search-bar">
-          <span class="search-icon">🔍</span>
-          <input
-            type="text"
-            id="searchInput"
-            class="search-input"
-            placeholder="Buscar..."
-            aria-label="Buscar jogos"
-          >
         </div>
       </div>
     </div>
   </div>
 
   <!-- Main Content -->
-  <main class="container">
-    
-    <!-- Matches Section -->
-    <section class="matches-section">
-      <h2 class="section-title">Jogos de Hoje</h2>
-      
-      <div id="matchesContainer" class="matches-grid">
-        <!-- Matches will be dynamically inserted here -->
-      </div>
-      
-      <!-- Empty State -->
-      <div id="emptyState" class="empty-state hidden">
-        <div class="empty-state-icon">⚽</div>
-        <h3>Nenhum jogo encontrado</h3>
-        <p>Não há jogos programados para esta data ou filtro.</p>
-      </div>
-      
-      <!-- Loading State -->
-      <div id="loadingState" class="loading hidden">
-        <div class="spinner"></div>
+  <main class="container" id="main-content" role="main">
+
+    <div class="main-grid">
+      <!-- Left Sidebar: Top Leagues -->
+      <aside class="side-leagues" aria-label="Campeonatos">
+        <div class="sidebar-card">
+          <h2 class="sidebar-title">CAMPEONATOS</h2>
+          <nav id="topLeaguesContainer" class="sidebar-nav">
+            <!-- Populated by JS -->
+            <div class="skeleton" style="height: 40px; margin-bottom: var(--space-2);"></div>
+            <div class="skeleton" style="height: 40px; margin-bottom: var(--space-2);"></div>
+            <div class="skeleton" style="height: 40px; margin-bottom: var(--space-2);"></div>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Center: Matches Section -->
+      <section class="matches-section">
+        <h1 class="section-title">
+          <span id="sectionTitleText">Jogos de Hoje</span>
+        </h1>
+
+        <!-- Match count indicator -->
+        <div id="matchCount" class="hidden" aria-live="polite"
+          style="margin-bottom: var(--space-4); color: var(--text-secondary); font-size: var(--text-sm);">
+          <!-- Will be populated by JS -->
+        </div>
+
+        <div id="matchesContainer" class="matches-grid">
+          <!-- Loading skeletons (shown while loading) -->
+          <div class="card skeleton" style="height: 300px;" aria-hidden="true"></div>
+          <div class="card skeleton" style="height: 300px;" aria-hidden="true"></div>
+          <div class="card skeleton" style="height: 300px;" aria-hidden="true"></div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state hidden" role="status">
+          <div class="empty-state-icon" aria-hidden="true">⚽</div>
+          <h3>Nenhum jogo encontrado</h3>
+          <p>Não há jogos programados para esta data ou filtro.</p>
+          <button id="resetFiltersBtn" class="btn btn-primary mt-4">
+            Limpar Filtros
+          </button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="loading hidden" role="status" aria-live="polite">
+          <div class="spinner" aria-label="Carregando jogos"></div>
+          <p style="color: var(--text-secondary); margin-top: var(--space-4);">Carregando jogos...</p>
+        </div>
+      </section>
+
+      <!-- Right Sidebar: News & Highlights -->
+      <aside class="side-notes" aria-label="Notas e Destaques">
+        <!-- Highlight Card -->
+        <div id="highlightContainer" class="sidebar-section">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- News Section -->
+        <div class="sidebar-section">
+          <h2 class="sidebar-title">Últimas Notícias</h2>
+          <div id="newsContainer" class="news-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Livescore Widget Section -->
+    <section class="widget-section mt-8">
+      <div id="livescore-widget-container">
+        <!-- Live scores will be loaded dynamically -->
+        <div class="skeleton" style="height: 200px;"></div>
       </div>
     </section>
-    
+
   </main>
 
+  <!-- Keyboard Shortcuts Help Overlay -->
+  <div id="keyboardHelp" class="modal-backdrop hidden" role="dialog" aria-labelledby="helpTitle" aria-modal="true">
+    <div class="modal">
+      <h2 id="helpTitle"
+        style="font-family: var(--font-display); color: var(--color-cyan-500); margin-bottom: var(--space-6);">
+        ⌨️ Atalhos do Teclado
+      </h2>
+      <div style="display: grid; gap: var(--space-3);">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-3); background: var(--bg-elevated); border-radius: var(--radius-md);">
+          <span><kbd
+              style="padding: var(--space-1) var(--space-2); background: var(--color-navy-700); border-radius: var(--radius-sm); font-family: var(--font-mono);">/</kbd>
+            Focar na busca</span>
+        </div>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-3); background: var(--bg-elevated); border-radius: var(--radius-md);">
+          <span><kbd
+              style="padding: var(--space-1) var(--space-2); background: var(--color-navy-700); border-radius: var(--radius-sm); font-family: var(--font-mono);">←</kbd>
+            <kbd
+              style="padding: var(--space-1) var(--space-2); background: var(--color-navy-700); border-radius: var(--radius-sm); font-family: var(--font-mono);">→</kbd>
+            Navegar datas</span>
+        </div>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-3); background: var(--bg-elevated); border-radius: var(--radius-md);">
+          <span><kbd
+              style="padding: var(--space-1) var(--space-2); background: var(--color-navy-700); border-radius: var(--radius-sm); font-family: var(--font-mono);">Esc</kbd>
+            Limpar busca</span>
+        </div>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-3); background: var(--bg-elevated); border-radius: var(--radius-md);">
+          <span><kbd
+              style="padding: var(--space-1) var(--space-2); background: var(--color-navy-700); border-radius: var(--radius-sm); font-family: var(--font-mono);">?</kbd>
+            Mostrar/ocultar ajuda</span>
+        </div>
+      </div>
+      <button id="closeHelp" class="btn btn-primary" style="margin-top: var(--space-6); width: 100%;">
+        Fechar
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer"
+    style="position: fixed; bottom: var(--space-6); right: var(--space-6); z-index: var(--z-tooltip); display: flex; flex-direction: column; gap: var(--space-3);">
+  </div>
+
   <!-- Footer -->
-  <footer style="text-align: center; padding: 2rem 0; color: #BDBDBD; font-size: 0.875rem;">
+  <footer role="contentinfo">
     <div class="container">
+      <a href="index.html" aria-label="Voltar ao início">
+        <img src="assets/root/logo_8_original_name_full.png" alt="Onde Vai Passar Futebol Hoje" class="footer-logo">
+      </a>
       <p>&copy; 2026 Onde Vai Passar Futebol Hoje. Todos os direitos reservados.</p>
-      <p style="margin-top: 0.5rem;">
+      <p style="margin-top: var(--space-3);">
         <a href="sobre.html">Sobre</a> •
         <a href="contato.html">Contato</a> •
         <a href="privacidade.html">Privacidade</a>
+      </p>
+      <p style="margin-top: var(--space-4); font-size: var(--text-xs); opacity: 0.7;">
+        Pressione <kbd
+          style="padding: 2px 6px; background: var(--color-navy-700); border-radius: 3px; font-family: var(--font-mono);">?</kbd>
+        para ver atalhos do teclado
       </p>
     </div>
   </footer>
 
   <!-- JavaScript -->
   <script src="router.js"></script>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
+  <script src="js/keyboard-shortcuts.js"></script>
+
+  <!-- Authentication State Management -->
+  <script type="module" src="js/auth-state.js"></script>
 </body>
+
 </html>

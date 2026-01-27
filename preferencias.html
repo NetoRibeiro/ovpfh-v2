@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preferências | Onde Vai Passar Futebol Hoje</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/auth-modal.css">
+</head>
+
+<body>
+    <!-- Header (Partial) -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="assets/root/logo_8_original_name_full.png" alt="Logo" class="logo-img">
+                </a>
+                <div id="userProfile" style="display: flex; align-items: center; gap: var(--space-4);">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-6">
+        <div class="page-nav">
+            <a href="index.html">Início</a>
+            <span class="nav-separator">/</span>
+            <span class="nav-current">Minhas Preferências</span>
+        </div>
+
+        <h1 class="page-title">Minhas Preferências</h1>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-8);">
+            Selecione seus países, ligas e times favoritos. Essas informações serão usadas para personalizar sua
+            experiência.
+        </p>
+
+        <!-- Countries Section -->
+        <section class="pref-section">
+            <h2 class="pref-title">🌍 Países</h2>
+            <div class="search-wrapper mb-4">
+                <input type="text" id="countrySearch" class="input search-input" placeholder="Filtrar país...">
+            </div>
+            <div id="countriesGrid" class="pref-grid">
+                <!-- Loading skeletons -->
+                <div class="skeleton" style="height: 50px;"></div>
+                <div class="skeleton" style="height: 50px;"></div>
+                <div class="skeleton" style="height: 50px;"></div>
+            </div>
+        </section>
+
+        <!-- Leagues Section -->
+        <section class="pref-section">
+            <h2 class="pref-title">🏆 Campeonatos</h2>
+            <div class="search-wrapper mb-4">
+                <input type="text" id="leagueSearch" class="input search-input" placeholder="Filtrar campeonato...">
+            </div>
+            <div id="leaguesGrid" class="pref-grid">
+                <!-- Loading skeletons -->
+                <div class="skeleton" style="height: 50px;"></div>
+                <div class="skeleton" style="height: 50px;"></div>
+                <div class="skeleton" style="height: 50px;"></div>
+            </div>
+        </section>
+
+        <!-- Teams Section -->
+        <section class="pref-section">
+            <h2 class="pref-title">⚽ Times</h2>
+            <div class="search-wrapper mb-4">
+                <input type="text" id="teamSearch" class="input search-input" placeholder="Filtrar time...">
+            </div>
+            <div id="teamsGrid" class="pref-grid">
+                <!-- Loading skeletons -->
+                <div class="skeleton" style="height: 50px;"></div>
+                <div class="skeleton" style="height: 50px;"></div>
+                <div class="skeleton" style="height: 50px;"></div>
+            </div>
+        </section>
+
+        <!-- Save Actions -->
+        <div class="save-actions">
+            <button id="cancelBtn" class="btn btn-ghost">Cancelar</button>
+            <button id="saveBtn" class="btn btn-primary btn-lg">💾 Salvar Preferências</button>
+        </div>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" style="position: fixed; bottom: var(--space-6); right: var(--space-6); z-index: 1000;">
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/preferences.js"></script>
+</body>
+
+</html>

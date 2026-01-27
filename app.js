@@ -1,5 +1,6 @@
 // ============================================
-// ONDE VAI PASSAR FUTEBOL HOJE - App Logic
+// ONDE VAI PASSAR FUTEBOL HOJE - v2.0 App Logic
+// Nielsen Heuristics Implementation
 // ============================================
 
 // === CHANNEL DATA ===
@@ -65,6 +66,7 @@ let activeTournamentFilter = 'todos';
 let teamsData = [];
 let tournamentsData = [];
 let useDateFilter = true; // When team is selected, this becomes false
+let filterHistory = []; // For undo functionality (H3)
 
 // === DOM ELEMENTS ===
 const elements = {
@@ -77,7 +79,15 @@ const elements = {
   matchesContainer: document.getElementById('matchesContainer'),
   emptyState: document.getElementById('emptyState'),
   loadingState: document.getElementById('loadingState'),
-  quickAccessChips: document.querySelectorAll('.team-chip')
+  quickAccessChips: document.querySelectorAll('.team-chip'),
+  matchCount: document.getElementById('matchCount'),
+  clearFiltersBtn: document.getElementById('clearFilters'),
+  resetFiltersBtn: document.getElementById('resetFiltersBtn'),
+  sectionTitle: document.getElementById('sectionTitleText'),
+  topLeaguesContainer: document.getElementById('topLeaguesContainer'),
+  newsContainer: document.getElementById('newsContainer'),
+  highlightContainer: document.getElementById('highlightContainer'),
+  livescoreContainer: document.getElementById('livescore-widget-container'),
 };
 
 // === UTILITY FUNCTIONS ===
@@ -111,35 +121,45 @@ function isSameDay(date1, date2) {
     date1.getDate() === date2.getDate();
 }
 
-// === DATA LOADING ===
+import { getAllMatches, getAllTeams, getAllLeagues, getAllChannels, listenToMatches, migrateLocalDataToFirestore } from './js/data-service.js';
+
+// --- DATA LOADING ---
 async function loadData() {
   try {
-    const [matchesRes, teamsRes, tournamentsRes, canaisRes] = await Promise.all([
-      fetch('data/matches.json'),
-      fetch('data/teams.json'),
-      fetch('data/tournaments.json'),
-      fetch('data/canais.json')
+    // Check if migration is requested (one-time utility)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('migrate')) {
+      await migrateLocalDataToFirestore();
+      console.log("Migration triggered via URL");
+    }
+
+    // Load initial static data from Firestore
+    const [teams, leagues, canais] = await Promise.all([
+      getAllTeams(),
+      getAllLeagues(),
+      getAllChannels()
     ]);
 
-    const matchesData = await matchesRes.json();
-    const teamsDataRes = await teamsRes.json();
-    const tournamentsDataRes = await tournamentsRes.json();
-    const canaisDataRes = await canaisRes.json();
+    teamsData = teams;
+    tournamentsData = leagues; // keeping tournamentsData variable name for now to avoid massive refactor
+    canaisData = canais;
 
-    allMatches = matchesData.matches;
-    teamsData = teamsDataRes.teams;
-    tournamentsData = tournamentsDataRes.tournaments;
-    canaisData = canaisDataRes.canais;
+    // Set up real-time listener for matches (H1)
+    listenToMatches((matches) => {
+      allMatches = matches;
+      console.log(`🔥 Real-time update: ${matches.length} matches received`);
+      filterMatches(); // Re-filter and re-render on any DB change
+    });
 
     return true;
   } catch (error) {
-    console.error('Error loading data:', error);
+    console.error('Error loading Firestore data:', error);
     return false;
   }
 }
 
-// === MATCH CARD COMPONENT ===
-function createMatchCard(match) {
+// === MATCH ROW COMPONENT (v2.0 Compact) ===
+function createMatchRow(match) {
   // Get team and tournament data
   const homeTeam = teamsData.find(t => t.id === match.homeTeam || t.slug === match.homeTeam);
   const awayTeam = teamsData.find(t => t.id === match.awayTeam || t.slug === match.awayTeam);
@@ -149,13 +169,6 @@ function createMatchCard(match) {
   const matchDate = new Date(match.matchDate);
   const time = matchDate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
   const dateStr = matchDate.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
-
-  const liveIndicator = match.isLive
-    ? `<div class="live-indicator">
-         <span class="live-dot"></span>
-         AO VIVO
-       </div>`
-    : '';
 
   const channelBadges = match.broadcasting.map(channel => {
     const logoPath = channel.logo || getChannelLogo(channel.channel);
@@ -173,44 +186,41 @@ function createMatchCard(match) {
     `;
   }).join('');
 
-  // Score display for live/finished matches (between teams)
+  // Score display
   const hasScore = match.score && (match.score.home !== null && match.score.away !== null);
-  const centerDisplay = hasScore
-    ? `<div class="match-score">
-         <span class="score">${match.score.home}</span>
-         <span class="score-separator">x</span>
-         <span class="score">${match.score.away}</span>
-       </div>`
+  const scoreDisplay = hasScore
+    ? `<span class="score">${match.score.home} - ${match.score.away}</span>`
     : `<span class="vs">VS</span>`;
 
   return `
-    <article class="match-card ${match.isLive ? 'live' : ''}" data-match-id="${match.id}">
-      <div class="match-header">
-        <div class="match-info">
-          <span class="date">${dateStr}</span>
-          <span class="time">${time}</span>
-          <span class="league">${tournament?.shortName || tournament?.name || match.tournament}</span>
-        </div>
-        ${liveIndicator}
+    <article class="match-row ${match.isLive ? 'live' : ''}" data-match-id="${match.id}">
+      <!-- Line 1: Date, Time and League -->
+      <div class="row-line row-meta">
+        <span class="meta-item timestamp">${dateStr} • ${time}</span>
+        <span class="meta-item league-name">${tournament?.name || match.tournament}</span>
       </div>
 
-      <div class="match-teams">
-        <div class="team">
-          <img src="${homeTeam?.logo || ''}" alt="${homeTeam?.name || match.homeTeam}" class="team-logo" onerror="this.style.display='none'">
+      <!-- Line 2: Teams and Score -->
+      <div class="row-line row-matchup">
+        <div class="row-team home">
           <span class="team-name">${homeTeam?.name || match.homeTeam}</span>
+          <img src="${homeTeam?.logo || ''}" alt="" class="team-logo-small">
+        </div>
+        
+        <div class="row-score">
+          ${scoreDisplay}
         </div>
 
-        ${centerDisplay}
-
-        <div class="team">
-          <img src="${awayTeam?.logo || ''}" alt="${awayTeam?.name || match.awayTeam}" class="team-logo" onerror="this.style.display='none'">
+        <div class="row-team away">
+          <img src="${awayTeam?.logo || ''}" alt="" class="team-logo-small">
           <span class="team-name">${awayTeam?.name || match.awayTeam}</span>
         </div>
       </div>
 
-      <div class="match-broadcast">
-        <span class="broadcast-label">Onde Assistir:</span>
-        <div class="channels">
+      <!-- Line 3: Broadcast -->
+      <div class="row-line row-broadcast">
+        <span class="broadcast-label">Assistir:</span>
+        <div class="channels-compact">
           ${channelBadges}
         </div>
       </div>
@@ -220,112 +230,270 @@ function createMatchCard(match) {
 
 // === RENDER FUNCTIONS ===
 function renderMatches(matches) {
-  elements.matchesContainer.innerHTML = '';
+  showLoadingSkeletons();
 
-  if (matches.length === 0) {
-    elements.emptyState.classList.remove('hidden');
-    elements.matchesContainer.classList.add('hidden');
-    return;
-  }
+  setTimeout(() => {
+    elements.matchesContainer.innerHTML = '';
 
-  elements.emptyState.classList.add('hidden');
-  elements.matchesContainer.classList.remove('hidden');
+    if (matches.length === 0) {
+      elements.emptyState.classList.remove('hidden');
+      elements.matchesContainer.classList.add('hidden');
+      updateMatchCount(0);
+      return;
+    }
 
-  // Sort matches by matchDate
-  const sortedMatches = [...matches].sort((a, b) => {
-    return new Date(a.matchDate) - new Date(b.matchDate);
-  });
+    elements.emptyState.classList.add('hidden');
+    elements.matchesContainer.classList.remove('hidden');
 
-  sortedMatches.forEach(match => {
-    elements.matchesContainer.innerHTML += createMatchCard(match);
-  });
-
-  // Add click handlers to match cards
-  document.querySelectorAll('.match-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const matchId = card.dataset.matchId;
-      const match = allMatches.find(m => m.id == matchId);
-      if (match) {
-        navigateToMatchDetail(match);
-      }
+    // Group matches by tournament
+    const grouped = {};
+    matches.forEach(match => {
+      const tId = match.tournament;
+      if (!grouped[tId]) grouped[tId] = [];
+      grouped[tId].push(match);
     });
-  });
+
+    // Render league groups
+    Object.keys(grouped).forEach((tId, index) => {
+      const tournament = tournamentsData.find(t => t.id === tId || t.slug === tId);
+      const leagueMatches = grouped[tId];
+
+      const groupEl = document.createElement('div');
+      groupEl.className = 'league-group animate-fade-in';
+      groupEl.style.animationDelay = `${index * 100}ms`;
+
+      groupEl.innerHTML = `
+        <div class="league-header">
+          <img src="${tournament?.logo || 'assets/campeonatos/default.png'}" alt="" class="league-logo-small">
+          <h3 class="league-title">${tournament?.name || tId}</h3>
+        </div>
+        <div class="league-matches">
+          ${leagueMatches.sort((a, b) => new Date(a.matchDate) - new Date(b.matchDate))
+          .map(m => createMatchRow(m)).join('')}
+        </div>
+      `;
+
+      elements.matchesContainer.appendChild(groupEl);
+    });
+
+    // Add click handlers
+    document.querySelectorAll('.match-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const matchId = row.dataset.matchId;
+        const match = allMatches.find(m => m.id == matchId);
+        if (match) navigateToMatchDetail(match);
+      });
+    });
+
+    updateMatchCount(matches.length);
+  }, 200);
 }
 
 function updateDateDisplay() {
   elements.currentDateEl.textContent = formatDate(currentDate);
 }
 
+// H1: Show loading skeletons
+function showLoadingSkeletons() {
+  const skeletonHTML = `
+    <div class="league-group-skeleton">
+      <div class="skeleton" style="height: 40px; margin-bottom: 10px; width: 200px;"></div>
+      <div class="skeleton" style="height: 100px; margin-bottom: 20px;"></div>
+      <div class="skeleton" style="height: 100px;"></div>
+    </div>
+  `;
+  elements.matchesContainer.innerHTML = skeletonHTML;
+  elements.matchesContainer.classList.remove('hidden');
+  elements.emptyState.classList.add('hidden');
+}
+
+// H1: Update match count display
+function updateMatchCount(count) {
+  if (!elements.matchCount) return;
+
+  if (count > 0) {
+    elements.matchCount.textContent = `${count} ${count === 1 ? 'jogo encontrado' : 'jogos encontrados'}`;
+    elements.matchCount.classList.remove('hidden');
+  } else {
+    elements.matchCount.classList.add('hidden');
+  }
+}
+
+// H1: Update section title based on filters
+function updateSectionTitle() {
+  if (!elements.sectionTitle) return;
+
+  let title = 'Jogos';
+
+  const today = new Date();
+  if (isSameDay(currentDate, today)) {
+    title = 'Jogos de Hoje';
+  } else {
+    title = `Jogos de ${formatDate(currentDate)}`;
+  }
+
+  elements.sectionTitle.textContent = title;
+}
+
+// === SIDEBAR RENDERING ===
+function renderTopLeagues() {
+  if (!elements.topLeaguesContainer) return;
+
+  if (tournamentsData.length === 0) {
+    elements.topLeaguesContainer.innerHTML = '<div class="empty-pref" style="padding: var(--space-4); font-size: var(--text-sm);">Nenhum campeonato ativo.</div>';
+    return;
+  }
+
+  // Filter by year (2026 is the target year)
+  const targetYear = 2026;
+  const leagues = tournamentsData
+    .filter(l => l.year === targetYear || (l.name && l.name.includes(targetYear.toString())))
+    .sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+  if (leagues.length === 0) {
+    elements.topLeaguesContainer.innerHTML = `<div class="empty-pref" style="padding: var(--space-4); font-size: var(--text-sm);">Nenhum campeonato de ${targetYear} ativo.</div>`;
+    return;
+  }
+
+  elements.topLeaguesContainer.innerHTML = leagues.map(league => `
+    <a href="#" class="sidebar-nav-item" data-league-id="${league.id}">
+      <img src="${league.logo || 'assets/campeonatos/default.png'}" alt="" onerror="this.src='assets/campeonatos/default.png'">
+      <span>${league.name}</span>
+    </a>
+  `).join('');
+
+  // Add click handlers
+  elements.topLeaguesContainer.querySelectorAll('.sidebar-nav-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const leagueId = item.dataset.leagueId;
+      console.log(`Filtering by league: ${leagueId}`);
+      // Highlight selection
+      elements.topLeaguesContainer.querySelectorAll('.sidebar-nav-item').forEach(el => el.classList.remove('active'));
+      item.classList.add('active');
+
+      // Filter current matches
+      activeTournamentFilter = leagueId;
+      filterMatches();
+    });
+  });
+}
+
+function renderHighlight() {
+  if (!elements.highlightContainer) return;
+
+  const highlight = {
+    title: "Mbappé brilha e Real Madrid assume a liderança",
+    tag: "DESTAQUE",
+    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop",
+    url: "#"
+  };
+
+  elements.highlightContainer.innerHTML = `
+    <div class="highlight-card" onclick="window.location.href='${highlight.url}'">
+      <img src="${highlight.image}" alt="">
+      <div class="highlight-content">
+        <span class="highlight-tag">${highlight.tag}</span>
+        <h3 class="highlight-title">${highlight.title}</h3>
+      </div>
+    </div>
+  `;
+}
+
+function renderNews() {
+  if (!elements.newsContainer) return;
+
+  const news = [
+    {
+      title: "Brasileirão 2026: Confira a tabela completa e jogos do final de semana",
+      time: "Há 2 horas",
+      image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      title: "Mercado da Bola: Neymar pode retornar ao Santos em julho",
+      time: "Há 4 horas",
+      image: "https://images.unsplash.com/photo-1624891151634-192064166649?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      title: "Champions League: Sorteio define confrontos das quartas de final",
+      time: "Há 6 horas",
+      image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=200&auto=format&fit=crop"
+    }
+  ];
+
+  elements.newsContainer.innerHTML = news.map(item => `
+    <div class="news-item" onclick="window.location.href='#'">
+      <img src="${item.image}" alt="" class="news-item-img">
+      <div class="news-item-content">
+        <h3 class="news-item-title">${item.title}</h3>
+        <span class="news-item-time">${item.time}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function loadLivescoreWidget(date = new Date()) {
+  if (!elements.livescoreContainer) return;
+
+  try {
+    const response = await fetch('data/liveScores.json');
+    if (!response.ok) throw new Error('Failed to load livescore config');
+
+    const data = await response.json();
+    const config = data.widget;
+
+    if (!config) return;
+
+    // Format date as YYYY-MM-DD
+    const formattedDate = date.toISOString().split('T')[0];
+
+    // Cleanup previous widget and script
+    elements.livescoreContainer.innerHTML = '';
+    const oldScript = document.getElementById('livescore-widget-script');
+    if (oldScript) oldScript.remove();
+
+    // Create widget div
+    const widgetDiv = document.createElement('div');
+    widgetDiv.id = config.id;
+    widgetDiv.className = config.className;
+    widgetDiv.setAttribute('data-w', config.dataW);
+    // Setting data-date allows the widget to load for a specific day
+    widgetDiv.setAttribute('data-date', formattedDate);
+    elements.livescoreContainer.appendChild(widgetDiv);
+
+    // Load external script
+    const script = document.createElement('script');
+    script.id = 'livescore-widget-script';
+    script.type = 'text/javascript';
+    script.src = config.scriptSrc;
+    document.body.appendChild(script);
+
+    console.log(`✅ Livescore Widget updated for date: ${formattedDate}`);
+  } catch (error) {
+    console.error('❌ Error loading Livescore Widget:', error);
+    elements.livescoreContainer.innerHTML = '<p style="color: var(--text-tertiary); text-align: center;">Erro ao carregar placar ao vivo.</p>';
+  }
+}
+
 // === FILTER & SEARCH FUNCTIONS ===
 function filterMatches() {
-  const searchTerm = elements.searchInput?.value || '';
   let matches = [...allMatches];
 
-  // Filter by date ONLY if no team is selected (todos means use date filter)
-  if (useDateFilter) {
-    matches = matches.filter(match => {
-      const matchDate = new Date(match.matchDate);
-      return isSameDay(matchDate, currentDate);
-    });
-  }
-
-  // Filter by tournament
-  if (activeTournamentFilter !== 'todos') {
-    matches = matches.filter(match => match.tournament === activeTournamentFilter);
-  }
-
-  // Filter by team
-  if (activeTeamFilter !== 'todos') {
-    matches = matches.filter(match => {
-      const homeTeam = teamsData.find(t => t.id === match.homeTeam);
-      const awayTeam = teamsData.find(t => t.id === match.awayTeam);
-
-      if (!homeTeam && !awayTeam) return false;
-
-      const homeTeamId = match.homeTeam;
-      const awayTeamId = match.awayTeam;
-
-      // Match by team ID or slug
-      return homeTeamId === activeTeamFilter ||
-        awayTeamId === activeTeamFilter ||
-        homeTeam?.slug === activeTeamFilter ||
-        awayTeam?.slug === activeTeamFilter;
-    });
-  }
-
-  // Filter by search term
-  if (searchTerm) {
-    const searchNorm = normalizeString(searchTerm);
-    matches = matches.filter(match => {
-      const homeTeam = teamsData.find(t => t.id === match.homeTeam);
-      const awayTeam = teamsData.find(t => t.id === match.awayTeam);
-      const tournament = tournamentsData.find(t => t.id === match.tournament);
-
-      const homeTeamNorm = homeTeam ? normalizeString(homeTeam.name) : '';
-      const awayTeamNorm = awayTeam ? normalizeString(awayTeam.name) : '';
-      const tournamentNorm = tournament ? normalizeString(tournament.name) : '';
-      const channelsNorm = match.broadcasting.map(c => normalizeString(c.channel)).join(' ');
-
-      return homeTeamNorm.includes(searchNorm) ||
-        awayTeamNorm.includes(searchNorm) ||
-        tournamentNorm.includes(searchNorm) ||
-        channelsNorm.includes(searchNorm);
-    });
-  }
+  // Primary filter is now just the Date
+  matches = matches.filter(match => {
+    const matchDate = new Date(match.matchDate);
+    return isSameDay(matchDate, currentDate);
+  });
 
   filteredMatches = matches;
   renderMatches(filteredMatches);
   updateDateSelectorState();
+  updateSectionTitle();
 }
 
 function updateDateSelectorState() {
-  // Disable date selector when a team is selected
   if (elements.dateSelector) {
-    if (useDateFilter) {
-      elements.dateSelector.classList.remove('disabled');
-    } else {
-      elements.dateSelector.classList.add('disabled');
-    }
+    elements.dateSelector.classList.remove('disabled');
   }
 }
 
@@ -345,37 +513,7 @@ function navigateToMatchDetail(match) {
 }
 
 // === EVENT HANDLERS ===
-function handleSearch(e) {
-  filterMatches();
-}
-
-function handleTeamFilter(e) {
-  const chip = e.target.closest('.team-chip');
-  if (!chip) return;
-
-  const team = chip.dataset.team;
-
-  // Update active state
-  elements.quickAccessChips.forEach(c => c.classList.remove('active'));
-  chip.classList.add('active');
-
-  activeTeamFilter = team;
-
-  // When a team is selected (not "todos"), disable date filter
-  // When "todos" is selected, enable date filter
-  useDateFilter = (team === 'todos');
-
-  filterMatches();
-}
-
-function handleTournamentFilter(e) {
-  activeTournamentFilter = e.target.value;
-  filterMatches();
-}
-
 function handleDateChange(direction) {
-  if (!useDateFilter) return; // Don't change date if team filter is active
-
   if (direction === 'prev') {
     currentDate.setDate(currentDate.getDate() - 1);
   } else {
@@ -384,6 +522,9 @@ function handleDateChange(direction) {
 
   updateDateDisplay();
   filterMatches();
+
+  // Update Widget
+  loadLivescoreWidget(currentDate);
 }
 
 // === INITIALIZATION ===
@@ -421,15 +562,15 @@ async function init() {
   // Filter and render matches for today
   filterMatches();
 
-  // Set first chip as active
-  if (elements.quickAccessChips.length > 0) {
-    elements.quickAccessChips[0].classList.add('active');
-  }
+  // Render sidebars
+  renderTopLeagues();
+  renderHighlight();
+  renderNews();
 
-  // Event listeners
-  if (elements.searchInput) {
-    elements.searchInput.addEventListener('input', handleSearch);
-  }
+  // Load Livescore Widget
+  loadLivescoreWidget(currentDate);
+
+  // Date listeners
   if (elements.prevDayBtn) {
     elements.prevDayBtn.addEventListener('click', () => handleDateChange('prev'));
   }
@@ -437,20 +578,9 @@ async function init() {
     elements.nextDayBtn.addEventListener('click', () => handleDateChange('next'));
   }
 
-  // Tournament filter
-  const tournamentFilterEl = document.getElementById('tournamentFilter');
-  if (tournamentFilterEl) {
-    tournamentFilterEl.addEventListener('change', handleTournamentFilter);
-  }
-
-  // Quick access chips (team filter)
-  const quickAccessEl = document.getElementById('quickAccess');
-  if (quickAccessEl) {
-    quickAccessEl.addEventListener('click', handleTeamFilter);
-  }
-
-  console.log('⚽ Onde Vai Passar Futebol Hoje - Initialized');
-  console.log(`📅 Showing ${allMatches.length} matches`);
+  console.log('⚽ Onde Vai Passar Futebol Hoje v2.0 (Grouped) - Initialized');
+  console.log(`📅 Loaded ${allMatches.length} matches`);
+  console.log('✨ Nielsen Heuristics: H1 (Status), H3 (Control), H7 (Efficiency)');
 }
 
 // Start the app when DOM is ready

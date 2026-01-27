@@ -1,0 +1,282 @@
+/* ============================================
+   OVPFH v2.0 - DESIGN TOKENS
+   Stadium Lights & Energy Aesthetic
+   ============================================ */
+
+:root {
+  /* ===== TYPOGRAPHY ===== */
+  /* Display: Bebas Neue - Bold, athletic, commanding */
+  --font-display: 'Bebas Neue', 'Impact', 'Arial Black', sans-serif;
+  /* Body: Work Sans - Clean, modern, readable */
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Mono: For scores and timestamps */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Font Weights */
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  /* Font Sizes - Fluid Typography */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  /* 12-14px */
+  --text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  /* 14-16px */
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  /* 16-18px */
+  --text-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.375rem);
+  /* 18-22px */
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.625rem);
+  /* 20-26px */
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+  /* 24-32px */
+  --text-3xl: clamp(1.875rem, 1.65rem + 1.125vw, 2.625rem);
+  /* 30-42px */
+  --text-4xl: clamp(2.25rem, 1.95rem + 1.5vw, 3.25rem);
+  /* 36-52px */
+  --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 4.5rem);
+  /* 48-72px */
+
+  /* Line Heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+
+  /* ===== COLOR PALETTE ===== */
+  /* Primary - Deep Charcoal Base (Neutral Dark) */
+  --color-navy-950: #262e1c;
+  /* Darkest - Background */
+  --color-navy-900: #0F1115;
+  /* Dark - Cards */
+  --color-navy-800: #1A1D23;
+  /* Medium - Elevated surfaces */
+  --color-navy-700: #2D333D;
+  /* Light - Borders */
+  --color-navy-600: #3F4754;
+  /* Lighter - Disabled states */
+
+  /* Accent - Brand Yellow (Electric Gold) */
+  --color-cyan-500: #FACC15;
+  /* Primary accent (Replaces Cyan) */
+  --color-cyan-400: #FDE047;
+  /* Lighter yellow */
+  --color-cyan-600: #EAB308;
+  /* Darker gold */
+  --color-cyan-300: #FEF08A;
+  /* Lightest yellow */
+
+  /* Accent - Brand Green (Soccer Green) */
+  --color-orange-500: #22C55E;
+  /* Secondary accent (Replaces Orange) */
+  --color-orange-400: #4ADE80;
+  /* Lighter green */
+  --color-orange-600: #16A34A;
+  /* Darker green */
+  --color-orange-300: #86EFAC;
+  /* Lightest green */
+
+  /* Semantic Colors */
+  --color-live: #EF4444;
+  /* Live indicator - Clean red */
+  --color-success: #22C55E;
+  /* Success - Brand green */
+  --color-warning: #F59E0B;
+  /* Warning - Amber */
+  --color-error: #F43F5E;
+  /* Error - Rose red */
+
+  /* Neutral Colors */
+  --color-white: #FCFDFF;
+  --color-black: #020406;
+
+  /* Gradient Overlays */
+  --gradient-cyan: linear-gradient(135deg, var(--color-cyan-600) 0%, var(--color-cyan-400) 100%);
+  --gradient-orange: linear-gradient(135deg, var(--color-orange-600) 0%, var(--color-orange-400) 100%);
+  --gradient-energy: linear-gradient(135deg, var(--color-cyan-500) 0%, var(--color-orange-500) 100%);
+  --gradient-dark: linear-gradient(180deg, var(--color-navy-900) 0%, var(--color-navy-950) 100%);
+
+  /* ===== SPACING ===== */
+  /* 8px base grid system */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  /* 4px */
+  --space-2: 0.5rem;
+  /* 8px */
+  --space-3: 0.75rem;
+  /* 12px */
+  --space-4: 1rem;
+  /* 16px */
+  --space-5: 1.25rem;
+  /* 20px */
+  --space-6: 1.5rem;
+  /* 24px */
+  --space-8: 2rem;
+  /* 32px */
+  --space-10: 2.5rem;
+  /* 40px */
+  --space-12: 3rem;
+  /* 48px */
+  --space-16: 4rem;
+  /* 64px */
+  --space-20: 5rem;
+  /* 80px */
+  --space-24: 6rem;
+  /* 96px */
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;
+  /* 4px */
+  --radius-md: 0.5rem;
+  /* 8px */
+  --radius-lg: 0.75rem;
+  /* 12px */
+  --radius-xl: 1rem;
+  /* 16px */
+  --radius-2xl: 1.5rem;
+  /* 24px */
+  --radius-full: 9999px;
+
+  /* ===== SHADOWS ===== */
+  /* Dramatic, layered shadows for depth */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
+    0 2px 4px -1px rgba(0, 240, 255, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    0 4px 6px -2px rgba(0, 240, 255, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
+    0 10px 10px -5px rgba(0, 240, 255, 0.2);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+    0 15px 20px -10px rgba(0, 240, 255, 0.25);
+
+  /* Glow effects */
+  --glow-cyan: 0 0 20px rgba(250, 204, 21, 0.4),
+    0 0 40px rgba(250, 204, 21, 0.2);
+  --glow-orange: 0 0 20px rgba(34, 197, 94, 0.4),
+    0 0 40px rgba(34, 197, 94, 0.2);
+  --glow-live: 0 0 20px rgba(239, 68, 68, 0.5),
+    0 0 40px rgba(239, 68, 68, 0.3);
+
+  /* ===== TRANSITIONS ===== */
+  /* Timing */
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+
+  /* Easing Functions */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Combined Transitions */
+  --transition-fast: var(--duration-fast) var(--ease-out);
+  --transition-base: var(--duration-base) var(--ease-in-out);
+  --transition-slow: var(--duration-slow) var(--ease-in-out);
+  --transition-bounce: var(--duration-base) var(--ease-bounce);
+
+  /* ===== Z-INDEX SCALE ===== */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+
+  /* ===== LAYOUT ===== */
+  --container-max: 1400px;
+  --container-padding: var(--space-4);
+
+  /* Breakpoints (for reference in JS) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ===== EFFECTS ===== */
+  /* Backdrop filters */
+  --backdrop-blur-sm: blur(4px);
+  --backdrop-blur-md: blur(8px);
+  --backdrop-blur-lg: blur(16px);
+
+  /* Diagonal angles */
+  --angle-diagonal: -3deg;
+  --angle-steep: -8deg;
+
+  /* ===== ANIMATION KEYFRAMES ===== */
+  /* These will be defined in animations.css */
+}
+
+/* ===== DARK THEME (Default) ===== */
+:root {
+  --bg-primary: var(--color-navy-950);
+  --bg-secondary: var(--color-navy-900);
+  --bg-elevated: var(--color-navy-800);
+  --bg-overlay: rgba(10, 14, 39, 0.95);
+
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-gray-300);
+  --text-tertiary: var(--color-gray-400);
+  --text-inverse: var(--color-navy-950);
+
+  --border-primary: var(--color-navy-700);
+  --border-secondary: var(--color-navy-600);
+  --border-accent: var(--color-cyan-500);
+
+  --accent-primary: var(--color-cyan-500);
+  --accent-secondary: var(--color-orange-500);
+  --accent-hover: var(--color-cyan-400);
+}
+
+/* ===== LIGHT THEME (Optional) ===== */
+[data-theme="light"] {
+  --bg-primary: var(--color-gray-50);
+  --bg-secondary: var(--color-white);
+  --bg-elevated: var(--color-white);
+  --bg-overlay: rgba(255, 255, 255, 0.95);
+
+  --text-primary: var(--color-navy-950);
+  --text-secondary: var(--color-navy-800);
+  --text-tertiary: var(--color-navy-700);
+  --text-inverse: var(--color-white);
+
+  --border-primary: var(--color-gray-300);
+  --border-secondary: var(--color-gray-200);
+  --border-accent: var(--color-cyan-600);
+
+  --accent-primary: var(--color-cyan-600);
+  --accent-secondary: var(--color-orange-600);
+  --accent-hover: var(--color-cyan-500);
+
+  /* Adjust shadows for light theme */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  :root {
+    --bg-primary: white;
+    --bg-secondary: white;
+    --text-primary: black;
+    --text-secondary: #333;
+  }
+}
