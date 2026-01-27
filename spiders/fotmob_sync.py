@@ -4,9 +4,12 @@ import json
 import os
 import requests
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # --- CONFIGURATION ---
-SERVICE_ACCOUNT_PATH = "firebase-service-account.json"
 # Specific leagues to sync (Paulista: 268, Carioca: 10272)
 ALLOWED_LEAGUES = [268, 10272]
 # https://www.fotmob.com/api/data/tltable?leagueId=268 # Paulista 2026
@@ -19,7 +22,26 @@ HEADERS = {
 # --- FIREBASE SETUP ---
 if not firebase_admin._apps:
     try:
-        cred = credentials.Certificate(SERVICE_ACCOUNT_PATH)
+        # Construct credentials from environment variables
+        cert_dict = {
+            "type": os.getenv("FIREBASE_TYPE"),
+            "project_id": os.getenv("FIREBASE_PROJECT_ID"),
+            "private_key_id": os.getenv("FIREBASE_PRIVATE_KEY_ID"),
+            "private_key": os.getenv("FIREBASE_PRIVATE_KEY").replace('\\n', '\n') if os.getenv("FIREBASE_PRIVATE_KEY") else None,
+            "client_email": os.getenv("FIREBASE_CLIENT_EMAIL"),
+            "client_id": os.getenv("FIREBASE_CLIENT_ID"),
+            "auth_uri": os.getenv("FIREBASE_AUTH_URI"),
+            "token_uri": os.getenv("FIREBASE_TOKEN_URI"),
+            "auth_provider_x509_cert_url": os.getenv("FIREBASE_AUTH_PROVIDER_CERT_URL"),
+            "client_x509_cert_url": os.getenv("FIREBASE_CLIENT_CERT_URL"),
+            "universe_domain": os.getenv("FIREBASE_UNIVERSE_DOMAIN")
+        }
+        
+        # Check if project_id is set to verify env loading
+        if not cert_dict["project_id"]:
+            raise ValueError("Firebase environment variables not found. Check your .env file.")
+
+        cred = credentials.Certificate(cert_dict)
         firebase_admin.initialize_app(cred)
         print("🔥 Firebase Admin SDK initialized for project:", firebase_admin.get_app().project_id)
     except Exception as e:
