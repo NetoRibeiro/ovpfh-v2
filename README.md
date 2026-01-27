@@ -116,26 +116,9 @@ Create a `.env` file in the root directory with the following variables:
 
 ```bash
 # Firebase Service Account (Backend Sync)
-FIREBASE_TYPE=service_account
-FIREBASE_PROJECT_ID=ovpfh-28cee
-FIREBASE_PRIVATE_KEY_ID=db09aed4bf8e0ea7959d93b45c66e6b0c0b13d07
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...YOUR_KEY...\n-----END PRIVATE KEY-----\n"
-FIREBASE_CLIENT_EMAIL=...
-FIREBASE_CLIENT_ID=...
-FIREBASE_AUTH_URI=https://accounts.google.com/o/oauth2/auth
-FIREBASE_TOKEN_URI=https://oauth2.googleapis.com/token
-FIREBASE_AUTH_PROVIDER_CERT_URL=https://www.googleapis.com/oauth2/v1/certs
-FIREBASE_CLIENT_CERT_URL=...
-FIREBASE_UNIVERSE_DOMAIN=googleapis.com
 
 # Firebase Public Config (Frontend)
-FIREBASE_API_KEY=...
-FIREBASE_AUTH_DOMAIN=ovpfh-28cee.firebaseapp.com
-FIREBASE_PROJECT_ID_FRONTEND=ovpfh-28cee
-FIREBASE_STORAGE_BUCKET=ovpfh-28cee.firebasestorage.app
-FIREBASE_MESSAGING_SENDER_ID=...
-FIREBASE_APP_ID=...
-FIREBASE_MEASUREMENT_ID=...
+
 ```
 
 ## 📝 Documentation

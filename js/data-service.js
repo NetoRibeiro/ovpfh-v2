@@ -35,10 +35,12 @@ const COLLECTIONS = {
 async function getAllFromCollection(collectionName) {
     try {
         const querySnapshot = await getDocs(collection(db, collectionName));
-        return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log(`📡 Fetched ${data.length} items from ${collectionName}`);
+        return data;
     } catch (error) {
-        console.error(`Error fetching collection ${collectionName}:`, error);
-        return [];
+        console.error(`❌ Error fetching collection ${collectionName}:`, error);
+        throw error; // Throw so loadData knows something went wrong
     }
 }
 
@@ -74,38 +76,90 @@ export async function getAllChannels() {
 }
 
 /**
- * Get latest news from Firestore
+ * Get latest highlight news (is_highlight = true)
+ * Simple query to avoid index requirements
  */
-export async function getLatestNews(limitCount = 5) {
+export async function getHighlightNews() {
     try {
         const newsRef = collection(db, COLLECTIONS.NEWS);
+        // We fetch the latest news and filter in client if needed,
+        // or use a simple query if we are sure of the field
         const q = query(
             newsRef,
+            where('is_highlight', '==', true),
             orderBy('last_updated_date_time', 'desc'),
-            limit(limitCount)
+            limit(1)
         );
         const querySnapshot = await getDocs(q);
         return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     } catch (error) {
-        console.error("Error fetching news:", error);
+        console.error("Error fetching highlight news:", error);
         return [];
     }
 }
 
 /**
- * Listen for real-time news updates
+ * Get latest news cards (is_highlight = false)
+ * Simplified to avoid composite index requirement
  */
-export function listenToNews(callback, limitCount = 5) {
+export async function getLatestNewsCards(limitCount = 3) {
+    try {
+        const newsRef = collection(db, COLLECTIONS.NEWS);
+        // To avoid index requirements for (!=) we fetch more and filter in JS
+        const q = query(
+            newsRef,
+            orderBy('last_updated_date_time', 'desc'),
+            limit(limitCount + 2) // Fetch a few more to filter out highlights
+        );
+        const querySnapshot = await getDocs(q);
+        return querySnapshot.docs
+            .map(doc => ({ id: doc.id, ...doc.data() }))
+            .filter(item => !item.is_highlight)
+            .slice(0, limitCount);
+    } catch (error) {
+        console.error("Error fetching news cards:", error);
+        return [];
+    }
+}
+
+/**
+ * Listen for real-time news updates with highlights
+ */
+export function listenToHighlights(callback) {
     const q = query(
         collection(db, COLLECTIONS.NEWS),
+        where('is_highlight', '==', true),
         orderBy('last_updated_date_time', 'desc'),
-        limit(limitCount)
+        limit(1)
     );
     return onSnapshot(q, (snapshot) => {
         const news = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log("⭐ Highlights snapshot received:", news.length);
         callback(news);
     }, (error) => {
-        console.error("News real-time listener error:", error);
+        console.error("Highlight real-time listener error:", error);
+    });
+}
+
+/**
+ * Listen for real-time news cards updates
+ * Uses client-side filtering to avoid index requirements
+ */
+export function listenToNewsCards(callback, limitCount = 3) {
+    const q = query(
+        collection(db, COLLECTIONS.NEWS),
+        orderBy('last_updated_date_time', 'desc'),
+        limit(limitCount + 2)
+    );
+    return onSnapshot(q, (snapshot) => {
+        const news = snapshot.docs
+            .map(doc => ({ id: doc.id, ...doc.data() }))
+            .filter(item => !item.is_highlight)
+            .slice(0, limitCount);
+        console.log("📰 News cards snapshot received:", news.length);
+        callback(news);
+    }, (error) => {
+        console.error("News cards real-time listener error:", error);
     });
 }
 

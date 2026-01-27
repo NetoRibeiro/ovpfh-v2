@@ -1,4 +1,4 @@
-import { getAllMatches, getAllTeams, getAllLeagues, getAllChannels, listenToMatches, migrateLocalDataToFirestore, listenToNews } from './js/data-service.js';
+import { getAllMatches, getAllTeams, getAllLeagues, getAllChannels, listenToMatches, migrateLocalDataToFirestore, listenToHighlights, listenToNewsCards } from './js/data-service.js';
 
 // ============================================
 // ONDE VAI PASSAR FUTEBOL HOJE - v2.0 App Logic
@@ -127,40 +127,96 @@ function isSameDay(date1, date2) {
 // --- DATA LOADING ---
 async function loadData() {
   try {
-    // Check if migration is requested (one-time utility)
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('migrate')) {
-      await migrateLocalDataToFirestore();
-      console.log("Migration triggered via URL");
+    // 1. Check for Firebase Placeholders
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+    // Attempt to load essential data from Firestore
+    console.log("📡 Attempting to load data from Firestore...");
+
+    let teams = [], leagues = [], canais = [];
+    let firestoreSuccess = false;
+
+    try {
+      [teams, leagues, canais] = await Promise.all([
+        getAllTeams(),
+        getAllLeagues(),
+        getAllChannels()
+      ]);
+      firestoreSuccess = true;
+      console.log("✅ Firestore static data loaded");
+    } catch (fsError) {
+      console.warn("⚠️ Firestore failed to load static data:", fsError);
+      // If we are on localhost, we might want to fallback to JSON automatically
+      if (!isLocalhost) throw fsError;
     }
 
-    // Load initial static data from Firestore
-    const [teams, leagues, canais] = await Promise.all([
-      getAllTeams(),
-      getAllLeagues(),
-      getAllChannels()
-    ]);
+    // 2. Fallback to local JSON if Firestore is empty or failed (H1 - Visibility)
+    if (!firestoreSuccess || (teams.length === 0 && leagues.length === 0)) {
+      console.log("🗂️ Firestore empty or failed. Falling back to local JSON files...");
+      const [teamsRes, leaguesRes, canaisRes] = await Promise.all([
+        fetch('data/teams.json'),
+        fetch('data/tournaments.json'),
+        fetch('data/canais.json')
+      ]);
+
+      const teamsDataJson = await teamsRes.json();
+      const leaguesDataJson = await leaguesRes.json();
+      const canaisDataJson = await canaisRes.json();
+
+      teams = teamsDataJson.teams || [];
+      leagues = leaguesDataJson.tournaments || [];
+      canais = canaisDataJson.canais || [];
+      console.log("✅ Local JSON data loaded as fallback");
+    }
 
     teamsData = teams;
-    tournamentsData = leagues; // keeping tournamentsData variable name for now to avoid massive refactor
+    tournamentsData = leagues;
     canaisData = canais;
 
     // Set up real-time listener for matches (H1)
     listenToMatches((matches) => {
-      allMatches = matches;
-      console.log(`🔥 Real-time update: ${matches.length} matches received`);
-      filterMatches(); // Re-filter and re-render on any DB change
+      // If Firestore is empty, we might need a fallback for matches too
+      if (matches.length === 0 && allMatches.length === 0) {
+        console.log("🏟️ No matches in Firestore, checking local data/matches.json...");
+        fetch('data/matches.json')
+          .then(res => res.json())
+          .then(data => {
+            allMatches = data.matches || [];
+            filterMatches();
+          })
+          .catch(err => console.error("Error loading local matches:", err));
+      } else {
+        allMatches = matches;
+        console.log(`🔥 Real-time update: ${matches.length} matches received`);
+        filterMatches();
+      }
     });
 
-    // Set up real-time listener for news
-    listenToNews((news) => {
-      console.log(`📰 Real-time update: ${news.length} news items received`);
-      renderNews(news);
+    // Set up real-time listener for highlights
+    listenToHighlights((news) => {
+      console.log(`⭐ Real-time update: Highlight received (${news.length})`);
+      if (news.length > 0) {
+        renderHighlight(news[0]);
+      } else {
+        // Mock fallback for highlights if DB is empty
+        renderHighlight(null);
+      }
+    });
+
+    // Set up real-time listener for news cards
+    listenToNewsCards((news) => {
+      console.log(`📰 Real-time update: ${news.length} news cards received`);
+      if (news.length > 0) {
+        renderNews(news);
+      } else {
+        // Fallback or empty state already handled by renderNews
+        renderNews([]);
+      }
     });
 
     return true;
   } catch (error) {
-    console.error('Error loading Firestore data:', error);
+    console.error('❌ Critical error in loadData:', error);
     return false;
   }
 }
@@ -386,21 +442,19 @@ function renderTopLeagues() {
   });
 }
 
-function renderHighlight() {
+function renderHighlight(highlight) {
   if (!elements.highlightContainer) return;
 
-  const highlight = {
-    title: "Mbappé brilha e Real Madrid assume a liderança",
-    tag: "DESTAQUE",
-    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop",
-    url: "#"
-  };
+  if (!highlight) {
+    elements.highlightContainer.innerHTML = '';
+    return;
+  }
 
   elements.highlightContainer.innerHTML = `
-    <div class="highlight-card" onclick="window.location.href='${highlight.url}'">
-      <img src="${highlight.image}" alt="">
+    <div class="highlight-card" onclick="window.location.href='#'">
+      <img src="${highlight.image_url}" alt="">
       <div class="highlight-content">
-        <span class="highlight-tag">${highlight.tag}</span>
+        <span class="highlight-tag">DESTAQUE</span>
         <h3 class="highlight-title">${highlight.title}</h3>
       </div>
     </div>
@@ -421,10 +475,9 @@ function renderNews(news = []) {
     const dateStr = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
 
     return `
-      <article class="news-item ${item.is_highlight ? 'highlighted' : ''}" onclick="window.location.href='#'">
+      <article class="news-item" onclick="window.location.href='#'">
         <div class="news-item-img-wrapper">
           <img src="${item.image_url}" alt="" class="news-item-img" loading="lazy">
-          ${item.is_highlight ? '<span class="news-badge-highlight">EM ALTA</span>' : ''}
         </div>
         <div class="news-item-content">
           <div class="news-item-meta">
@@ -585,13 +638,11 @@ async function init() {
   // Filter and render matches for today
   filterMatches();
 
-  // Render sidebars
+  // Sidebars are now handled by real-time listeners inside loadData()
   try {
     renderTopLeagues();
-    renderHighlight();
-    renderNews();
   } catch (err) {
-    console.error('Error rendering sidebars:', err);
+    console.error('Error rendering top leagues:', err);
   }
 
   // Load Livescore Widget
