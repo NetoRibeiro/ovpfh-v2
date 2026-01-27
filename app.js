@@ -529,6 +529,8 @@ function handleDateChange(direction) {
 
 // === INITIALIZATION ===
 async function init() {
+  console.log('🚀 Initializing OVPFH v2.0...');
+
   // Get date selector element
   elements.dateSelector = document.querySelector('.date-selector');
 
@@ -540,13 +542,27 @@ async function init() {
     elements.loadingState.classList.remove('hidden');
   }
 
+  // Safety timeout: If data doesn't load in 8 seconds, show error/empty state
+  const loadTimeout = setTimeout(() => {
+    if (allMatches.length === 0) {
+      console.warn('⚠️ Data loading timed out');
+      if (elements.loadingState) elements.loadingState.classList.add('hidden');
+      if (elements.emptyState) {
+        elements.emptyState.classList.remove('hidden');
+        elements.emptyState.innerHTML = '<h3>Tempo de carregamento excedido</h3><p>O servidor está demorando para responder. Por favor, recarregue a página.</p>';
+      }
+    }
+  }, 8000);
+
   // Load data from JSON files
   const dataLoaded = await loadData();
+  clearTimeout(loadTimeout);
 
   if (!dataLoaded) {
+    console.error('❌ Data loading failed');
     if (elements.emptyState) {
       elements.emptyState.classList.remove('hidden');
-      elements.emptyState.innerHTML = '<p>Erro ao carregar dados. Tente novamente mais tarde.</p>';
+      elements.emptyState.innerHTML = '<h3>Erro ao carregar dados</h3><p>Não foi possível conectar ao banco de dados. Tente novamente mais tarde.</p>';
     }
     if (elements.loadingState) {
       elements.loadingState.classList.add('hidden');
@@ -563,12 +579,20 @@ async function init() {
   filterMatches();
 
   // Render sidebars
-  renderTopLeagues();
-  renderHighlight();
-  renderNews();
+  try {
+    renderTopLeagues();
+    renderHighlight();
+    renderNews();
+  } catch (err) {
+    console.error('Error rendering sidebars:', err);
+  }
 
   // Load Livescore Widget
-  loadLivescoreWidget(currentDate);
+  try {
+    loadLivescoreWidget(currentDate);
+  } catch (err) {
+    console.warn('Livescore widget failed to load:', err);
+  }
 
   // Date listeners
   if (elements.prevDayBtn) {
