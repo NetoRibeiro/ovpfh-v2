@@ -1,3 +1,5 @@
+import { getAllMatches, getAllTeams, getAllLeagues, getAllChannels, listenToMatches, migrateLocalDataToFirestore } from './js/data-service.js';
+
 // ============================================
 // ONDE VAI PASSAR FUTEBOL HOJE - v2.0 App Logic
 // Nielsen Heuristics Implementation
@@ -121,7 +123,6 @@ function isSameDay(date1, date2) {
     date1.getDate() === date2.getDate();
 }
 
-import { getAllMatches, getAllTeams, getAllLeagues, getAllChannels, listenToMatches, migrateLocalDataToFirestore } from './js/data-service.js';
 
 // --- DATA LOADING ---
 async function loadData() {
