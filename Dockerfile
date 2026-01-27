@@ -32,6 +32,10 @@ COPY --from=builder /app /usr/share/nginx/html
 # Copy custom Nginx configuration
 COPY --from=builder /app/nginx.conf /etc/nginx/conf.d/default.conf
 
+# Copy environment injection script (replaces placeholders in firebase-config.js at runtime)
+COPY --from=builder /app/js/inject-env.sh /docker-entrypoint.d/01-inject-env.sh
+RUN chmod +x /docker-entrypoint.d/01-inject-env.sh
+
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

@@ -15,7 +15,8 @@ import {
     orderBy,
     onSnapshot,
     writeBatch,
-    serverTimestamp
+    serverTimestamp,
+    limit
 } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 // --- COLLECTIONS ---
@@ -24,7 +25,8 @@ const COLLECTIONS = {
     TEAMS: 'teams',
     LEAGUES: 'leagues',
     CANAIS: 'canais',
-    USER_PREFS: 'user_preferences'
+    USER_PREFS: 'user_preferences',
+    NEWS: 'news'
 };
 
 /**
@@ -69,6 +71,42 @@ export const getAllTournaments = getAllLeagues;
  */
 export async function getAllChannels() {
     return await getAllFromCollection(COLLECTIONS.CANAIS);
+}
+
+/**
+ * Get latest news from Firestore
+ */
+export async function getLatestNews(limitCount = 5) {
+    try {
+        const newsRef = collection(db, COLLECTIONS.NEWS);
+        const q = query(
+            newsRef,
+            orderBy('last_updated_date_time', 'desc'),
+            limit(limitCount)
+        );
+        const querySnapshot = await getDocs(q);
+        return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } catch (error) {
+        console.error("Error fetching news:", error);
+        return [];
+    }
+}
+
+/**
+ * Listen for real-time news updates
+ */
+export function listenToNews(callback, limitCount = 5) {
+    const q = query(
+        collection(db, COLLECTIONS.NEWS),
+        orderBy('last_updated_date_time', 'desc'),
+        limit(limitCount)
+    );
+    return onSnapshot(q, (snapshot) => {
+        const news = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        callback(news);
+    }, (error) => {
+        console.error("News real-time listener error:", error);
+    });
 }
 
 /**

@@ -1,4 +1,4 @@
-import { getAllMatches, getAllTeams, getAllLeagues, getAllChannels, listenToMatches, migrateLocalDataToFirestore } from './js/data-service.js';
+import { getAllMatches, getAllTeams, getAllLeagues, getAllChannels, listenToMatches, migrateLocalDataToFirestore, listenToNews } from './js/data-service.js';
 
 // ============================================
 // ONDE VAI PASSAR FUTEBOL HOJE - v2.0 App Logic
@@ -150,6 +150,12 @@ async function loadData() {
       allMatches = matches;
       console.log(`🔥 Real-time update: ${matches.length} matches received`);
       filterMatches(); // Re-filter and re-render on any DB change
+    });
+
+    // Set up real-time listener for news
+    listenToNews((news) => {
+      console.log(`📰 Real-time update: ${news.length} news items received`);
+      renderNews(news);
     });
 
     return true;
@@ -401,36 +407,36 @@ function renderHighlight() {
   `;
 }
 
-function renderNews() {
+function renderNews(news = []) {
   if (!elements.newsContainer) return;
 
-  const news = [
-    {
-      title: "Brasileirão 2026: Confira a tabela completa e jogos do final de semana",
-      time: "Há 2 horas",
-      image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=200&auto=format&fit=crop"
-    },
-    {
-      title: "Mercado da Bola: Neymar pode retornar ao Santos em julho",
-      time: "Há 4 horas",
-      image: "https://images.unsplash.com/photo-1624891151634-192064166649?q=80&w=200&auto=format&fit=crop"
-    },
-    {
-      title: "Champions League: Sorteio define confrontos das quartas de final",
-      time: "Há 6 horas",
-      image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=200&auto=format&fit=crop"
-    }
-  ];
+  if (news.length === 0) {
+    elements.newsContainer.innerHTML = '<div class="empty-pref" style="padding: var(--space-4); font-size: var(--text-sm);">Nenhuma notícia encontrada.</div>';
+    return;
+  }
 
-  elements.newsContainer.innerHTML = news.map(item => `
-    <div class="news-item" onclick="window.location.href='#'">
-      <img src="${item.image}" alt="" class="news-item-img">
-      <div class="news-item-content">
-        <h3 class="news-item-title">${item.title}</h3>
-        <span class="news-item-time">${item.time}</span>
-      </div>
-    </div>
-  `).join('');
+  elements.newsContainer.innerHTML = news.map(item => {
+    const date = item.last_updated_date_time?.toDate ? item.last_updated_date_time.toDate() : new Date(item.last_updated_date_time);
+    const timeStr = date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    const dateStr = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
+
+    return `
+      <article class="news-item ${item.is_highlight ? 'highlighted' : ''}" onclick="window.location.href='#'">
+        <div class="news-item-img-wrapper">
+          <img src="${item.image_url}" alt="" class="news-item-img" loading="lazy">
+          ${item.is_highlight ? '<span class="news-badge-highlight">EM ALTA</span>' : ''}
+        </div>
+        <div class="news-item-content">
+          <div class="news-item-meta">
+            <span class="news-item-date">${dateStr} • ${timeStr}</span>
+            ${item.is_team_related ? `<span class="news-item-team-tag">#${item.is_team_related}</span>` : ''}
+          </div>
+          <h3 class="news-item-title">${item.title}</h3>
+          <p class="news-item-subtitle">${item.subtitle || ''}</p>
+        </div>
+      </article>
+    `;
+  }).join('');
 }
 
 async function loadLivescoreWidget(date = new Date()) {
