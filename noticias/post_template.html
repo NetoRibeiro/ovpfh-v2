@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>{{TITLE}} | Onde Vai Passar Futebol Hoje</title>
+    <meta name="description" content="{{SUBTITLE}}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        .news-article-header {
+            padding: var(--space-12) 0;
+            background: linear-gradient(rgba(0, 12, 24, 0.7), rgba(0, 12, 24, 0.9)),
+            url('{{IMAGE_URL}}');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 2px solid var(--color-cyan-500);
+            margin-bottom: var(--space-8);
+        }
+
+        .news-article-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--color-white);
+            margin-bottom: var(--space-4);
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .news-article-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            color: var(--color-cyan-400);
+            font-weight: var(--weight-semibold);
+            font-size: var(--text-sm);
+        }
+
+        .news-article-content {
+            font-size: var(--text-lg);
+            line-height: 1.8;
+            color: var(--text-primary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-article-content p {
+            margin-bottom: var(--space-6);
+        }
+
+        .news-article-content h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            color: var(--color-cyan-500);
+            margin: var(--space-10) 0 var(--space-4);
+        }
+
+        .news-main-img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-8);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .share-section {
+            padding: var(--space-8) 0;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: var(--space-12);
+            text-align: center;
+        }
+
+        .back-to-news {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--color-cyan-500);
+            text-decoration: none;
+            font-weight: var(--weight-bold);
+            margin-bottom: var(--space-8);
+            transition: transform var(--transition-fast);
+        }
+
+        .back-to-news:hover {
+            transform: translateX(-4px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <img src="../assets/root/logo_8_original_name.png" alt="Futebol Hoje" class="logo-img">
+                    <span class="logo-text">FUTEBOL HOJE</span>
+                </a>
+
+                <nav class="main-nav">
+                    <a href="../noticias.html" class="nav-link">Notícias</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <section class="news-article-header">
+                <div class="container">
+                    <div class="news-article-meta">
+                        <span class="tag">{{CATEGORY}}</span>
+                        <span>{{DATE}}</span>
+                    </div>
+                    <h1 class="news-article-title">{{TITLE}}</h1>
+                </div>
+            </section>
+
+            <div class="container">
+                <a href="../noticias.html" class="back-to-news">
+                    ← Voltar para Notícias
+                </a>
+
+                <div class="news-article-content">
+                    <img src="{{IMAGE_URL}}" alt="{{TITLE}}" class="news-main-img">
+                    {{CONTENT}}
+
+                    <div class="share-section">
+                        <h3>Gostou desta notícia?</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">Compartilhe com seus
+                            amigos!</p>
+                        <!-- Space for share buttons -->
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: var(--space-12);">
+        <div class="container">
+            <a href="../index.html">
+                <img src="../assets/root/logo_8_original_name.png" alt="Futebol Hoje" class="footer-logo">
+            </a>
+            <p>&copy; 2026 Onde Vai Passar Futebol Hoje. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="../sobre.html">Sobre</a>
+                <a href="../noticias.html">Notícias</a>
+                <a href="../contato.html">Contato</a>
+                <a href="../privacidade.html">Privacidade</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
