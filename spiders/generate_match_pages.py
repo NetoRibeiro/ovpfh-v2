@@ -14,6 +14,16 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / 'data'
 
+class FirestoreJSONEncoder(json.JSONEncoder):
+    """Custom JSON encoder for Firestore types"""
+    def default(self, obj):
+        if hasattr(obj, 'isoformat'):
+            return obj.isoformat()
+        # Handle Firestore DatetimeWithNanoseconds (which might not have isoformat in some SDK versions/environments)
+        if type(obj).__name__ == 'DatetimeWithNanoseconds':
+            return str(obj)
+        return super().default(obj)
+
 def initialize_firebase():
     """Initialize Firebase Admin SDK using environment variables from .env"""
     env_path = BASE_DIR / '.env'
@@ -162,10 +172,10 @@ def generate_match_pages():
             
             # Prepare static data injection
             static_data_js = "\n<script>\n"
-            static_data_js += "  window.STATIC_MATCH_DATA = " + json.dumps(match, ensure_ascii=False) + ";\n"
-            static_data_js += "  window.STATIC_TEAMS_DATA = " + json.dumps(list(teams.values()), ensure_ascii=False) + ";\n"
-            static_data_js += "  window.STATIC_TOURNAMENTS_DATA = " + json.dumps(list(tournaments.values()), ensure_ascii=False) + ";\n"
-            static_data_js += "  window.STATIC_CANAIS_DATA = " + json.dumps(canais, ensure_ascii=False) + ";\n"
+            static_data_js += "  window.STATIC_MATCH_DATA = " + json.dumps(match, ensure_ascii=False, cls=FirestoreJSONEncoder) + ";\n"
+            static_data_js += "  window.STATIC_TEAMS_DATA = " + json.dumps(list(teams.values()), ensure_ascii=False, cls=FirestoreJSONEncoder) + ";\n"
+            static_data_js += "  window.STATIC_TOURNAMENTS_DATA = " + json.dumps(list(tournaments.values()), ensure_ascii=False, cls=FirestoreJSONEncoder) + ";\n"
+            static_data_js += "  window.STATIC_CANAIS_DATA = " + json.dumps(canais, ensure_ascii=False, cls=FirestoreJSONEncoder) + ";\n"
             static_data_js += "</script>\n"
             
             # Inject data and SEO tags
