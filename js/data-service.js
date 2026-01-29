@@ -78,6 +78,21 @@ export async function getAllChannels() {
 }
 
 /**
+ * Get all news
+ */
+export async function getAllNews() {
+    try {
+        const newsRef = collection(db, COLLECTIONS.NEWS);
+        const q = query(newsRef, orderBy('last_updated_date_time', 'desc'));
+        const querySnapshot = await getDocs(q);
+        return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } catch (error) {
+        console.error("Error fetching all news:", error);
+        return [];
+    }
+}
+
+/**
  * Get latest highlight news (is_highlight = true)
  * Simple query to avoid index requirements
  */
