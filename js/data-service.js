@@ -26,8 +26,6 @@ const COLLECTIONS = {
     LEAGUES: 'leagues',
     CANAIS: 'canais',
     USER_PREFS: 'user_preferences',
-    CANAIS: 'canais',
-    USER_PREFS: 'user_preferences',
     NEWS: 'news',
     SUBSCRIBERS: 'newsletter_subscribers'
 };
@@ -244,19 +242,90 @@ export async function saveUserPreferences(uid, preferences) {
 
 /**
  * Add email to newsletter subscribers
+ * Can be used for both anonymous (footer) and authenticated (preferences) subscriptions
  */
-export async function addNewsletterSubscriber(email) {
+export async function addNewsletterSubscriber(email, options = {}) {
     try {
         // Use email as ID to prevent duplicates (sanitized)
         const id = email.replace(/[^a-zA-Z0-9]/g, '_');
-        await setDoc(doc(db, COLLECTIONS.SUBSCRIBERS, id), {
+
+        const subscriberData = {
             email: email,
             subscribedAt: serverTimestamp(),
-            source: 'footer'
-        });
+            source: options.source || 'footer',
+            receive_own: options.receive_own !== undefined ? options.receive_own : true,
+            receive_partners: options.receive_partners !== undefined ? options.receive_partners : true,
+            receive_third_party: options.receive_third_party !== undefined ? options.receive_third_party : true
+        };
+
+        // If user is authenticated, store their UID for reference
+        if (options.uid) {
+            subscriberData.uid = options.uid;
+        }
+
+        await setDoc(doc(db, COLLECTIONS.SUBSCRIBERS, id), subscriberData, { merge: true });
         return { success: true };
     } catch (error) {
         console.error("Error subscribing to newsletter:", error);
+        return { success: false, error: error.message };
+    }
+}
+
+/**
+ * Get newsletter preferences for a user by email or UID
+ */
+export async function getNewsletterPreferences(emailOrUid) {
+    if (!emailOrUid) return null;
+
+    try {
+        // Try to find by sanitized email first
+        const id = emailOrUid.replace(/[^a-zA-Z0-9]/g, '_');
+        const docRef = doc(db, COLLECTIONS.SUBSCRIBERS, id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            return {
+                receive_own: docSnap.data().receive_own || false,
+                receive_partners: docSnap.data().receive_partners || false,
+                receive_third_party: docSnap.data().receive_third_party || false
+            };
+        }
+
+        // Return default (all false)
+        return {
+            receive_own: false,
+            receive_partners: false,
+            receive_third_party: false
+        };
+    } catch (error) {
+        console.error("Error fetching newsletter preferences:", error);
+        return null;
+    }
+}
+
+/**
+ * Update newsletter preferences for a user
+ */
+export async function updateNewsletterPreferences(email, uid, preferences) {
+    if (!email) return { success: false, error: 'No email provided' };
+
+    try {
+        const id = email.replace(/[^a-zA-Z0-9]/g, '_');
+        const docRef = doc(db, COLLECTIONS.SUBSCRIBERS, id);
+
+        await setDoc(docRef, {
+            email: email,
+            uid: uid || null,
+            receive_own: preferences.own || false,
+            receive_partners: preferences.partners || false,
+            receive_third_party: preferences.thirdParty || false,
+            updatedAt: serverTimestamp(),
+            source: 'preferences'
+        }, { merge: true });
+
+        return { success: true };
+    } catch (error) {
+        console.error("Error updating newsletter preferences:", error);
         return { success: false, error: error.message };
     }
 }

@@ -134,6 +134,24 @@
       "logo": "/assets/canais/goat-tv.png",
       "type": "streaming",
       "thirdpartyurl": "https://www.youtube.com/@goaborracha"
+    },
+    {
+      "id": "primevideo",
+      "name": "Prime Video",
+      "fullName": "Prime Video",
+      "slug": "primevideo",
+      "logo": "/assets/canais/prime_video.png",
+      "type": "streaming",
+      "thirdpartyurl": "https://www.primevideo.com/"
+    },
+    {
+      "id": "getv",
+      "name": "Globo Esporte TV",
+      "fullName": "Globo Esporte TV",
+      "slug": "getv",
+      "logo": "/assets/canais/ge-tv.png",
+      "type": "streaming",
+      "thirdpartyurl": "https://ge.globo.com/getv/"
     }
   ]
 }

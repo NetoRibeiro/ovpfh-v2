@@ -466,9 +466,12 @@ function renderHighlight(highlight) {
     return;
   }
 
+  const link = highlight.source_url || '#';
+  const target = highlight.source_url ? "_blank" : "_self";
+
   elements.highlightContainer.style.display = 'block';
   elements.highlightContainer.innerHTML = `
-    <div class="highlight-card" onclick="window.location.href='#'">
+    <div class="highlight-card" onclick="window.open('${link}', '${target}')" style="cursor: pointer;">
       <img src="${highlight.image_url || highlight.image}" alt="">
       <div class="highlight-content">
         <span class="highlight-tag">DESTAQUE</span>
@@ -491,9 +494,11 @@ function renderNews(news = []) {
     const date = item.last_updated_date_time?.toDate ? item.last_updated_date_time.toDate() : new Date(item.last_updated_date_time);
     const timeStr = date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
     const dateStr = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
+    const link = item.source_url || '#';
+    const target = item.source_url ? "_blank" : "_self";
 
     return `
-      <article class="news-item" onclick="window.location.href='#'">
+      <article class="news-item" onclick="window.open('${link}', '${target}')" style="cursor: pointer;">
         <div class="news-item-img-wrapper">
           <img src="${item.image_url}" alt="" class="news-item-img" loading="lazy">
         </div>

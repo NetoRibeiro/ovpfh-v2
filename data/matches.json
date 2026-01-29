@@ -935,10 +935,10 @@
       "awayTeam": "guarani",
       "matchDate": "2026-01-25T18:30:00-03:00",
       "round": "5ª Rodada",
-      "status": "scheduled",
+      "status": "finished",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "venue": {
         "name": "Canindé",
@@ -2281,10 +2281,10 @@
       "awayTeam": "voltaredonda",
       "matchDate": "2026-01-26T21:30:00-03:00",
       "round": "4ª Rodada",
-      "status": "scheduled",
+      "status": "finished",
       "score": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 2
       },
       "venue": {
         "name": "Jânio Moraes",
@@ -2306,10 +2306,10 @@
       "awayTeam": "portuguesa-rj",
       "matchDate": "2026-01-26T17:00:00-03:00",
       "round": "4ª Rodada",
-      "status": "scheduled",
+      "status": "finished",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 2
       },
       "venue": {
         "name": "Conselheiro Galvão",
@@ -2331,10 +2331,10 @@
       "awayTeam": "sampaiocorrea",
       "matchDate": "2026-01-27T17:00:00-03:00",
       "round": "4ª Rodada",
-      "status": "scheduled",
+      "status": "finished",
       "score": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "venue": {
         "name": "João Saldanha",
@@ -2651,6 +2651,811 @@
         }
       ],
       "matchURL": "/carioca26/08-02-2026/volta-redonda-vs-madureira/"
+    },
+    {
+      "id": "brasileiro26-atletico-mineiro-vs-palmeiras-28-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "atletico-mineiro",
+      "awayTeam": "palmeiras",
+      "matchDate": "2026-01-28T19:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "venue": {
+        "name": "Arena MRV",
+        "city": "Belo Horizonte",
+        "state": "MG"
+      },
+      "broadcasting": [
+        {
+          "channel": "Sportv",
+          "type": "cable"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/28-01-2026/atletico-mineiro-vs-palmeiras/"
+    },
+    {
+      "id": "brasileiro26-internacional-vs-athletico-paranaensepr-28-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "internacional",
+      "awayTeam": "athletico-paranaense",
+      "matchDate": "2026-01-28T19:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Beira-Rio",
+        "city": "Porto Alegre",
+        "state": "RS"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/28-01-2026/internacional-vs-athletico-paranaense/"
+    },
+    {
+      "id": "brasileiro26-coritiba-vs-redbullbragantino-28-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "coritiba",
+      "awayTeam": "bragantino",
+      "matchDate": "2026-01-28T19:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "venue": {
+        "name": "Couto Pereira",
+        "city": "Curitiba",
+        "state": "PR"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/28-01-2026/coritiba-vs-red-bull-bragantino/"
+    },
+    {
+      "id": "brasileiro26-vitoria-vs-remo-28-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "vitoria",
+      "awayTeam": "remo",
+      "matchDate": "2026-01-28T19:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "venue": {
+        "name": "Barradão",
+        "city": "Salvador",
+        "state": "BA"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/28-01-2026/vitoria-vs-remo/"
+    },
+    {
+      "id": "brasileiro26-fluminense-vs-gremio-28-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "fluminense",
+      "awayTeam": "gremio",
+      "matchDate": "2026-01-28T19:30:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Maracanã",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "YouTube / Cazé TV",
+          "type": "streaming"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        },
+        {
+          "channel": "Record",
+          "type": "broadcast"
+        }
+      ],
+      "matchURL": "/brasileiro26/28-01-2026/fluminense-vs-gremio/"
+    },
+    {
+      "id": "brasileiro26-corinthians-vs-bahia-28-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "corinthians",
+      "awayTeam": "bahia",
+      "matchDate": "2026-01-28T20:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "venue": {
+        "name": "Vila Belmiro",
+        "city": "Santos",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/28-01-2026/corinthians-vs-bahia/"
+    },
+    {
+      "id": "brasileiro26-chapecoense-vs-santos-28-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "chapecoense",
+      "awayTeam": "santos",
+      "matchDate": "2026-01-28T20:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 4,
+        "away": 2
+      },
+      "venue": {
+        "name": "Arena Condá",
+        "city": "Chapecó",
+        "state": "SC"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/28-01-2026/chapecoense-vs-santos/"
+    },
+    {
+      "id": "brasileiro26-saopaulo-vs-flamengo-28-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "saopaulo",
+      "awayTeam": "flamengo",
+      "matchDate": "2026-01-28T21:30:00-03:00",
+      "round": "1ª Rodada",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "venue": {
+        "name": "Morumbis",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "GE TV",
+          "type": "streaming"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        },
+        {
+          "channel": "Globo",
+          "type": "broadcast"
+        }
+      ],
+      "matchURL": "/brasileiro26/28-01-2026/sao-paulo-vs-flamengo/"
+    },
+    {
+      "id": "brasileiro26-mirassol-vs-vasco-29-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "mirassol",
+      "awayTeam": "vasco",
+      "matchDate": "2026-01-29T20:00:00-03:00",
+      "round": "1ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "José M. C. Maia",
+        "city": "Mirassol",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "GE TV",
+          "type": "streaming"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        },
+        {
+          "channel": "Sportv",
+          "type": "cable"
+        }
+      ],
+      "matchURL": "/brasileiro26/29-01-2026/mirassol-vs-vasco-da-gama/"
+    },
+    {
+      "id": "brasileiro26-botafogo-vs-cruzeiro-29-01-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "botafogo",
+      "awayTeam": "cruzeiro",
+      "matchDate": "2026-01-29T21:30:00-03:00",
+      "round": "1ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Nilton Santos",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Amazon",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/brasileiro26/29-01-2026/botafogo-vs-cruzeiro/"
+    },
+    {
+      "id": "brasileiro26-flamengo-vs-internacional-04-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "flamengo",
+      "awayTeam": "internacional",
+      "matchDate": "2026-02-04T19:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Maracanã",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/04-02-2026/flamengo-vs-internacional/"
+    },
+    {
+      "id": "brasileiro26-redbullbragantino-vs-atletico-mineiro-04-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "bragantino",
+      "awayTeam": "atletico-mineiro",
+      "matchDate": "2026-02-04T19:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Cicero S. Marques",
+        "city": "Bragança Paulista",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/04-02-2026/red-bull-bragantino-vs-atletico-mineiro/"
+    },
+    {
+      "id": "brasileiro26-santos-vs-saopaulo-04-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "santos",
+      "awayTeam": "saopaulo",
+      "matchDate": "2026-02-04T20:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Vila Belmiro",
+        "city": "Santos",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/04-02-2026/santos-vs-sao-paulo/"
+    },
+    {
+      "id": "brasileiro26-remo-vs-mirassol-04-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "remo",
+      "awayTeam": "mirassol",
+      "matchDate": "2026-02-04T20:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Mangueirão",
+        "city": "Belém",
+        "state": "PA"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/04-02-2026/remo-vs-mirassol/"
+    },
+    {
+      "id": "brasileiro26-palmeiras-vs-vitoria-04-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "palmeiras",
+      "awayTeam": "vitoria",
+      "matchDate": "2026-02-04T21:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Arena Barueri",
+        "city": "Barueri",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Globo",
+          "type": "broadcast"
+        },
+        {
+          "channel": "GE TV",
+          "type": "streaming"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/04-02-2026/palmeiras-vs-vitoria/"
+    },
+    {
+      "id": "brasileiro26-gremio-vs-botafogo-04-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "gremio",
+      "awayTeam": "botafogo",
+      "matchDate": "2026-02-04T21:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Arena do Grêmio",
+        "city": "Porto Alegre",
+        "state": "RS"
+      },
+      "broadcasting": [
+        {
+          "channel": "Globo",
+          "type": "broadcast"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/04-02-2026/gremio-vs-botafogo/"
+    },
+    {
+      "id": "brasileiro26-bahia-vs-fluminense-05-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "bahia",
+      "awayTeam": "fluminense",
+      "matchDate": "2026-02-05T19:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Arena Fonte Nova",
+        "city": "Salvador",
+        "state": "BA"
+      },
+      "broadcasting": [
+        {
+          "channel": "Sportv",
+          "type": "cable"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/05-02-2026/bahia-vs-fluminense/"
+    },
+    {
+      "id": "brasileiro26-vasco-vs-chapecoense-05-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "vasco",
+      "awayTeam": "chapecoense",
+      "matchDate": "2026-02-05T20:00:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "São Januário",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Amazon",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/brasileiro26/05-02-2026/vasco-da-gama-vs-chapecoense/"
+    },
+    {
+      "id": "brasileiro26-cruzeiro-vs-coritiba-05-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "cruzeiro",
+      "awayTeam": "coritiba",
+      "matchDate": "2026-02-05T21:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Mineirão",
+        "city": "Belo Horizonte",
+        "state": "MG"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        },
+        {
+          "channel": "Sportv",
+          "type": "cable"
+        }
+      ],
+      "matchURL": "/brasileiro26/05-02-2026/cruzeiro-vs-coritiba/"
+    },
+    {
+      "id": "brasileiro26-athletico-paranaensepr-vs-corinthians-18-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "athletico-paranaense",
+      "awayTeam": "corinthians",
+      "matchDate": "2026-02-18T19:30:00-03:00",
+      "round": "2ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Arena da Baixada",
+        "city": "Curitiba",
+        "state": "PR"
+      },
+      "broadcasting": [
+        {
+          "channel": "YouTube / Cazé TV",
+          "type": "streaming"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        },
+        {
+          "channel": "Record",
+          "type": "broadcast"
+        }
+      ],
+      "matchURL": "/brasileiro26/18-02-2026/athletico-paranaense-vs-corinthians/"
+    },
+    {
+      "id": "brasileiro26-mirassol-vs-cruzeiro-11-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "mirassol",
+      "awayTeam": "cruzeiro",
+      "matchDate": "2026-02-11T19:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "José M. C. Maia",
+        "city": "Mirassol",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Sportv",
+          "type": "cable"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/11-02-2026/mirassol-vs-cruzeiro/"
+    },
+    {
+      "id": "brasileiro26-chapecoense-vs-coritiba-11-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "chapecoense",
+      "awayTeam": "coritiba",
+      "matchDate": "2026-02-11T19:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Arena Condá",
+        "city": "Chapecó",
+        "state": "SC"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/11-02-2026/chapecoense-vs-coritiba/"
+    },
+    {
+      "id": "brasileiro26-atletico-mineiro-vs-remo-11-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "atletico-mineiro",
+      "awayTeam": "remo",
+      "matchDate": "2026-02-11T20:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Arena MRV",
+        "city": "Belo Horizonte",
+        "state": "MG"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/11-02-2026/atletico-mineiro-vs-remo/"
+    },
+    {
+      "id": "brasileiro26-vasco-vs-bahia-11-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "vasco",
+      "awayTeam": "bahia",
+      "matchDate": "2026-02-11T21:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "São Januário",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "Globo",
+          "type": "broadcast"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/11-02-2026/vasco-da-gama-vs-bahia/"
+    },
+    {
+      "id": "brasileiro26-saopaulo-vs-gremio-11-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "saopaulo",
+      "awayTeam": "gremio",
+      "matchDate": "2026-02-11T21:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Morumbis",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Globo",
+          "type": "broadcast"
+        },
+        {
+          "channel": "GE TV",
+          "type": "streaming"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/11-02-2026/sao-paulo-vs-gremio/"
+    },
+    {
+      "id": "brasileiro26-athletico-paranaensepr-vs-santos-12-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "athletico-paranaense",
+      "awayTeam": "santos",
+      "matchDate": "2026-02-12T19:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Arena da Baixada",
+        "city": "Curitiba",
+        "state": "PR"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/12-02-2026/athletico-paranaense-vs-santos/"
+    },
+    {
+      "id": "brasileiro26-fluminense-vs-botafogo-12-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "fluminense",
+      "awayTeam": "botafogo",
+      "matchDate": "2026-02-12T19:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Maracanã",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "broadcasting": [
+        {
+          "channel": "YouTube / Cazé TV",
+          "type": "streaming"
+        },
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        },
+        {
+          "channel": "Record",
+          "type": "broadcast"
+        }
+      ],
+      "matchURL": "/brasileiro26/12-02-2026/fluminense-vs-botafogo/"
+    },
+    {
+      "id": "brasileiro26-corinthians-vs-redbullbragantino-12-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "corinthians",
+      "awayTeam": "bragantino",
+      "matchDate": "2026-02-12T20:00:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Neo Quimica Arena",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "broadcasting": [
+        {
+          "channel": "Premiere",
+          "type": "ppv"
+        }
+      ],
+      "matchURL": "/brasileiro26/12-02-2026/corinthians-vs-red-bull-bragantino/"
+    },
+    {
+      "id": "brasileiro26-internacional-vs-palmeiras-12-02-2026",
+      "tournament": "brasileiro26",
+      "homeTeam": "internacional",
+      "awayTeam": "palmeiras",
+      "matchDate": "2026-02-12T21:30:00-03:00",
+      "round": "3ª Rodada",
+      "status": "scheduled",
+      "score": {
+        "home": null,
+        "away": null
+      },
+      "venue": {
+        "name": "Beira-Rio",
+        "city": "Porto Alegre",
+        "state": "RS"
+      },
+      "broadcasting": [
+        {
+          "channel": "Amazon",
+          "type": "streaming"
+        }
+      ],
+      "matchURL": "/brasileiro26/12-02-2026/internacional-vs-palmeiras/"
     }
   ]
 }

@@ -1,43 +1,34 @@
+# Environment variables
+.env
+*.env
+
 # Python
-__pycache__/
-*.py[cod]
-*$py.class
 .venv/
 venv/
-ENV/
-build/
+env/
 dist/
-*.egg-info/
+build/
+*.pyc
+__pycache__/
 
-# Scraping / Data (Optional: comment out if you want to keep data in git)
-# times/
-# staticdata/
-# md/
-# spiders/
-# assets/times/
-# assets/campeonatos/
-# assets/canais/
+# Firebase
+firebase-service-account.json
 
-# IDEs and Editors
+# Local Data / Scraping Results
+resultados/
+*.json.html
+logs/
+
+# IDEs
 .vscode/
 .idea/
-*.swp
-*.swo
-.DS_Store
-/.claude/settings.local.json
-/.claude/
-.claude
-# Misc
-.env
-*.log
-.agent/
 
-# Temp files
-tmp/
-*.tmp
-*.bak
-*.old
-/resultados/
-*.bat
-# Firebase Secrets
-firebase-service-account.json
+# OS
+Thumbs.db
+.DS_Store
+
+# Markdowns
+md/
+
+# Agents
+.agent/

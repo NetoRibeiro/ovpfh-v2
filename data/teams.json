@@ -9,7 +9,8 @@
       "stadium": "Morumbi",
       "founded": 1930,
       "tournaments": [
-        "paulistao26"
+        "paulistao26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#FF0000",
@@ -26,7 +27,8 @@
       "stadium": "Neo Química Arena",
       "founded": 1910,
       "tournaments": [
-        "paulistao26"
+        "paulistao26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#000000",
@@ -42,7 +44,8 @@
       "stadium": "Allianz Parque",
       "founded": 1914,
       "tournaments": [
-        "paulistao26"
+        "paulistao26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#006437",
@@ -58,7 +61,8 @@
       "stadium": "Vila Belmiro",
       "founded": 1912,
       "tournaments": [
-        "paulistao26"
+        "paulistao26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#FFFFFF",
@@ -74,7 +78,8 @@
       "stadium": "Nabi Abi Chedid",
       "founded": 1928,
       "tournaments": [
-        "paulistao26"
+        "paulistao26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#FFFFFF",
@@ -139,7 +144,8 @@
       "stadium": "José Maria de Campos Maia",
       "founded": 1925,
       "tournaments": [
-        "paulistao26"
+        "paulistao26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#FFD700",
@@ -267,7 +273,8 @@
       "stadium": "Maracanã",
       "founded": 1895,
       "tournaments": [
-        "carioca26"
+        "carioca26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#FF0000",
@@ -283,7 +290,8 @@
       "stadium": "São Januário",
       "founded": 1898,
       "tournaments": [
-        "carioca26"
+        "carioca26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#000000",
@@ -299,7 +307,8 @@
       "stadium": "Maracanã",
       "founded": 1902,
       "tournaments": [
-        "carioca26"
+        "carioca26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#8B0000",
@@ -316,7 +325,8 @@
       "stadium": "Nilton Santos",
       "founded": 1894,
       "tournaments": [
-        "carioca26"
+        "carioca26",
+        "brasileiro26"
       ],
       "colors": {
         "primary": "#000000",
@@ -450,6 +460,166 @@
       "colors": {
         "primary": "#8B4513",
         "secondary": "#FFD700"
+      }
+    },
+    {
+      "id": "atletico-mineiro",
+      "name": "Atlético Mineiro",
+      "slug": "atletico-mineiro",
+      "logo": "/assets/times/atletico-mineiro.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "bahia",
+      "name": "Bahia",
+      "slug": "bahia",
+      "logo": "/assets/times/bahia.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "chapecoense",
+      "name": "Chapecoense",
+      "slug": "chapecoense",
+      "logo": "/assets/times/chapecoense.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "cruzeiro",
+      "name": "Cruzeiro",
+      "slug": "cruzeiro",
+      "logo": "/assets/times/cruzeiro.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "remo",
+      "name": "Remo",
+      "slug": "remo",
+      "logo": "/assets/times/remo.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "vitoria",
+      "name": "Vitória",
+      "slug": "vitoria",
+      "logo": "/assets/times/vitoria.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "athletico-paranaense",
+      "name": "Athletico Paranaense",
+      "slug": "athletico-paranaense",
+      "logo": "/assets/times/athletico-paranaense.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "coritiba",
+      "name": "Coritiba",
+      "slug": "coritiba",
+      "logo": "/assets/times/coritiba.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "gremio",
+      "name": "Grêmio",
+      "slug": "gremio",
+      "logo": "/assets/times/gremio.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
+      }
+    },
+    {
+      "id": "internacional",
+      "name": "Internacional",
+      "slug": "internacional",
+      "logo": "/assets/times/internacional.png",
+      "state": "",
+      "stadium": "",
+      "founded": 0,
+      "tournaments": [
+        "brasileiro26"
+      ],
+      "colors": {
+        "primary": "#000000",
+        "secondary": "#FFFFFF"
       }
     }
   ]

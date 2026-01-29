@@ -119,6 +119,52 @@
         "RecordTV",
         "Globo"
       ]
+    },
+    {
+      "id": "brasileiro26",
+      "name": "Campeonato Brasileiro 2026",
+      "shortName": "Brasileiro",
+      "slug": "brasileiro26",
+      "year": 2026,
+      "status": "active",
+      "logo": "/assets/campeonatos/brasileiro.jpg",
+      "startDate": "2026-01-28",
+      "endDate": "2026-12-15",
+      "phase": "Pontos Corridos",
+      "description": "A Série A de 2026 será disputada por vinte clubes em dois turnos.",
+      "teams": [
+        "Athletico Paranaense",
+        "Atlético Mineiro",
+        "Bahia",
+        "Botafogo",
+        "Chapecoense",
+        "Corinthians",
+        "Coritiba",
+        "Cruzeiro",
+        "Flamengo",
+        "Fluminense",
+        "Grêmio",
+        "Internacional",
+        "Mirassol",
+        "Palmeiras",
+        "Red Bull Bragantino",
+        "Remo",
+        "Santos",
+        "São Paulo",
+        "Vasco da Gama",
+        "Vitória"
+      ],
+      "format": "A Série A de 2026 será disputada por vinte clubes em dois turnos. Em cada turno, todos os times jogarão entre si uma única vez. Os jogos do segundo turno serão realizados na mesma ordem do primeiro, apenas com o mando de campo invertido. Não há campeões por turnos, sendo declarado campeão brasileiro o time que obtiver o maior número de pontos após as 38 rodadas.",
+      "broadcasting": [
+        "SporTV",
+        "Premiere",
+        "Band",
+        "RecordTV",
+        "Globo",
+        "GE TV",
+        "Caze tv",
+        "Prime Video"
+      ]
     }
   ]
 }

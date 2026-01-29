@@ -7,7 +7,9 @@ import {
     getAllTeams,
     getAllLeagues,
     getUserPreferences,
-    saveUserPreferences
+    saveUserPreferences,
+    getNewsletterPreferences,
+    updateNewsletterPreferences
 } from './data-service.js';
 import { onAuthStateChange, getUserDisplayName, getUserPhotoURL } from './auth.js';
 
@@ -18,12 +20,13 @@ let allTournaments = [];
 let userPrefs = {
     countries: [],
     leagues: [],
-    teams: [],
-    newsletter: {
-        own: false,
-        partners: false,
-        thirdParty: false
-    }
+    teams: []
+};
+
+let newsletterPrefs = {
+    own: false,
+    partners: false,
+    thirdParty: false
 };
 
 const staticCountries = [
@@ -83,17 +86,20 @@ async function init() {
 
 async function loadAllData() {
     try {
-        const [teams, leagues, prefs] = await Promise.all([
+        const [teams, leagues, prefs, newsPrefs] = await Promise.all([
             getAllTeams(),
             getAllLeagues(),
-            getUserPreferences(currentUser.uid)
+            getUserPreferences(currentUser.uid),
+            getNewsletterPreferences(currentUser.email)
         ]);
 
         allTeams = teams || [];
         allTournaments = leagues || [];
         if (prefs) userPrefs = prefs;
+        if (newsPrefs) newsletterPrefs = newsPrefs;
 
         console.log(`✅ Data loaded: ${allTeams.length} teams, ${allTournaments.length} tournaments`);
+        console.log(`📧 Newsletter preferences loaded:`, newsletterPrefs);
 
         if (allTournaments.length === 0) {
             console.warn('⚠️ No tournaments found in Firestore. Check your collection name ("tournaments").');
@@ -131,17 +137,15 @@ function renderPreferences() {
 }
 
 function renderNewsletter() {
-    const newsPrefs = userPrefs.newsletter || {};
-
     const checkboxes = {
         'own': document.getElementById('newsOwn'),
         'partners': document.getElementById('newsPartners'),
         'thirdParty': document.getElementById('newsThirdParty')
     };
 
-    if (checkboxes.own) checkboxes.own.checked = !!newsPrefs.own;
-    if (checkboxes.partners) checkboxes.partners.checked = !!newsPrefs.partners;
-    if (checkboxes.thirdParty) checkboxes.thirdParty.checked = !!newsPrefs.thirdParty;
+    if (checkboxes.own) checkboxes.own.checked = !!newsletterPrefs.receive_own;
+    if (checkboxes.partners) checkboxes.partners.checked = !!newsletterPrefs.receive_partners;
+    if (checkboxes.thirdParty) checkboxes.thirdParty.checked = !!newsletterPrefs.receive_third_party;
 }
 
 function renderCountries(filter = '') {
@@ -230,10 +234,7 @@ window.updatePref = (category, id) => {
 };
 
 window.updateNewsletterPref = (type, isChecked) => {
-    if (!userPrefs.newsletter) {
-        userPrefs.newsletter = { own: false, partners: false, thirdParty: false };
-    }
-    userPrefs.newsletter[type] = isChecked;
+    newsletterPrefs[type] = isChecked;
 };
 
 async function handleSave() {
@@ -241,15 +242,25 @@ async function handleSave() {
     elements.saveBtn.textContent = '⌛ Salvando...';
 
     try {
-        const result = await saveUserPreferences(currentUser.uid, userPrefs);
-        if (result.success) {
+        // Save user preferences (countries, leagues, teams)
+        const prefsResult = await saveUserPreferences(currentUser.uid, userPrefs);
+
+        // Save newsletter preferences separately
+        const newsletterResult = await updateNewsletterPreferences(
+            currentUser.email,
+            currentUser.uid,
+            newsletterPrefs
+        );
+
+        if (prefsResult.success && newsletterResult.success) {
             showToast('Preferências salvas com sucesso!', 'success');
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 1500);
         } else {
-            console.error('❌ Firestore Error:', result.error);
-            showToast(`Erro ao salvar: ${result.error}`, 'error');
+            const error = prefsResult.error || newsletterResult.error;
+            console.error('❌ Firestore Error:', error);
+            showToast(`Erro ao salvar: ${error}`, 'error');
             elements.saveBtn.disabled = false;
             elements.saveBtn.textContent = '💾 Salvar Preferências';
         }
