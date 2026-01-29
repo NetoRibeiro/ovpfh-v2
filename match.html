@@ -9,6 +9,11 @@
         content="Veja onde assistir, horário e informações completas do jogo">
     <meta name="keywords" content="onde assistir, futebol, jogo ao vivo, transmissão">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="router.js" defer></script>
 </head>
@@ -16,15 +21,16 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-content">
-            <div class="header-top">
+        <div class="container">
+            <div class="header-content">
                 <a href="index.html" class="logo">
                     <img src="assets/root/logo_8_original_name.png" alt="Futebol Hoje" class="logo-img">
+                    <span class="logo-text">FUTEBOL HOJE</span>
                 </a>
             </div>
 
             <!-- Breadcrumb -->
-            <nav class="breadcrumb" id="breadcrumb" style="margin-top: 1rem;">
+            <nav class="breadcrumb" id="breadcrumb" style="padding-bottom: 1rem;">
                 <a href="index.html">Home</a>
                 <span class="breadcrumb-separator">›</span>
                 <a href="campeonatos.html">Campeonatos</a>
@@ -143,16 +149,12 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="container">
             <img src="assets/root/logo_8_original_name.png" alt="Futebol Hoje" class="footer-logo">
             <p>&copy; 2026 Onde Vai Passar Futebol Hoje. Todos os direitos reservados.</p>
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="campeonatos.html">Campeonatos</a>
-            </div>
-            <div class="footer-links" style="margin-top: 0.5rem;">
-                <a href="sobre.html">Sobre</a> •
-                <a href="contato.html">Contato</a> •
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html">Contato</a>
                 <a href="privacidade.html">Privacidade</a>
             </div>
         </div>
@@ -476,16 +478,19 @@
         }
 
         .hero-team-logo {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            /* More balanced size */
+            height: 80px;
             object-fit: contain;
         }
 
         .hero-team-name {
-            font-size: 1.5rem;
-            font-weight: 900;
+            font-size: var(--text-lg);
+            font-weight: 700;
             color: #ffffff;
             margin: 0;
+            text-transform: uppercase;
+            font-family: var(--font-display);
         }
 
         .match-hero-center {
@@ -512,34 +517,38 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            font-size: 4rem;
+            font-size: var(--text-4xl);
             font-weight: 900;
-            color: var(--color-accent-neon, #FBBF24);
+            color: var(--color-cyan-500);
+            font-family: var(--font-mono);
         }
 
         .score-separator {
-            color: var(--color-gray-300, #94A3B8);
-            font-size: 3rem;
+            color: var(--text-tertiary);
+            font-size: var(--text-2xl);
         }
 
         .hero-time {
-            font-size: 3rem;
+            font-size: var(--text-3xl);
             font-weight: 900;
-            color: var(--color-accent-gold, #F59E0B);
+            color: var(--color-cyan-500);
+            font-family: var(--font-mono);
         }
 
         .hero-date {
-            font-size: 1.125rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
         }
 
         .hero-venue {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1rem;
+            color: var(--text-tertiary);
+            font-size: var(--text-xs);
         }
 
         .broadcast-grid {
