@@ -2356,10 +2356,10 @@
       "awayTeam": "boavista",
       "matchDate": "2026-01-30T19:00:00-03:00",
       "round": "5ª Rodada",
-      "status": "scheduled",
+      "status": "finished",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "venue": {
         "name": "Lourival Gomes",
@@ -2381,10 +2381,10 @@
       "awayTeam": "bangu",
       "matchDate": "2026-01-30T21:30:00-03:00",
       "round": "5ª Rodada",
-      "status": "scheduled",
+      "status": "finished",
       "score": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 2
       },
       "venue": {
         "name": "Jânio Moraes",
@@ -2879,10 +2879,10 @@
       "awayTeam": "vasco",
       "matchDate": "2026-01-29T20:00:00-03:00",
       "round": "1ª Rodada",
-      "status": "scheduled",
+      "status": "finished",
       "score": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "venue": {
         "name": "José M. C. Maia",
@@ -2912,10 +2912,10 @@
       "awayTeam": "cruzeiro",
       "matchDate": "2026-01-29T21:30:00-03:00",
       "round": "1ª Rodada",
-      "status": "scheduled",
+      "status": "finished",
       "score": {
-        "home": null,
-        "away": null
+        "home": 4,
+        "away": 0
       },
       "venue": {
         "name": "Nilton Santos",

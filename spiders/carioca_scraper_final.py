@@ -25,7 +25,7 @@ from bs4 import BeautifulSoup
 # Configuration
 # =============================================================================
 
-target_url = "https://www.resultados-futbol.com/competicion/carioca_1/2026/grupo1/jornada4"
+target_url = "https://www.resultados-futbol.com/competicion/carioca_1/2026/grupo1/jornada5"
 
 
 # =============================================================================

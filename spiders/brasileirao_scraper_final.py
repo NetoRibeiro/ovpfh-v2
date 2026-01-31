@@ -25,7 +25,7 @@ from bs4 import BeautifulSoup
 # Configuration
 # =============================================================================
 
-target_url = "https://www.resultados-futbol.com/competicion/brasil/2026/grupo1/jornada1"
+target_url = "https://www.resultados-futbol.com/competicion/brasil/2026/grupo1/jornada2"
 # Rodado de 1 ate 38
 
 # =============================================================================

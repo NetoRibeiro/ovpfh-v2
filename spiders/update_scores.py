@@ -74,7 +74,9 @@ TEAM_NAME_MAP = {
     "santos-sp": "santos",
     "sao-paulo-sp": "saopaulo",
     "sport-recife": "sport",
-    "vasco-rj": "vasco"
+    "vasco-rj": "vasco",
+    "botafogo-rio-janeiro": "botafogo",
+    "cruzeiro-belo-horizonte": "cruzeiro",
 }
 
 

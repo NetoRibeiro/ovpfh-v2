@@ -20,17 +20,13 @@ sudo apt install python3-pip python3-venv nginx git -y
 
 ---
 
-## 📂 Passo 2: Clonagem e Ambiente
-
-1. Clone seu repositório:
-   ```bash
    cd /var/www
-   git clone https://github.com/SEU_USUARIO/ONDEVAIPASSARFUTEBOLHOJE.git
-   cd ONDEVAIPASSARFUTEBOLHOJE
+   git clone https://github.com/NetoRibeiro/ovpfh-v2.git
+   cd ovpfh-v2
    ```
 
 2. Configure o ambiente virtual:
-   ```bash
+   
    python3 -m venv .venv
    source .venv/bin/activate
    pip install -r requirements.txt  # Se houver
